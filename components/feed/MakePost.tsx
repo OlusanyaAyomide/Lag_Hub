@@ -5,17 +5,15 @@ import { Avatar, AvatarFallback } from '../ui/avatar'
 import { AvatarImage } from '@radix-ui/react-avatar'
 import { Input } from '../ui/input'
 import { postLinks } from '@/utils/constants'
-import { Icons } from '@/utils/icons'
 import { Button } from '../ui/button'
 import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
 import CollectivePost from './CollectivePost'
-import { DialogClose } from '@radix-ui/react-dialog'
 
 
 export default function MakePost() {
    const ref = useRef<HTMLButtonElement>(null)
   return (
-   <Card className='py-4 mt-3 px-2 mx-auto bg-background w-full'>
+   <Card className='py-4 mt-3 px-2 mx-auto w-full'>
       <div className="flex items-center mb-1">
          <Avatar>
             <AvatarImage src='/profile.png'/>
@@ -37,10 +35,11 @@ export default function MakePost() {
          {postLinks.map((item,key)=>{
             const Icon = item.icon
             return(
-            <Button variant={"ghost"} className='w-4/12 rounded-none flex' key={key}>
-               <Icon className='text-main text-2xl'/>
-               <span className='ml-2 capitalize'>{item.name}</span>
-            </Button>)})}
+            <Button variant={"ghost"} className='rounded-none flex' key={key}>
+               <Icon className='text-main text-xl sm:text-2xl'/>
+               <span className='pl-[2px] text-xs:sm:text-base sm:ml-2 capitalize'>{item.name}</span>
+            </Button>)
+         })}
       </div>
   </Card>
   )

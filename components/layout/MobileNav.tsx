@@ -12,8 +12,8 @@ export default function MobileNav() {
    const [isSearching,setIsSearching] = useState<boolean>(false)
    console.log(isSearching)
    return (
-   <div className='pt-3'>
-      <div className='flex items-center mt-3'>
+   <div>
+      <div className='flex items-center'>
          <Input
            onClick={()=>{setIsSearching(true)}} 
            onBlur={()=>{setIsSearching(false)}}

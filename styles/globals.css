@@ -80,7 +80,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-sm sm:text-[15px];
+    @apply bg-background text-foreground text-xs sm:text-[13px];
   }
 }
 @layer components{
@@ -106,7 +106,19 @@
     @apply hover:bg-background px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center
   }
   .set-visibility{
-    @apply w-full text-left block rounded-none  py-3 cursor-pointer px-2 hover:bg-muted/50
+    @apply w-full text-left block rounded-none py-3 cursor-pointer px-2 hover:bg-muted/50
+  }
+  .pad{
+    @apply px-2 sm:px-3
+  }
+  .flex-center{
+    @apply flex items-center
+  }
+  .bigtext{
+    @apply text-sm sm:text-base
+  }
+  .bounceup{
+    @apply hover:-translate-y-[2px]  transition-all duration-500
   }
 
 }

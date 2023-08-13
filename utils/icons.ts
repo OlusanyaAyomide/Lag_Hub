@@ -9,23 +9,31 @@ import {
 } from "lucide-react"
 import {
     BsSearch,
-    BsFillCheckCircleFill,
-    BsBook,BsBarChartLine
+    BsFillCheckCircleFill,BsBookmark,BsLink45Deg,
+    BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots
 } from "react-icons/bs"
-import {AiOutlineHome,AiOutlineFileImage} from "react-icons/ai"
-import {} from "react-icons/fa"
-import {RiMessengerLine} from "react-icons/ri"
-import {BiVideo,BiGroup} from "react-icons/bi"
-import {MdNotifications,MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
+import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit} from "react-icons/ai"
+import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
+import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
+import {BiVideo,BiGroup,BiRepost} from "react-icons/bi"
+import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
 import {FaWpexplorer,FaUserFriends} from "react-icons/fa"
 import {ImFeed} from "react-icons/im"
-import {FiSettings} from "react-icons/fi"
-import {HiOutlineDesktopComputer} from "react-icons/hi"
+import {FiSettings,FiArrowUpRight} from "react-icons/fi"
+import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
 import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope} from "react-icons/gi"
+import {SlUserFollow} from "react-icons/sl"
 
 export const Icons = {
+   bookmark:BsBookmark,
+   repost:BiRepost,
+   edit:AiOutlineEdit,
+   comment:FaRegCommentDots,
+   thunbsup:FaRegThumbsUp,
+   unfollow:RiUserUnfollowLine,
+   profile:HiOutlineUser,
    check:Check,
    moon:Moon,
    sun:SunMedium,
@@ -51,5 +59,12 @@ export const Icons = {
    picture:AiOutlineFileImage,
    chart:BsBarChartLine,
    earth:GiEarthAfricaEurope,
-   friends:FaUserFriends
+   friends:FaUserFriends,
+   arrowUp:FiArrowUpRight,
+   follow:SlUserFollow,
+   arrowLeft:BsArrow90DegRight,
+   threedots:BsThreeDots,
+   link:BsLink45Deg
+   
+   
 }
