@@ -113,3 +113,51 @@ export const postLinks=[
 ]
 
 export const inputText: string = "john doe is a very good man who likes skating and coding he also is a very friendly person Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam facere eius molestias perspiciatis expedita mollitia magni eaque vitae enim quas ducimus quasi quaerat, maiores rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque soluta exercitationem ea tenetur cumque earum velit obcaecati aliquid nam aperiam?"
+
+
+export const mockComments =[
+    {
+        comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        time:"2w ago",
+        like:45,
+        reply:[{
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+        {
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+,       {
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+        ]
+    },
+    {
+        comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        time:"2w ago",
+        like:45,
+        reply:[{
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+        {
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+,       {
+            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            time:"2w ago",
+        },
+        ]
+    },
+    {
+        comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        time:"2w ago",
+        like:45,
+        reply:[]
+    },
+
+
+]

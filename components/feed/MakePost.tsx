@@ -8,6 +8,7 @@ import { postLinks } from '@/utils/constants'
 import { Button } from '../ui/button'
 import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
 import CollectivePost from './CollectivePost'
+import FileUploader from './FileUploader'
 
 
 export default function MakePost() {
@@ -24,11 +25,12 @@ export default function MakePost() {
                <Button  ref={ref} className='hidden'>Text</Button>
             </DialogTrigger>
             <DialogContent className='max-sm:px-2 sm:w-[500px]'>
-               <CollectivePost/>
+               <CollectivePost>
+                  <FileUploader/>
+               </CollectivePost>
             </DialogContent>
          </Dialog>
          <Input placeholder='Post on student hub' onClick={()=>{ref.current?.click()}} className='focus-visible:ring-0 grow ml-2'/>
-
       </div>
       <Separator className='mt-4 mb-2  sm:max-w-[650px] sm:mx-auto'/>
       <div className='flex justify-between items-center'>

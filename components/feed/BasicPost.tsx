@@ -2,8 +2,6 @@ import React,{useRef} from 'react'
 import { Card } from '../ui/card'
 import IsShared from './IsShared'
 import ProfileInfo from './ProfileInfo'
-import { useTrimmedText } from '../hooks/TextHooks'
-import { inputText } from '@/utils/constants'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Icons } from '@/utils/icons'
 import PostInfo from './PostInfo'
@@ -11,6 +9,10 @@ import { Button } from '../ui/button'
 import { IconType } from 'react-icons/lib'
 import { cn } from '@/lib/utils'
 import { IconTextButton } from '../utils/IconTextButton'
+import PostDetail from './PostDetail'
+import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
+import RePost from './RePost'
+import PostComment from './PostComment'
 
 interface IButtons{
   Icon:IconType,
@@ -21,9 +23,6 @@ interface IButtons{
 }
 
 export default function BasicPost() {
-  const {isTrimmed,toggleText,text} = useTrimmedText(inputText,12)
-  const type = "image"
-  const ref = useRef<HTMLButtonElement>(null)
   const isSharing = true
   const Buttons = ({Icon,className,text,onClick,ngClass}:IButtons)=>(
     <Button variant={"ghost"} onClick={onClick} className={cn('w-4/12  flex',ngClass)}>
@@ -38,13 +37,7 @@ export default function BasicPost() {
         <ProfileInfo/>
       </div>
       <div className="mt-3 px-1">
-        <h1>
-          <span>{text}</span>
-          <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"show less":"...show more"}</span>
-        </h1>
-        {type === "image" && <div className="mt-3 aspect-[2/1]">
-          <img src="/postimg.jpg" alt="post" className='h-full w-full object-cover'/>
-        </div>}
+        <PostDetail/>
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
             <span>246 reactions</span>
@@ -54,24 +47,40 @@ export default function BasicPost() {
            <Buttons text='Like' Icon={Icons.thunbsup} className='text-[18px]'/>
            <Popover>
             <PopoverTrigger  asChild>
-              <button className='w-4/12 h-10 hover:bg-accent flex items-center justify-center'>
+              <button className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
                 <span className='text-main relative right-[2px] text-[22px]'><Icons.repost/></span>
                 <span className='text-xs font-medium'>Repost</span>
               </button>
             </PopoverTrigger>
             <PopoverContent className='py-1 px-0'>
-              <IconTextButton Icon={Icons.edit} text='Repost with your thoughts' ngClass='font-semibold' 
-              extraText='Create new post with johnson post attached ' className='py-2'/>
+              <Dialog>
+                <DialogTrigger>
+                  <IconTextButton Icon={Icons.edit} text='Repost with your thoughts' ngClass='font-semibold' 
+                  extraText='Create new post with johnson post attached ' className='py-2'/>
+                </DialogTrigger>
+                <DialogContent className='default-scroll overflow-scroll max-h-[90svh]'>
+                  <RePost/>
+                </DialogContent>
+              </Dialog>
               <IconTextButton Icon={Icons.repost} text='Repost' ngClass='font-semibold' 
               extraText='Instantly repost johnson post to your feed ' className='py-2'/>
             </PopoverContent>
            </Popover>
-           <Buttons text='Comment' Icon={Icons.messenger}/>
+           <Dialog>
+              <DialogTrigger asChild>
+                <button className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
+                  <span className='text-main relative right-[2px] text-[22px]'><Icons.messenger/></span>
+                  <span className='text-xs font-medium'>Comment</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className='py-0 pb-4 overflow-auto default-scroll max-h-[96svh] sm:max-h-[90vh]'>
+                <PostComment/>
+              </DialogContent>
+           </Dialog>
           </div>
         </div>
       </div>
       <PostInfo/>
-
     </Card>
   )
 }

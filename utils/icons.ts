@@ -25,8 +25,11 @@ import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
 import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
+import {LiaPaperPlane} from "react-icons/lia"
+
 
 export const Icons = {
+   plane:LiaPaperPlane,
    bookmark:BsBookmark,
    repost:BiRepost,
    edit:AiOutlineEdit,
