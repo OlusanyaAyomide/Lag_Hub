@@ -121,7 +121,7 @@ export const mockComments =[
         time:"2w ago",
         like:45,
         reply:[{
-            comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            comment:"rerum umque ipsa dolore quisquam. Modi? Lorem umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
             time:"2w ago",
         },
         {
@@ -153,7 +153,7 @@ export const mockComments =[
         ]
     },
     {
-        comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+        comment:"rerum umque ipsa dolore quisquam. Modi? Lorem vumque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
         time:"2w ago",
         like:45,
         reply:[]
@@ -161,3 +161,5 @@ export const mockComments =[
 
 
 ]
+
+

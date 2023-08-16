@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import UserAvatar from '@/utils/UserAvatar'
+import UserAvatar from '../utils/UserAvatar'
 import { Button } from '../ui/button'
 import { Icons } from '@/utils/icons'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'

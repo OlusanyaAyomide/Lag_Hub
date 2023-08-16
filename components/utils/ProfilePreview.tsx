@@ -4,16 +4,14 @@ import { Icons } from '@/utils/icons'
 import { Button } from '../ui/button'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import UserAvatar from './UserAvatar'
 
 export default function ProfilePreview({className,style}:{className?:string,style?:string}) {
   return (
    <div className={cn('px-4',className)}>
        <div className='flex items-center'>
          <div className="flex items-center">
-            <Avatar>
-               <AvatarImage src='profile.png'></AvatarImage>
-               <AvatarFallback>Lh</AvatarFallback>
-            </Avatar>
+            <UserAvatar/>
             <Icons.verify className='ml-[2px] text-main'/>
          </div>
          <div className='pl-3'>

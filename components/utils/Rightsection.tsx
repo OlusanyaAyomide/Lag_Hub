@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 
 export default function Rightsection() {
    const pathname = usePathname()
-   if (pathname === "/"){
+   // if (pathname === "/"){
       return (
       <div className='hidden py-3 px-4 xl:block lg:w-[320px] shrink-0'>
          <div className='fixed default-scroll overflow-scroll h-screen w-[320px] right-4 pb-32'>
@@ -40,7 +40,7 @@ export default function Rightsection() {
          
        </div>
       )
-   }
-   return null
+   // }
+   // return null
   
 }

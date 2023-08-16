@@ -4,10 +4,11 @@ import { Card, CardContent } from '@/components/ui/card'
 import ProfilePreview from '@/components/utils/ProfilePreview'
 import SideLink from '@/components/layout/SideLink'
 import Rightsection from '@/components/utils/Rightsection'
+import { cn } from '@/lib/utils'
 
-export default function FeedLayout({children}:{children:React.ReactNode}){
+export default function FeedLayout({children,className}:{children:React.ReactNode,className?:string}){
   return (
-        <div>
+        <div className={cn("",className)}>
           <Header/>
           <div className='min-h-[150vh] md:pt-[60px] bg-page flex  md:space-x-3 '>
              <div className='hidden md:block md:w-[270px] shrink-0 lg:w-[320px]'>
@@ -21,7 +22,9 @@ export default function FeedLayout({children}:{children:React.ReactNode}){
                 </div>
              </div>
              <div className='grow'>
+              <div className='px-2 lg:px-8 xl:px-4'>
                {children}
+              </div>
              </div>
             <Rightsection/>
             </div>

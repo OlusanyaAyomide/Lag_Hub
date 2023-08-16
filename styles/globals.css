@@ -117,6 +117,9 @@
   .bigtext{
     @apply text-sm sm:text-base
   }
+  .tinytext{
+    @apply text-[11px] sm:text-xs
+  }
   .bounceup{
     @apply hover:-translate-y-[2px]  transition-all duration-500
   }

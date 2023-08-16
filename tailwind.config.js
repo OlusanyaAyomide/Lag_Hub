@@ -78,6 +78,7 @@ module.exports = {
         xs:"340px",
         ...defaultTheme.screens,
         sm:"580px",
+        md:"810px",
         lg:"1060px",
       },
       
