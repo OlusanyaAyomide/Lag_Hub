@@ -10,7 +10,6 @@ import SideLink from './SideLink'
 
 export default function MobileNav() {
    const [isSearching,setIsSearching] = useState<boolean>(false)
-   console.log(isSearching)
    return (
    <div>
       <div className='flex items-center'>

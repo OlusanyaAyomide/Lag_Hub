@@ -123,5 +123,8 @@
   .bounceup{
     @apply hover:-translate-y-[2px]  transition-all duration-500
   }
+  .tiktok-div{
+    @apply rounded-md  aspect-[9/14] xl:mx-auto max-md:mx-auto max-md:max-w-[380px] md:max-w-[370px] max-w-[425px] relative 
+  }
 
 }

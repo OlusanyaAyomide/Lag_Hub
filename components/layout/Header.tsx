@@ -10,13 +10,18 @@ import {Tooltip,TooltipContent,TooltipProvider,TooltipTrigger,
  } from "@/components/ui/tooltip"
 import { useInView } from 'react-intersection-observer'
 import RightHeader from './RightHeader'
-import {Sheet,SheetContent,SheetTrigger,
- } from "@/components/ui/sheet"
+import {Sheet,SheetContent,SheetTrigger} from "@/components/ui/sheet"
 import MobileNav from './MobileNav'
+import VideoSearch from '../youtube/VideoSearch'
+import TopButtons from './TopButtons'
 
 export default function Header() {
    const pathname = usePathname()
+   const isVideo = pathname === "/video" || "/reels"
+
    const {entry,inView,ref} = useInView()
+   
+
   return (
    <div className={`paddingx ${entry && !inView?"mb-[50px]":""} flex z-40 w-full bg-background md:fixed flex-wrap py-2 shadow-sm border-b`}>
       <LeftHeader refs={ref}  className='w-full md:w-[150px] lg:w-[350px]'/>
@@ -30,20 +35,19 @@ export default function Header() {
          </SheetContent>
       </Sheet>
       {Toplinks.map((item,key)=>{
-         const Icon = item.icon
+         const isLast = key === 4
          const isActive = pathname === item.link
          return(
             <TooltipProvider key={key} delayDuration={50}>
                <Tooltip>
                   <TooltipTrigger asChild>
-                  <Link href={"/"}>
-                     <Button size={"icon"} variant={"ghost"} className={`text-shade ${isActive?"isactive":""}`}>
-                        <Icon  className={`text-2xl  ${isActive?"isactive":""}`}/>
-                     </Button>
-                  </Link> 
+                  {!isLast?
+                     <TopButtons isActive={isActive} href={item.link} Icon={item.icon}/>
+                  :!isVideo? <TopButtons isActive={isActive} href={item.link} Icon={item.icon}/>:<VideoSearch/>
+                  }
                   </TooltipTrigger>
                   <TooltipContent side='bottom' className='bg-background'>
-                     <span>{item.name}</span>
+                        {!isLast?<span>{item.name}</span>:isVideo?"search videos":<span>{item.name}</span>}
                   </TooltipContent>
                </Tooltip>
             </TooltipProvider>)

@@ -69,10 +69,19 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        customspinner:{
+          "0%":{
+            "transform": "rotate(0deg)"              
+          },
+          "100%":{
+            "transform": "rotate(360deg)"              
+          },
+      },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        spinner:"customspinner 20s linear infinite"
       },
       screens:{
         xs:"340px",

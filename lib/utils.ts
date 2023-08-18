@@ -25,3 +25,18 @@ export const shouldTrim = (number:number,text?:string)=>{
   if(wordLength>number){return true}
   return false
 }
+
+
+
+export function trimSentence(input: string,number?:number){
+  const words = input.split(' ');
+  const wordLength = number || 3
+  if (words.length <= wordLength) {
+      return input;
+  }
+
+  const trimmedWords = words.slice(0, 3);
+  return trimmedWords.join(' ') + ' ...';
+}
+
+

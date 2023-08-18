@@ -14,11 +14,14 @@ interface ISingleComment {
     like: number;
     isDetailed:boolean
     
+    
     reply: ({
         comment: string;
         time: string;
     } | undefined)[];
 }[]
+
+
 
 export default function SingleComment({comment,time,like,reply,isDetailed}:ISingleComment) {
 

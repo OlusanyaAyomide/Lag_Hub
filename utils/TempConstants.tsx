@@ -1,3 +1,5 @@
+import { IYouTubeResponse } from "./interfaces"
+
 export const mockYoubeData:IYouTubeResponse={
     "kind": "youtube#searchListResponse",
     "nextPageToken": "CDIQAA",
@@ -463,5 +465,149 @@ export const mockYoubeData:IYouTubeResponse={
     "publishTime": "2023-05-13T06:00:05Z"
     }
     },
-
 ]}
+
+export const TestComment =`On this episode of The Circuit, Emily Chang sits down with Microsoft CEO Satya Nadella to hear how AI is shaking up the competition for search. Nadella argues that this new wave of technology is as big as the web browser or the iPhone. Chang also speaks with OpenAI CEO Sam Altman to discuss his company (which has some help from Microsoft), its ambitions and the latest on ChatGPT. 
+
+Like this video? Subscribe: http://www.youtube.com/Bloomberg?sub_...
+Become a Quicktake Member for exclusive perks: http://www.youtube.com/bloomberg/join
+
+Bloomberg Originals offers bold takes for curious minds on today’s biggest topics. Hosted by experts covering stories you haven’t seen and viewpoints you haven’t heard, you’ll discover cinematic, data-led shows that investigate the intersection of business and culture. Exploring every angle of climate change, technology, finance, sports and beyond, Bloomberg Originals is business as you’ve never seen it. `
+
+
+
+export const TempTikTockData = {
+    "code": 0,
+    "msg": "success",
+    "processed_time": 2.849,
+    "data": [
+        {
+            "aweme_id": "v12044gd0000ci944gjc77ubf8l0sdj0",
+            "video_id": "7246930592791661870",
+            "region": "US",
+            "title": "Newmark homes in the communtiy of bridgeland in Katy, Tx   5 bedroom 4.5 bathroom 3 car garage #homebuyer #houstontx #katytx #newmarkhomes #dreadarealtor #waterlot #mastercommunity #2storyhouse #coverpatios #gameroom #office #courtyard #backyard #hugecloset #5bedrooms4bathrooms #3cargarage #realtor #realestate #callmeletschat ",
+            "cover": "https://p19-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/29be8fef1f6b438baef291e94318be3c_1687307531?x-expires=1692457200&x-signature=27UdmlwOjlo8FHUiOkA2jesvdyw%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=20230818151952C17587D6630C59C6EF65",
+            "origin_cover": "https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/b1e4202807f34b4ca3b694c3ee4aa18a_1687307542~tplv-tiktokx-360p.jpeg?x-expires=1692457200&x-signature=FARIcsHLHtVctL2NDoMATtNS99E%3D&s=AWEME_DETAIL&se=false&sh=&sc=feed_cover&l=20230818151952C17587D6630C59C6EF65",
+            "duration": 302,
+            "play": "https://v16m-default.akamaized.net/ba10f8ae628dff7ebc2d87ef4a088864/64dfe1a7/video/tos/maliva/tos-maliva-ve-0068c799-us/oECEDkCSnoAkbNeFcZjJkbhUMgDW9Bn8kQQRxe/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=2106&bt=1053&cs=0&ds=6&ft=iJOG.y7oZzv0PD1gqAGXg9wlmCMrBEeC~&mime_type=video_mp4&qs=0&rc=Nzs8MzU6Njo0NjczZTppaUBpM2czO2U6Zmo3bDMzZzczNEAuYy8uNjFfNjAxYy4zYi00YSNncGljcjRnMTZgLS1kMS9zcw%3D%3D&l=20230818151952C17587D6630C59C6EF65&btag=e000a0000",
+            "wmplay": "https://v16m-default.akamaized.net/faf0a3069966daf33583f712dd2a8d43/64dfe1a7/video/tos/maliva/tos-maliva-ve-0068c799-us/oEsiDobnSIWBROkEeRqm2kNkSBhAFDJTeQpCUg/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=2236&bt=1118&cs=0&ds=3&ft=iJOG.y7oZzv0PD1gqAGXg9wlmCMrBEeC~&mime_type=video_mp4&qs=0&rc=ZTZoaWQ0ODczN2RpO2Q5OUBpM2czO2U6Zmo3bDMzZzczNEAxXjYyLjBiX14xYmMwXzI2YSNncGljcjRnMTZgLS1kMS9zcw%3D%3D&l=20230818151952C17587D6630C59C6EF65&btag=e000a0000",
+            "music": "https://sf16-ies-music-va.tiktokcdn.com/obj/ies-music-ttp-dup-us/7246930639923186478.mp3",
+            "music_info": {
+                "id": "7246930624462883630",
+                "title": "original sound - andreadenisetherealtor",
+                "play": "https://sf16-ies-music-va.tiktokcdn.com/obj/ies-music-ttp-dup-us/7246930639923186478.mp3",
+                "cover": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/39b09feaf196ba67cce74272d8e0075c~c5_1080x1080.jpeg?x-expires=1692457200&x-signature=0jKzCHeHdGNWxnocECngpArRrlQ%3D",
+                "author": "Andrea Denise",
+                "original": true,
+                "duration": 302,
+                "album": ""
+            },
+            "play_count": 214401,
+            "digg_count": 17912,
+            "comment_count": 462,
+            "share_count": 7204,
+            "download_count": 0,
+            "create_time": 1687307527,
+            "anchors": null,
+            "anchors_extras": "",
+            "is_ad": false,
+            "commerce_info": {
+                "adv_promotable": false,
+                "auction_ad_invited": false,
+                "branded_content_type": 0,
+                "with_comment_filter_words": false
+            },
+            "commercial_video_info": "",
+            "author": {
+                "id": "6804968575099487237",
+                "unique_id": "andreadenisetherealtor",
+                "nickname": "Andrea Denise",
+                "avatar": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/39b09feaf196ba67cce74272d8e0075c~c5_300x300.jpeg?x-expires=1692457200&x-signature=V0HX594qv0Z%2Bri8AipGcu%2FOkqEo%3D"
+            },
+            "is_top": 0
+        },
+        {
+            "aweme_id": "v12044gd0000cik49ibc77ubs3281dp0",
+            "video_id": "7253138093887245610",
+            "region": "US",
+            "title": "Who’s going to the concert this weekend?! 🌺",
+            "cover": "https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/f5655d78c13b4292a77bfd65b337dd54_1688752825~tplv-dmt-logom:tos-useast5-i-0068-tx/00a16c3b07ac4feab370522d73ce5206.image?x-expires=1692457200&x-signature=dG6dUomjRWdVp6rBFm36vJiCX2g%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=20230818151952C17587D6630C59C6EF65",
+            "origin_cover": "https://p16-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/e86f84c2f6fa4f9aa1fe24275dac2e3c_1688752825~tplv-tiktokx-360p.jpeg?x-expires=1692457200&x-signature=kA4MfuJeUBio6hDKXv%2FowFBwnBM%3D&s=AWEME_DETAIL&se=false&sh=&sc=feed_cover&l=20230818151952C17587D6630C59C6EF65",
+            "duration": 127,
+            "play": "https://v16m-default.akamaized.net/72468bf2b37b3e7bbe7664b91e4c8ddf/64dfe0f8/video/tos/maliva/tos-maliva-ve-0068c799-us/oohGUphtCvtIS3CIkUVy4QfJyVwzMawBAALXoA/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=812&bt=406&cs=0&ds=6&ft=iJOG.y7oZzv0PD1gqAGXg9wlmCMrBEeC~&mime_type=video_mp4&qs=0&rc=aWUzOzNpNDM0MzY7NTpkZEBpM2c7NmU6Zmw3bDMzZzczNEA0NF9eM14zNl8xNV42MjM0YSNtLi9wcjRfNmhgLS1kMS9zcw%3D%3D&l=20230818151952C17587D6630C59C6EF65&btag=e00090000",
+            "wmplay": "https://v16m-default.akamaized.net/2b01e18c23420619dfefb09ecb5d8eec/64dfe0f8/video/tos/maliva/tos-maliva-ve-0068c799-us/oQIAJfBrQMktKLV4vyoYAypotpICUGASzCUthw/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=852&bt=426&cs=0&ds=3&ft=iJOG.y7oZzv0PD1gqAGXg9wlmCMrBEeC~&mime_type=video_mp4&qs=0&rc=OWU8ZjRpPDs8aDpmNjtmaEBpM2c7NmU6Zmw3bDMzZzczNEA2Ly5fMDNjXl8xNWBiXmFfYSNtLi9wcjRfNmhgLS1kMS9zcw%3D%3D&l=20230818151952C17587D6630C59C6EF65&btag=e00090000",
+            "music": "https://sf16-ies-music-va.tiktokcdn.com/obj/ies-music-ttp-dup-us/7253138146039171882.mp3",
+            "music_info": {
+                "id": "7253138116096166699",
+                "title": "original sound - chardonnaymusic",
+                "play": "https://sf16-ies-music-va.tiktokcdn.com/obj/ies-music-ttp-dup-us/7253138146039171882.mp3",
+                "cover": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/5367c0d9c89a1a9269fde3e6e8cc3f88~c5_1080x1080.jpeg?x-expires=1692457200&x-signature=KGaiPPwOka0WW5LFmNai2fJLJFw%3D",
+                "author": "Chardonnay Music",
+                "original": true,
+                "duration": 122,
+                "album": ""
+            },
+            "play_count": 157784,
+            "digg_count": 23764,
+            "comment_count": 214,
+            "share_count": 1376,
+            "download_count": 1,
+            "create_time": 1688752823,
+            "anchors": null,
+            "anchors_extras": "",
+            "is_ad": false,
+            "commerce_info": {
+                "adv_promotable": false,
+                "auction_ad_invited": false,
+                "branded_content_type": 0,
+                "with_comment_filter_words": false
+            },
+            "commercial_video_info": "",
+            "author": {
+                "id": "3699618",
+                "unique_id": "chardonnaymusic",
+                "nickname": "Chardonnay Music",
+                "avatar": "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/5367c0d9c89a1a9269fde3e6e8cc3f88~c5_300x300.jpeg?x-expires=1692457200&x-signature=MGo2RfB%2BgQ15IeM0rl5S2obQJqA%3D"
+            },
+            "is_top": 0
+        }]
+}
+
+export const mockLocation ={MS:"Montserrat",
+IO:"British Indian Ocean Territory",
+YT:"Mayotte",
+XK:"Kosovo",
+CV:"Cape Verde",    
+CW:"Curaçao",
+MV:"Maldives",
+IQ:"Iraq",
+JP:"Japan",
+LT:"Lithuania",
+BG:"Bulgaria",
+PE:"Peru",
+VU:"Vanuatu",
+SX:"Sint Maarten",
+GH:"Ghana",
+JE:"Jersey",
+MR:"Mauritania",
+AM:"Armenia",
+LV:"Latvia",
+GW:"Guinea-Bissau",
+NA:"Namibia",
+OM:"Oman",
+NP:"Nepal",
+AL:"Albania",
+ID:"Indonesia",
+AS:"American Samoa",
+CA:"Canada",
+PL:"Poland",
+PY:"Paraguay",
+NZ:"New Zealand",
+GP:"Guadeloupe",
+IT:"Italy",
+TD:"Chad",
+BD:"Bangladesh",
+FI:"Finland",
+CD:"Congo - Kinshasa"
+
+}

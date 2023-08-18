@@ -11,11 +11,6 @@ export const Toplinks=[
         icon:Icons.video
     },
     {
-        name:"notification",
-        link:"/notification",
-        icon:Icons.notification
-    },
-    {
         name:"messages",
         link:"/messages",
         icon:Icons.messenger
@@ -24,6 +19,11 @@ export const Toplinks=[
         name:"community",
         link:"/community",
         icon:Icons.community
+    },
+    {
+        name:"notification",
+        link:"/notification",
+        icon:Icons.notification
     },
 
 ]
@@ -37,12 +37,12 @@ export const sideLinks =[
     {
         name:"Videos",
         icon:Icons.video,
-        link:"/home"
+        link:"/video"
     },
     {
-        name:"Feed",
-        icon:Icons.feed,
-        link:"/home"
+        name:"Reels",
+        icon:Icons.reels,
+        link:"/reels"
     },
     {
         name:"Community",
@@ -162,4 +162,45 @@ export const mockComments =[
 
 ]
 
+const myArray = [1,2,3,4,5,6,7,8,9,10,11,12]
+const array2 =[1,2,3,4,5]
+export const mockComments2 ={
+    comment:"rerum cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    time:"2w ago",
+    like:45,
+    reply:[]
+}
 
+export const mockData = ()=>{
+    const arrays:{comment:string,time:string,like:number,reply:any}[] =[]
+    myArray.map((item)=>arrays.push(mockComments2))
+    return arrays
+}
+export const mockData01 = ()=>{
+    const arrays:{comment:string,time:string,like:number,reply:any}[] =[]
+    array2.map((item)=>arrays.push(mockComments2))
+    return arrays
+}
+
+export const youTubecategories = [
+    "Programming",
+    "Science",
+    "Javascript",
+    "Documentaries",
+    "Mr Beast",
+    "React",
+    "Machine Learning",
+    "Cooking",
+    "Health and Fitness",
+    "Trending",
+    "Mathematics",
+    "Quantum Computing",
+    "Art and Design",
+    "Fashion and Beauty",
+    "Comedy Sketches",
+    "History Lessons",
+    "Nature and Wildlife",
+    "Film and Cinema",
+    "Space Exploration",
+    "Virtual Reality"
+]

@@ -10,7 +10,7 @@ export default function Home() {
         <MakePost/>
         <BasicPost type="image" isSharing={true}/>
         <BasicPost type="text" />
-        <BasicPost type="video"/>
+        {/* <BasicPost type="video"/> */}
     </FeedLayout>
   )
 }

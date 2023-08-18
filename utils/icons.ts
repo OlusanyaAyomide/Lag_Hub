@@ -9,30 +9,40 @@ import {
 } from "lucide-react"
 import {
     BsSearch,
-    BsFillCheckCircleFill,BsBookmark,BsLink45Deg,
-    BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots
+    BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,
+    BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill
 } from "react-icons/bs"
 import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
-import {BiVideo,BiGroup,BiRepost} from "react-icons/bi"
+import {BiVideo,BiGroup,BiRepost, BiFullscreen, BiInfoCircle,BiShare} from "react-icons/bi"
 import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
 import {FaWpexplorer,FaUserFriends} from "react-icons/fa"
 import {ImFeed} from "react-icons/im"
-import {FiSettings,FiArrowUpRight} from "react-icons/fi"
+import {FiSettings,FiArrowUpRight,FiClock} from "react-icons/fi"
 import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
 import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
 import {LiaPaperPlane} from "react-icons/lia"
+import {GrFormClose} from "react-icons/gr"
+
+
 
 
 export const Icons = {
    plane:LiaPaperPlane,
+   glasses:BsEyeglasses,
+   cancel:GrFormClose,
+   clock:FiClock,
+   share:BiShare,
+   reels:BsCameraReels,
    bookmark:BsBookmark,
    repost:BiRepost,
+   info:BsInfoCircleFill,
    edit:AiOutlineEdit,
+   full:BiFullscreen,
    comment:FaRegCommentDots,
    thunbsup:FaRegThumbsUp,
    unfollow:RiUserUnfollowLine,

@@ -7,6 +7,7 @@ import { Input } from '../ui/input'
 import { Dialog,DialogContent,DialogTrigger,} from '../ui/dialog'
 import AutoComplete from './AutoComplete'
 import { Popover,PopoverTrigger,PopoverContent } from '../ui/popover'
+import { usePathname } from 'next/navigation'
 
 interface LeftProps{
   className?:string
@@ -15,6 +16,7 @@ interface LeftProps{
 
 export default function LeftHeader({className,refs}:LeftProps) {
    const ref = useRef<HTMLButtonElement>(null)
+   const isVideo = usePathname() === "/video" || "/reels"
    const [opened,setisOpened] = useState<boolean>(true)
   return (
     <div ref={refs} className={cn('w-full flex max-md:justify-between items-center',className)}>
@@ -22,8 +24,8 @@ export default function LeftHeader({className,refs}:LeftProps) {
          <div className='max-md:hidden flex items-center'>
             <Popover onOpenChange={(opened)=>{setisOpened(opened)}}>
                <PopoverTrigger asChild>
-                  <Button ref={ref} variant={"ghost"} className='max-md:hidden'>
-                     <Icons.search className='text-shade text-2xl lg:text-xl'/>
+                  <Button ref={ref} variant={"ghost"} className={`max-md:hidden ${isVideo?"hidden":""}`}>
+                     <Icons.search className='text-shade   text-2xl lg:text-xl'/>
                   </Button>
                </PopoverTrigger>
                <PopoverContent asChild className='hidden md:block w-[350px] py-3 relative left-24'>
@@ -38,7 +40,7 @@ export default function LeftHeader({className,refs}:LeftProps) {
          <Dialog>
             <DialogTrigger asChild>
                <Button variant={"ghost"} size={"icon"} className='md:hidden'>
-               <Icons.search className='text-shade text-2xl'/>
+               <Icons.search className={`text-shade text-2xl ${isVideo?"hidden":""}`}/>
               </Button>
             </DialogTrigger>
             <DialogContent className='w-screen h-screen paddingx bg-background'>

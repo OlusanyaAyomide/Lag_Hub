@@ -15,25 +15,29 @@ interface IButtons{
     text:string
     onClick?:()=>void
     ngClass?:string
-
 }
 interface IPostButtons extends IPostDetail{
   children:React.ReactNode
+  isVideo?:boolean
 
 }
-export default function PostButtons({children,...rest}:IPostButtons){
-    const Buttons = ({Icon,className,text,onClick,ngClass}:IButtons)=>(
-        <Button variant={"ghost"} onClick={onClick} className={cn('w-4/12  flex',ngClass)}>
-          <span className={cn('text-main relative right-[2px] text-xl',className)}><Icon/></span>
-          <span className='text-xs'>{text}</span>
-        </Button>
-    )
+
+export  const Buttons = ({Icon,className,text,onClick,ngClass}:IButtons)=>(
+  <Button variant={"ghost"} onClick={onClick} className={cn('w-4/12  flex',ngClass)}>
+    <span className={cn('text-main relative right-[2px] text-xl',className)}><Icon/></span>
+    <span className='text-xs'>{text}</span>
+  </Button>
+)
+
+export default function PostButtons({children,isVideo=false,...rest}:IPostButtons){
+    // const ThumbsUp = Icons.thunbsup
+
    return (
     <div className="flex  text-lg py-[2px] border-t">
-    <Buttons text='Like' Icon={Icons.thunbsup} className='text-[18px]'/>
+    {!isVideo && <Buttons text='Like' Icon={Icons.thunbsup} className='text-[18px]'/>}
     <Popover>
      <PopoverTrigger  asChild>
-       <button className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
+       <button className={` ${!isVideo?"w-4/12":"w-6/12"} h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center`}>
          <span className='text-main relative right-[2px] text-[22px]'><Icons.repost/></span>
          <span className='text-xs font-medium'>Repost</span>
        </button>
