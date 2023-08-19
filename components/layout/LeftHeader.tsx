@@ -16,7 +16,8 @@ interface LeftProps{
 
 export default function LeftHeader({className,refs}:LeftProps) {
    const ref = useRef<HTMLButtonElement>(null)
-   const isVideo = usePathname() === "/video" || "/reels"
+   const pathname =  usePathname()
+   const isVideo = pathname === "/video" || pathname == "/reels"
    const [opened,setisOpened] = useState<boolean>(true)
   return (
     <div ref={refs} className={cn('w-full flex max-md:justify-between items-center',className)}>

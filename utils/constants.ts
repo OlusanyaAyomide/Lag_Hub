@@ -204,3 +204,22 @@ export const youTubecategories = [
     "Space Exploration",
     "Virtual Reality"
 ]
+
+export const MockSearchResult=[
+    {
+        name:"React Devlopment",
+    },
+    {
+        name:"Programming Nigeria",
+    },
+    {
+        name:"BitCoin Devs",
+    },
+    {
+        name:"NodeJS Team",
+    },
+    {
+        name:"Forex Traders",
+    },
+
+]

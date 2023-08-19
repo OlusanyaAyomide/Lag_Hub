@@ -77,11 +77,21 @@ module.exports = {
             "transform": "rotate(360deg)"              
           },
       },
+      leftspinner:{
+        "0%":{
+          "transform": "rotate(0deg)"              
+        },
+        "100%":{
+          "transform": "rotate(-360deg)"              
+        },
+      },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        spinner:"customspinner 20s linear infinite"
+        spinner:"customspinner 20s linear infinite",
+        rightspinner:"customspinner 60s linear infinite",
+        leftspinner:"leftspinner 60s linear infinite"
       },
       screens:{
         xs:"340px",
