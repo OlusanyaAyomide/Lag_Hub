@@ -9,10 +9,10 @@ import {
 } from "lucide-react"
 import {
     BsSearch,
-    BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,
+    BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,BsFillPlayFill,
     BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill
 } from "react-icons/bs"
-import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit} from "react-icons/ai"
+import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
 import {BiVideo,BiGroup,BiRepost, BiFullscreen, BiInfoCircle,BiShare} from "react-icons/bi"
@@ -26,7 +26,7 @@ import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
 import {LiaPaperPlane} from "react-icons/lia"
-import {GrFormClose} from "react-icons/gr"
+
 
 
 
@@ -34,7 +34,9 @@ import {GrFormClose} from "react-icons/gr"
 export const Icons = {
    plane:LiaPaperPlane,
    glasses:BsEyeglasses,
-   cancel:GrFormClose,
+   pause:AiOutlinePause,
+   play:BsFillPlayFill,
+   cancel:AiOutlineClose,
    clock:FiClock,
    share:BiShare,
    reels:BsCameraReels,

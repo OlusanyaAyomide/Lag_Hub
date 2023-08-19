@@ -88,7 +88,7 @@
    @apply px-2 xs:px-4 sm:px-6 lg:px-10
   }
   .isactive{
-    @apply relative before:absolute before:bg-main text-main before:h-[3px] before:w-[200%] before:-bottom-[7px] before:-left-[50%]
+    @apply relative before:absolute before:bg-main text-main before:h-[2px] sm:before:h-[3px] before:w-[200%] before:-bottom-[7px] before:-left-[50%]
   }
   .top-overlay{
     @apply max-md:fixed max-md:py-2 max-md:w-full max-md:z-40  max-md:top-0 max-md:left-0 paddingx
@@ -124,7 +124,7 @@
     @apply hover:-translate-y-[2px]  transition-all duration-500
   }
   .tiktok-div{
-    @apply rounded-md  aspect-[9/14] xl:mx-auto max-md:mx-auto max-md:max-w-[380px] md:max-w-[370px] max-w-[425px] relative 
+    @apply rounded-md  aspect-[9/14] xl:mx-auto max-md:mx-auto max-md:max-w-[380px] md:max-w-[345px] max-w-[425px] relative 
   }
 
 }

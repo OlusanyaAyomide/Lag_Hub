@@ -89,6 +89,7 @@ module.exports = {
         sm:"580px",
         md:"810px",
         lg:"1060px",
+        xl:"1200px",
       },
       
     },

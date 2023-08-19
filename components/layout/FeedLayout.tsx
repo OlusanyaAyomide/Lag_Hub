@@ -22,7 +22,7 @@ export default function FeedLayout({children,className}:{children:React.ReactNod
                 </div>
              </div>
              <div className='grow'>
-              <div className='px-2 lg:px-8 xl:px-4'>
+              <div className='px-2 lg:px-8 xl:px-4 relative'>
                {children}
               </div>
              </div>
