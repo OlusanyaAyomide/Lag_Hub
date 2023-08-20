@@ -11,7 +11,7 @@ interface IPostInfo{
     onClick?:()=>void
   }
 export const IconTextButton = ({Icon,text,className,extraText,ngClass,onClick}:IPostInfo)=>(
-    <button onClick={onClick} className={cn(" py-4 w-full pad flex flex-wrap text-left hover:bg-accent rounded-md",className)}>
+    <button onClick={onClick} className={cn("text-[10px] sm:text-[11px] py-2 w-full pad flex flex-wrap text-left hover:bg-accent rounded-md",className)}>
       <Icon className='text-lg text-main'/>
       <span className={cn('font-medium ml-3',ngClass)}>{text}</span>   
       {extraText && <span className="block text-[11px] sm:text-xs">{extraText}</span>}

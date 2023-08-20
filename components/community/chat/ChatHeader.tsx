@@ -1,16 +1,16 @@
-import { Dialog } from '@/components/ui/dialog'
+import { Dialog,DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import UserAvatar from '@/components/utils/UserAvatar'
 import { Icons } from '@/utils/icons'
-import { DialogContent, DialogTrigger } from '@radix-ui/react-dialog'
 import Link from 'next/link'
 import React from 'react'
 import { trimSentence } from '@/lib/utils'
+import CommunityInfo from './CommunityInfo'
 
 export default function ChatHeader() {
   const isTyping = false
   return (
     <Dialog>
-        <DialogTrigger asChild className='px-0'>
+        <DialogTrigger asChild className='px-0 cursor-pointer'>
             <div className='fixed-section'>
               <Link href={"/community"}>
                 <button className='mr-2 ml-1 text-xl'>
@@ -26,8 +26,8 @@ export default function ChatHeader() {
               </div>
             </div>
         </DialogTrigger>
-        <DialogContent>
-          Hold
+        <DialogContent className='max-h-[90vh]  default-scroll overflow-scroll'>
+          <CommunityInfo/>
         </DialogContent>
     </Dialog>
   )

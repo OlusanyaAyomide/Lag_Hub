@@ -298,3 +298,57 @@ export const mockMessage =[
         src:"/community.svg" 
     },
 ]
+
+export const mocKDescription="quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing"
+
+
+export const mockMessagesarray =[
+    {
+        name:"Johnson Doe",
+        profile:"/profile.png",
+        message:"Mock Messages consectetur",
+        unread:2
+    },
+    {
+        name:"Travis Scott",
+        profile:"/profile.png",
+        message:"Mock Messages consectetur2",
+        unread:1
+    },
+    {
+        name:"Johnson Doe",
+        profile:"/profile.png",
+        message:"Mock  consectetur Messages",
+        unread:4
+    },
+    {
+        name:"Johnson Dora and",
+        profile:"/profile.png",
+        message:"Mock Messages consectetur",
+        unread:6
+    },
+    {
+        name:"Johnson Doesyee",
+        profile:"/profile.png",
+        message:"Mock consectetur Messages ",
+        unread:8
+    },
+    {
+        name:"Johnson Doe",
+        profile:"/profile.png",
+        message:"Mock Messages consectetur",
+        unread:2
+    },
+    {
+        name:"Johnson Doesyee",
+        profile:"/profile.png",
+        message:"Mock consectetur Messages ",
+        unread:8
+    },
+    {
+        name:"Johnson Doesyee",
+        profile:"/profile.png",
+        message:"Mock consectetur Messages ",
+        unread:8
+    },
+]
