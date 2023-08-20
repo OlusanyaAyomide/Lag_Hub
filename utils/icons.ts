@@ -8,7 +8,7 @@ import {
 import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
-import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage} from "react-icons/bi"
+import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack} from "react-icons/bi"
 import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
 import {FaWpexplorer,FaUserFriends} from "react-icons/fa"
@@ -26,6 +26,7 @@ import {LiaPaperPlane} from "react-icons/lia"
 
 export const Icons = {
    plane:LiaPaperPlane,
+   back:BiArrowBack,
    plus:AiOutlinePlus,
    glasses:BsEyeglasses,
    image:BiImage,

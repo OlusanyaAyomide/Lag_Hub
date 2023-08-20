@@ -35,6 +35,10 @@ export default function CommunityMain() {
         <h1 className="font-medium mb-2 pad">Popular Communities</h1>
         <CommunityList/>
       </Card>
+      <Card className='mt-8 py-6 px-0'>
+        <h1 className="font-medium mb-2 pad">My Communities</h1>
+        <CommunityList/>
+      </Card>
       <div className="mt-8 flex-center">
         <Dialog>
           <DialogTrigger asChild>

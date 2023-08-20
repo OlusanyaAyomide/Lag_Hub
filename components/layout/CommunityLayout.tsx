@@ -11,7 +11,7 @@ export default function CommunityLayout({children}:{children:React.ReactNode}) {
                 <div className="absolute animate-rightspinner h-[440px] w-[440px] left-[20px] top-[20px] rounded-full border-main border-[0.5px] border-opacity-20 border-dashed "></div>
             </div>
         </div>
-        <div className="relative z-20">
+        <div className="relative z-20 overflow-hidden min-h-[80vh]">
         {children}
         </div>
 

@@ -223,3 +223,78 @@ export const MockSearchResult=[
     },
 
 ]
+
+export const mockMessage =[
+    {
+        user:"user1",
+        message:"This is a mock message",
+        time:"9:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"user1",
+        message:"This is a mock message This is a mock message This is a mock message This is a mock message This is a mock message This is a mock message",
+        time:"9:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"user3",
+        message:"This is a mock message This is a mock message This is a mock message",
+        time:"2:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"user2",
+        message:"This is a test image",
+        time:"10:46Am",
+        isUser:false,
+        type:"image",
+        src:"/SignUpInspire.png" 
+    },
+    {
+        user:"Me",
+        message:"Hello",
+        time:"9:46Am",
+        isUser:true,
+        type:"text",
+    },
+    {
+        user:"Me",
+        message:"Hello",
+        time:"9:46Am",
+        isUser:true,
+        type:"text",
+    },
+    {
+        user:"user3",
+        message:"This is a mock message This is a test mock message This  test is a mock message Modi? Lorem vumque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  umque ipsa dolore quisquam. Modi? Lorem  cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+        time:"2:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"user3",
+        message:"ok",
+        time:"2:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"user4",
+        message:"Hey whats up",
+        time:"2:46Am",
+        isUser:false,
+        type:"text",
+    },
+    {
+        user:"me",
+        message:"test mes age This test is a mock message Modi? Lorem vumque ipsa dolore quisquam. Modi? Lorem umque ipsa dolore quisquam. Modi? Lorem umque ipsa dolore quisquam. Modi? Lorem umque ipsa dolore quisquam. Modi? Lorem cumque ipsa dolore quisquam. Modi? Lorem ipsum dolor sit, amet",
+        time:"10:46Am",
+        isUser:true,
+        type:"image",
+        src:"/community.svg" 
+    },
+]
