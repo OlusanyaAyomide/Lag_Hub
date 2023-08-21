@@ -10,9 +10,8 @@ export default function ChatRoom() {
     <div className='pad pt-14 pb-14'>
       {mockMessage.map((item,key)=>{
         const prevUser = key>0?mockMessage[key-1].user:""
-        return <SingleChat key={key} {...item} prevUser={prevUser}/>
+        return <SingleChat isPrivate={false} key={key} {...item} prevUser={prevUser}/>
       })}
-
       <SendMessage/>
     </div>
   )

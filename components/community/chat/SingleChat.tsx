@@ -15,16 +15,17 @@ interface ISingleChat{
     prevUser:string
     type:string
     src?:string
+    isPrivate:boolean
 }
 
-export default function SingleChat({user,message,time,isUser,prevUser,type,src}:ISingleChat) {
+export default function SingleChat({user,message,time,isUser,prevUser,type,src,isPrivate}:ISingleChat) {
     const isrepeated = user === prevUser
     const {text,isTrimmed,toggleText} = useTrimmedText(message,30)
     const ref = useRef<HTMLDivElement>(null)
 
     return (
-    <div className={`flex  ${isrepeated?"mb-2":"mb-4"} ${isUser?"justify-end":""}`}>
-        {!isUser && 
+    <div className={`flex  ${!isrepeated?"mb-2":"mb-4"} ${isUser?"justify-end":""}`}>
+        {!isUser && !isPrivate &&
         <Popover>
             <PopoverTrigger asChild>
                 <div ref={ref}>
@@ -42,8 +43,8 @@ export default function SingleChat({user,message,time,isUser,prevUser,type,src}:
         </Popover>
         }
         <div className={`w-fit ml-1 min-w-[100px] xs:max-w-[80%] sm:max-w-[300px] md:max-w-[320px]  xl:max-w-[280px] px-2 py-1 rounded-md relative ${isUser?"bg-main text-white":"bg-background"}`}>
-            <div className={`flex ${!isUser?"justify-between mb-2":"mb-1 justify-end"}`}>
-                {!isUser && <span onClick={()=>{ref.current?.click()}} className='font-medium cursor-pointer'>{user}</span> }
+            <div className={`flex ${!isUser && !isPrivate?"justify-between mb-2":"mb-1 justify-end"}`}>
+                {!isUser && !isPrivate && <span onClick={()=>{ref.current?.click()}} className='font-medium cursor-pointer'>{user}</span> }
                 <span className='text-[8px]'>{time}</span>   
             </div>
             {type === "text" ?<>

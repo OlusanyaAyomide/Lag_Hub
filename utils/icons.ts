@@ -3,9 +3,9 @@ import {Check,MonitorPlay,SunMedium,Moon,ChevronsUpDown,Triangle,Menu
 import {
     BsSearch,
     BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,BsFillPlayFill,
-    BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill
+    BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill, BsSave
 } from "react-icons/bs"
-import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus} from "react-icons/ai"
+import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus,AiOutlineCamera, AiOutlineSave} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
 import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack} from "react-icons/bi"
@@ -18,7 +18,7 @@ import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
 import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
-import {LiaPaperPlane} from "react-icons/lia"
+import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 
 
 
@@ -26,6 +26,9 @@ import {LiaPaperPlane} from "react-icons/lia"
 
 export const Icons = {
    plane:LiaPaperPlane,
+   save:AiOutlineSave,
+   camera:AiOutlineCamera,
+   tick:LiaCheckDoubleSolid,
    back:BiArrowBack,
    plus:AiOutlinePlus,
    glasses:BsEyeglasses,

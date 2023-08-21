@@ -11,8 +11,8 @@ export const Toplinks=[
         icon:Icons.video
     },
     {
-        name:"messages",
-        link:"/messages",
+        name:"chats",
+        link:"/chats",
         icon:Icons.messenger
     },
     {
@@ -307,7 +307,7 @@ export const mockMessagesarray =[
         name:"Johnson Doe",
         profile:"/profile.png",
         message:"Mock Messages consectetur",
-        unread:2
+        unread:0
     },
     {
         name:"Travis Scott",
@@ -319,19 +319,19 @@ export const mockMessagesarray =[
         name:"Johnson Doe",
         profile:"/profile.png",
         message:"Mock  consectetur Messages",
-        unread:4
+        unread:0
     },
     {
         name:"Johnson Dora and",
         profile:"/profile.png",
         message:"Mock Messages consectetur",
-        unread:6
+        unread:3
     },
     {
         name:"Johnson Doesyee",
         profile:"/profile.png",
         message:"Mock consectetur Messages ",
-        unread:8
+        unread:1
     },
     {
         name:"Johnson Doe",
@@ -343,12 +343,13 @@ export const mockMessagesarray =[
         name:"Johnson Doesyee",
         profile:"/profile.png",
         message:"Mock consectetur Messages ",
-        unread:8
+        unread:0
     },
     {
         name:"Johnson Doesyee",
         profile:"/profile.png",
         message:"Mock consectetur Messages ",
-        unread:8
+        unread:2
     },
 ]
+

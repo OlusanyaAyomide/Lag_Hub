@@ -94,7 +94,7 @@
     @apply max-md:fixed max-md:py-2 max-md:w-full max-md:z-40  max-md:top-0 max-md:left-0 paddingx
   }
   .default-scroll::-webkit-scrollbar {
-    @apply w-[7px]
+    @apply w-[7px] h-[3px]
   }
   .default-scroll::-webkit-scrollbar-thumb{
    @apply bg-border dark:bg-[#96969c]/50 rounded-lg opacity-50
@@ -130,7 +130,7 @@
     @apply absolute absolute:top-0 absolute:h-2 
   }
   .fixed-section{
-    @apply flex-center w-full md:-translate-y-2 xl:-translate-x-4 xl:max-w-[44%] md:-translate-x-2 lg:-translate-x-8 max-md:left-0 fixed z-10 bg-background py-1 shadow-sm overflow-hidden
+    @apply flex-center w-full md:-translate-y-2 xl:-translate-x-4 xl:max-w-[49%] md:-translate-x-2 lg:-translate-x-8 max-md:left-0 fixed z-10 bg-background py-1 shadow-sm overflow-hidden
   }
 
 }

@@ -10,8 +10,8 @@ export default function Rightsection() {
    const pathname = usePathname()
    // if (pathname === "/"){
       return (
-      <div className='hidden py-3 px-4 xl:block lg:w-[320px] shrink-0'>
-         <div className='fixed default-scroll overflow-scroll h-screen w-[320px] right-4 pb-32'>
+      <div className='hidden py-3 px-4 xl:block lg:w-[260px] shrink-0'>
+         <div className='fixed default-scroll overflow-scroll h-screen w-[260px] right-4 pb-32'>
             <Card className='pb-6 bg-background border-none'>
                <h1 className="font-semibold text-base text-shade py-4 px-2 ">Sponsored</h1>
                <Ads/>

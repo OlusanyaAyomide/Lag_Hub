@@ -60,6 +60,10 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage:{
+        heroD:"url(/hero1.jpg)",
+        heroL:"url(/hero2.jpg)"
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
