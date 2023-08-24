@@ -11,7 +11,7 @@ export default function Categories() {
         <SelectTrigger className="w-[120px] sm:w-[180px] focus-visible:ring-0">
           <SelectValue placeholder="Categories" />
         </SelectTrigger>
-        <SelectContent className="px-0 max-h-[75svh] overflow-auto default-scroll">
+        <SelectContent className="px-0 max-h-[75vh] overflow-auto default-scroll">
          {youTubecategories.map((item,key)=>(
             <SelectItem className="hover:bg-accent max-sm:w-[150px] px-1" key={key} value={item}>{item}</SelectItem>
          ))}

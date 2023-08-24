@@ -10,6 +10,7 @@ import { shouldTrim } from '@/lib/utils'
 import ReactPlayer from 'react-player'
 import { useHydration } from '../hooks/useHydration'
 import TikTokVideo from './TikTokVideo'
+import Link from 'next/link'
 
 interface IInfoBttons{
     Icon:IconType
@@ -43,6 +44,7 @@ export default function ReelsDetail(item:IVideo) {
         
     return (
     <div className='tiktok-div mt-4  text-white'>
+        <Link href={"/"} className='fixed top-1 left-1 sm:hidden'><Icons.back className='text-2xl text-white'/></Link>
         <div className='absolute z-20 inset-0 pb-1 px-2 sm:px-3 flex flex-col justify-between'>
             <ProfileInfo  src={item.author.avatar} isVideo firstName={item.author.nickname}/>
             <div>

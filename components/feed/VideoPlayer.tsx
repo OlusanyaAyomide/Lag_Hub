@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import {useHydration} from '../hooks/useHydration'
 import { useInView } from 'react-intersection-observer'
+import { cn } from '@/lib/utils'
 
-export default function VideoPlayer({url}:{url:string}) {
+export default function VideoPlayer({url,className}:{url:string,className?:string}) {
    const [isPlaying,setIsPlaying] = useState(false)
    const {ref,inView,entry} = useInView({threshold:0.1})
    const {isRendered} = useHydration()
@@ -16,7 +17,7 @@ export default function VideoPlayer({url}:{url:string}) {
    },[inView])
    
   return (
-    <div className='aspect-video mt-2' ref={ref}>
+    <div className={cn(`aspect-video mt-2`,className)} ref={ref}>
         {/* {isRendered && <ReactPlayer  
         playing={isPlaying} 
         onPlay={()=>{setIsPlaying(true)}}

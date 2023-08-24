@@ -353,3 +353,41 @@ export const mockMessagesarray =[
     },
 ]
 
+export const LIamChatDemo = [
+    {
+        text:"Hi there,My Name is LIam , A pretrained AI model ,i can help you easily navigate your way around and also give insights of the features of Laghub as well as other general information",
+        isBot:true
+    },
+    {
+        text:"What is this place about  mock message This ",
+        isBot:false
+    },
+    {
+        text:"What is this place the features of Laghub message This ",
+        isBot:true
+    },
+    {
+        text:"What are u",
+        isBot:false
+    },
+    {
+        text:" Name is LIam , A pretrained AI model ,i can help you easily navigate your way around and also give insights of the features of ",
+        isBot:true,
+    },
+    {
+        text:"What is this place about  mock message This ",
+        isBot:false
+    },
+    {
+        text:"What is this place the features of Laghub message This ",
+        isBot:true
+    },
+    {
+        text:"What are u",
+        isBot:false
+    },
+    {
+        text:" Name is LIam , A pretrained AI model ,i can help you easily navigate your way around and also give insights of the features of ",
+        isBot:true,
+    }
+]

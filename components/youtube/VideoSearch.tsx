@@ -8,9 +8,12 @@ export default function VideoSearch() {
   return (
     <Popover>
         <PopoverTrigger asChild>
+            <div>
             <Button size={"icon"} variant={"ghost"} className={`text-shade`}>
                 <Icons.search className={`text-2xl`}/>
             </Button>
+            </div>
+ 
         </PopoverTrigger>
         <PopoverContent className='relative w-[310px] right-1 sm:w-[400px] xl:right-[48%] sm:right-[8%] md:right-[36%]'>
             <div className="flex-center mb-2">

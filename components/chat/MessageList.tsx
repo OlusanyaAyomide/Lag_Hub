@@ -36,8 +36,8 @@ export default function MessageList() {
                     <UserAvatar/>
                     <div className="grow ml-2 flex justify-between relative">
                         <div>
-                            <h1 className='font-medium'>{truncateString(item.name,18)}</h1>
-                            <span className={`tinytext ${item.unread>0?"font-medium":""}`}>{truncateString(item.message,25)}</span>
+                            <h1 className='font-medium text-base'>{truncateString(item.name,18)}</h1>
+                            <span className={`font-light ${item.unread>0?"font-medium":""}`}>{truncateString(item.message,25)}</span>
                         </div>
                         <div>
                             <span className='text-[8px]'>9:42pm</span>

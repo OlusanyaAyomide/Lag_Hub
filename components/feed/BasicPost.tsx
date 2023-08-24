@@ -36,7 +36,7 @@ export default function BasicPost({type,isSharing=false}:IBasicPost) {
                 <span className='text-xs font-medium'>Comment</span>
               </button>
               </DialogTrigger>
-              <DialogContent className='py-0 pb-4 overflow-auto default-scroll max-h-[96svh] sm:max-h-[90vh]'>
+              <DialogContent className='py-0 pb-4  overflow-scroll default-scroll h-[94vh] sm:max-h-[90vh]'>
               <PostComment/>
             </DialogContent>
             </Dialog>

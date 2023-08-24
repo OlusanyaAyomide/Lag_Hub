@@ -25,7 +25,7 @@ const convertedArray = Object.entries(mockLocation).map(([code, country]) => ({
              <SelectTrigger  className='w-fit text-xs sm:text-[13px]  focus-visible:ring-1 sm:w-[180px]' placeholder='By location'>
                <SelectValue placeholder="Select Location"/>  
              </SelectTrigger>   
-             <SelectContent className='overflow-auto default-scroll max-h-[75svh]'>
+             <SelectContent className='overflow-auto default-scroll max-h-[75vh]'>
              {convertedArray.map((item,key)=>(
              <SelectItem className="hover:bg-accent max-sm:w-[150px] px-1" key={key} value={item.code}>{item.country}</SelectItem>
              ))}

@@ -80,7 +80,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-xs sm:text-[13px];
+    @apply bg-background text-foreground text-sm sm:text-[13px];
   }
 }
 @layer components{
@@ -124,7 +124,7 @@
     @apply hover:-translate-y-[2px]  transition-all duration-500
   }
   .tiktok-div{
-    @apply rounded-md  aspect-[9/14] xl:mx-auto max-md:mx-auto max-md:max-w-[380px] md:max-w-[345px] max-w-[425px] relative 
+    @apply rounded-md max-sm:h-[100dvh] max-sm:w-[100dvh] sm:aspect-[9/14] xl:mx-auto max-md:mx-auto max-md:max-w-[380px] md:max-w-[345px] max-w-[425px] relative 
   }
   .chat-bend{
     @apply absolute absolute:top-0 absolute:h-2 

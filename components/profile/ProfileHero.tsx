@@ -39,7 +39,7 @@ export default function ProfileHero({onOverlay}:{onOverlay?:boolean}) {
                                     </Button>
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className='max-h-[90svh] overflow-auto default-scroll'>
+                            <DialogContent className='max-h-[90vh] overflow-auto default-scroll'>
                                 <ProfileEdit/>
                             </DialogContent>
                         </Dialog>}

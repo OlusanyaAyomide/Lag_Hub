@@ -19,7 +19,7 @@ export default function ChatHeader({children,backLink,title,isPrivate,isProfile=
   return (
     <Dialog>
         <DialogTrigger asChild className='px-0 cursor-pointer'>
-            <div className='fixed-section'>
+            <div className='fixed-section pt-2 pl-2'>
               <Link href={backLink}>
                 <button className='mr-2 ml-1 text-xl'>
                   <Icons.back/>

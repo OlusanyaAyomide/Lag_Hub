@@ -62,12 +62,25 @@ module.exports = {
       },
       backgroundImage:{
         heroD:"url(/hero1.jpg)",
-        heroL:"url(/hero2.jpg)"
+        heroL:"url(/hero2.jpg)",
+        "gradient-linearL":"linear-gradient(to bottom, #1977F2, white 140px, white 100%)",
+        "gradient-linearD":"linear-gradient(to bottom, #1977F2, black 140px, black 100%)"
       },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
+        },
+        customBounce:{
+          "0%, 20%, 50%, 80%, 100%": {
+            transform: "translateY(0)"
+          },
+          "40%": {
+            transform: "translateY(-10px)"
+          },
+          "60%": {
+            transform: "translateY(-5px)"
+          },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
@@ -80,7 +93,7 @@ module.exports = {
           "100%":{
             "transform": "rotate(360deg)"              
           },
-      },
+        },
       leftspinner:{
         "0%":{
           "transform": "rotate(0deg)"              
@@ -95,7 +108,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         spinner:"customspinner 20s linear infinite",
         rightspinner:"customspinner 60s linear infinite",
-        leftspinner:"leftspinner 60s linear infinite"
+        leftspinner:"leftspinner 60s linear infinite",
+        slowbounce:"customBounce 15s linear infinite",
       },
       screens:{
         xs:"340px",

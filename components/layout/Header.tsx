@@ -18,18 +18,21 @@ import TopButtons from './TopButtons'
 export default function Header() {
    const pathname = usePathname()
    const isVideo = pathname === "/video" || pathname == "/reels"
-   const isChatRoom = /^(\/community\/|\/chats\/).+$/.test(pathname)
+   const isChatRoom = /^(\/community\/|\/chats\/|\/video\/).+$/.test(pathname)
 
    const {entry,inView,ref} = useInView()
    
 
   return (
    <div className={`paddingx ${entry && !inView?"mb-[50px]":""} flex relative ${isChatRoom?"max-md:hidden mb-0":""} z-40 w-full bg-background md:fixed flex-wrap py-2 shadow-sm border-b`}>
-      <LeftHeader refs={ref}  className='w-full md:w-[150px] lg:w-[350px]'/>
+      <LeftHeader refs={ref}  className='w-full hidden md:flex md:w-[150px] lg:w-[350px]'/>
       <div className={`flex justify-between bg-background md:justify-center md:space-x-10 lg:space-x-12 items-center grow ${entry && !inView ?"top-overlay":""}` }> 
       <Sheet>
          <SheetTrigger asChild>
+            <div>
             <Button className='md:hidden text-shade' variant={"ghost"} size={"icon"}><Icons.menu/></Button>
+            </div>
+ 
          </SheetTrigger>
          <SheetContent side={"right"} className='w-full paddingx overflow-auto'> 
          <MobileNav/> 
@@ -44,7 +47,8 @@ export default function Header() {
                   <TooltipTrigger asChild>
                   {!isLast?
                      <div><TopButtons isActive={isActive} href={item.link} Icon={item.icon}/></div>
-                  :!isVideo? <div><TopButtons isActive={isActive} href={item.link} Icon={item.icon}/></div>:<VideoSearch/>
+                  :!isVideo? <div><TopButtons isActive={isActive} href={item.link} Icon={item.icon}/></div>:
+                  <div><VideoSearch/></div>
                   }
                   </TooltipTrigger>
                   <TooltipContent side='bottom' className='bg-background'>

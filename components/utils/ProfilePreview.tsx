@@ -23,7 +23,7 @@ export default function ProfilePreview({className,style}:{className?:string,styl
          <span className='text-xs'>10 following</span>
          <span className='text-xs'>12 following</span>
        </div>
-       <Link href={"/"}>
+       <Link href={"/profile/abc"}>
        <Button className={cn('bg-main hover:bg-blue-600 text-white md:hidden block w-full mt-4',style)}>View Profile</Button>
        </Link>
  

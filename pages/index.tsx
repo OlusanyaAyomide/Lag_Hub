@@ -3,6 +3,7 @@ import React from 'react'
 import FeedLayout from '@/components/layout/FeedLayout'
 import MakePost from '@/components/feed/MakePost'
 import BasicPost from '@/components/feed/BasicPost'
+import LiamTrigger from '@/components/Liam/LiamTrigger'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <BasicPost type="image" isSharing={true}/>
         <BasicPost type="text" />
         {/* <BasicPost type="video"/> */}
+        <LiamTrigger/>
     </FeedLayout>
   )
 }

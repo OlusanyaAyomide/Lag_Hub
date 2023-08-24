@@ -16,7 +16,7 @@ import {ImFeed} from "react-icons/im"
 import {FiSettings,FiArrowUpRight,FiClock} from "react-icons/fi"
 import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
 import {IoMdNotificationsOutline} from "react-icons/io"
-import {GiEarthAfricaEurope} from "react-icons/gi"
+import {GiEarthAfricaEurope,GiRobotHelmet} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
 import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 
@@ -27,6 +27,7 @@ import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 export const Icons = {
    plane:LiaPaperPlane,
    save:AiOutlineSave,
+   robot:GiRobotHelmet,
    camera:AiOutlineCamera,
    tick:LiaCheckDoubleSolid,
    back:BiArrowBack,

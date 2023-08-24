@@ -19,12 +19,12 @@ export default function YouTubeDetail() {
     })
 
   return (
-    <Card className='pad py-2 mt-3 relative'>
+    <Card className='pad py-2 mt-0 relative max-sm:pt-[54vw] max-md:pt-[53vw]'>
+        <div className='md:mt-3 max-md:fixed max-md:bg-background max-md:z-50 max-md:w-full max-md:-top-2 max-md:left-0'>
+            <VideoPlayer url={`https://www.youtube.com/watch?v=6ydFDwv-n8w`} className='max-md:max-w-[700px] max-md:mx-auto'/>
+        </div>
         <ProfileInfo followers='22M' isVideo/>
         <h1 className='sm:pl-[52px] my-1 font-medium'>Video Title for testing and debugging purposes and all activities involved</h1>
-        <div className='mt-3'>
-            <VideoPlayer url={`https://www.youtube.com/watch?v=6ydFDwv-n8w`}/>
-        </div>
         <div className="mt-2">
             <span className='tinytext block mb-3'>comments {`(33)`}</span>
         {mockComment.map((item,key)=>(

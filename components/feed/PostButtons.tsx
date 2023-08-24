@@ -50,7 +50,7 @@ export default function PostButtons({children,isVideo=false,...rest}:IPostButton
            extraText='Create new post with johnson post attached ' className='py-2'/>
             </div>
          </DialogTrigger>
-         <DialogContent className='default-scroll overflow-scroll max-h-[90svh]'>
+         <DialogContent className='default-scroll overflow-scroll max-h-[90vh]'>
            <RePost {...rest}/>
          </DialogContent>
        </Dialog>
