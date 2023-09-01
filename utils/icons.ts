@@ -19,6 +19,7 @@ import {IoMdNotificationsOutline} from "react-icons/io"
 import {GiEarthAfricaEurope,GiRobotHelmet} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
 import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
+import {FcGoogle} from "react-icons/fc"
 
 
 
@@ -27,6 +28,7 @@ import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 export const Icons = {
    plane:LiaPaperPlane,
    save:AiOutlineSave,
+   google:FcGoogle,
    robot:GiRobotHelmet,
    camera:AiOutlineCamera,
    tick:LiaCheckDoubleSolid,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTrimmedText } from '../hooks/TextHooks'
+import { useTrimmedText } from '../../hooks/TextHooks'
 import { inputText } from '@/utils/constants'
 import VideoPlayer from './VideoPlayer'
 

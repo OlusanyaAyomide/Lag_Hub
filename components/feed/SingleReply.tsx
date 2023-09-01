@@ -2,7 +2,7 @@ import React from 'react'
 import { shouldTrim, trimAndAppend } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import Link from 'next/link'
-import { useTrimmedText } from '../hooks/TextHooks';
+import { useTrimmedText } from '../../hooks/TextHooks';
 
 interface ISingleReplyitems{
     comment?: string;

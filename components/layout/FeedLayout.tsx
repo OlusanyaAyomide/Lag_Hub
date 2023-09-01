@@ -6,10 +6,13 @@ import SideLink from '@/components/layout/SideLink'
 import Rightsection from '@/components/utils/Rightsection'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
+import { useAppSelector } from '@/hooks/reduxHooks'
 
 export default function FeedLayout({children,className}:{children:React.ReactNode,className?:string}){
   const pathname = usePathname()
   const isChatRoom = /^(\/community\/|\/chats\/).+$/.test(pathname)
+  const datas = useAppSelector((state=>state.user.data))
+  // console.log(datas)
   return (
         <div className={cn("",className)}>
           <Header/>

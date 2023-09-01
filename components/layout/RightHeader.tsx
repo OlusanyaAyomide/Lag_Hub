@@ -7,6 +7,7 @@ import { Popover, PopoverTrigger,PopoverContent } from '../ui/popover'
 import ProfilePreview from '../utils/ProfilePreview'
 import { Separator } from '../ui/separator'
 import Link from 'next/link'
+import socket from '@/sockets/sockets'
 
 export default function RightHeader({className}:{className?:string}) {
   return (
@@ -29,12 +30,13 @@ export default function RightHeader({className}:{className?:string}) {
             <ProfilePreview style='md:block'/>
             <Separator className='my-6'/>
             <div className='mt-2'>
-              <Link href={"/"}><Button className='hover:bg-background px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
+              {/* <Link href={"/"}> */}
+                <Button onClick={()=>{socket.connect()}} className='hover:bg-accent px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
                   <Icons.settings className='text-2xl text-shade'/>
                   <span className='ml-2'>Settings and privacy</span>
                 </Button>
-              </Link>
-              <Button className='hover:bg-background px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
+              {/* </Link> */}
+              <Button onClick={()=>{socket.disconnect()}} className='hover:bg-accent  px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
                 <Icons.logout className='text-2xl text-shade'/>
                 <span className='ml-2'>Logout</span>
               </Button>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTrimmedText } from '../hooks/TextHooks'
+import { useTrimmedText } from '../../hooks/TextHooks'
 import { shouldTrim } from '@/lib/utils'
 import { Icons } from '@/utils/icons'
 

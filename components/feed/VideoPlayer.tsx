@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
-import {useHydration} from '../hooks/useHydration'
+import {useHydration} from '../../hooks/useHydration'
 import { useInView } from 'react-intersection-observer'
 import { cn } from '@/lib/utils'
 

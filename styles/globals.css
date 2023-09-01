@@ -12,7 +12,7 @@
  
     --popover:white;
     --popover-foreground: 222.2 84% 4.9%;
-    
+    --black:#0000001a;
     --page:#F9FBFC;
 
     --card: 0 0% 100%;
@@ -80,7 +80,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-sm sm:text-[13px];
+    @apply bg-background text-foreground text-[13px];
   }
 }
 @layer components{

@@ -1,6 +1,6 @@
 import UserAvatar from '@/components/utils/UserAvatar';
 import React, { useRef } from 'react'
-import { useTrimmedText } from '@/components/hooks/TextHooks';
+import { useTrimmedText } from '@/hooks/TextHooks';
 import { shouldTrim } from '@/lib/utils';
 import { PopoverTrigger ,Popover, PopoverContent} from '@/components/ui/popover';
 import { IconTextButton } from '@/components/utils/IconTextButton';

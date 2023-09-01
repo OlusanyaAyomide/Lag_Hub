@@ -7,7 +7,7 @@ import { Button } from '../ui/button'
 import { Icons } from '@/utils/icons'
 import ProfilePreview from '../utils/ProfilePreview'
 import SideLink from './SideLink'
-import { useHydration } from '../hooks/useHydration'
+import { useHydration } from '../../hooks/useHydration'
 
 export default function MobileNav() {
    const [isSearching,setIsSearching] = useState<boolean>(false)

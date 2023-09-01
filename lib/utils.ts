@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import {setCookie} from "nookies"
+import Cookies from "js-cookie"
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -46,4 +48,11 @@ export function truncateString(str:string, maxLength:number) {
   } else {
     return str;
   }
+}
+
+export function setCookieAsync(token:string){
+  return new Promise((resolve,reject)=>{
+    Cookies.set('authCookie',token, { expires: 30 })
+    resolve(null)
+  })
 }

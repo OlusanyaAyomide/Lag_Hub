@@ -1,4 +1,4 @@
-import { useTrimmedText } from '@/components/hooks/TextHooks'
+import { useTrimmedText } from '@/hooks/TextHooks'
 import { Card } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import UserAvatar from '@/components/utils/UserAvatar'

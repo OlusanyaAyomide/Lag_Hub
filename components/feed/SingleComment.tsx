@@ -3,7 +3,7 @@ import { shouldTrim, trimAndAppend } from '@/lib/utils'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Icons } from '@/utils/icons'
 import Link from 'next/link'
-import { useTrimmedText } from '../hooks/TextHooks'
+import { useTrimmedText } from '../../hooks/TextHooks'
 import SingleReply from './SingleReply'
 import UserAvatar from '../utils/UserAvatar'
 
