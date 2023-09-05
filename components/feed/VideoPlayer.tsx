@@ -14,7 +14,7 @@ export default function VideoPlayer({url,className}:{url:string,className?:strin
          setTimeout(()=>{setIsPlaying(inView)},4000)
       }else{setIsPlaying(inView)}
     
-   },[inView])
+   },[inView,entry])
    
   return (
     <div className={cn(`aspect-video mt-2`,className)} ref={ref}>

@@ -248,7 +248,7 @@ export const mockMessage =[
     },
     {
         user:"user2",
-        message:"This is a test image",
+        message:"This is a test image ",
         time:"10:46Am",
         isUser:false,
         type:"image",

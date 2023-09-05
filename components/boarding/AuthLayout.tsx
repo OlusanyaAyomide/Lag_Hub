@@ -1,6 +1,6 @@
 import React from 'react'
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GOOGLE_ID_KEY } from '@/utils/tempKeys';
+import Image from 'next/image'
+
 
 export default function AuthLayout({children}:{children:React.ReactNode}) {
     //  console.log(process.env.NEXT_PUBLIC_GOOGLE_ID)
@@ -12,7 +12,7 @@ export default function AuthLayout({children}:{children:React.ReactNode}) {
                 <h1 className="text-center text-main font-bold text-2xl pb-10 uppercase">Mylogo</h1>
                 <div className="md:flex md:pr-12 lg:pr-20 md:justify-center  w-full md:items-center max-w-[850px] mx-auto">
                    <div className='max-md:hidden flex justify-end  grow '>
-                        <img src="/boarding.svg" className='w-full h-full max-w-[350px]' alt="svgLogo" />
+                        <Image src="/boarding.svg" fill className='w-full h-full max-w-[350px]' alt="svgLogo" />
                    </div>
                    <div className='w-full  max-w-[420px] backdrop-blur-[2px]  backdrop-filter shadow-[0_0_16px_#0000001f] dark:shadow-[0_0_16px_#ffffff1f]  mx-auto md:w-6/12 min-h-[320px]  rounded-lg'>
                     {children}

@@ -6,6 +6,7 @@ import { PopoverTrigger ,Popover, PopoverContent} from '@/components/ui/popover'
 import { IconTextButton } from '@/components/utils/IconTextButton';
 import { Icons } from '@/utils/icons';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ISingleChat{
     user: string;
@@ -52,11 +53,14 @@ export default function SingleChat({user,message,time,isUser,prevUser,type,src,i
                 {shouldTrim(30,message) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
             </>:
             <>
-            <div className='w-full h-auto rounded-md overflow-hidden'>
-                <img src={src} alt="chat-image" className='object-cover'/>
+            <div className='w-full rounded-md  overflow-hidden'>
+                <div className='relative h-[165px] min-w-[200px]' >
+                <Image fill  src={src?src:""} alt="chat-image" className='object-cover mx-auto'/>
+                </div>
+             
             </div>
             {message &&  <>
-                <span className='mt-2'>{text}</span>
+                <span className='mt-3'>{text}</span>
                 {shouldTrim(30,message) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
             </> 
             }

@@ -8,10 +8,10 @@ export default function BoardingLayout({children}:{children:React.ReactNode}){
     const {theme} = useTheme()
     const particlesInit = useCallback(async (engine: Engine) => {
         await loadSlim(engine);
-    }, [theme]);
+    }, []);
 
     const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    }, [theme]);
+    }, []);
     return (
         <>
                     <Particles

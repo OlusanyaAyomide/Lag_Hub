@@ -17,7 +17,7 @@ export default function Navlinks() {
         const Icon = item.icon
         const isActive = asPath === item.link
         return(
-           <TooltipProvider>
+           <TooltipProvider key={key}>
               <Tooltip>
                  <TooltipTrigger asChild>
                  <Link href={"/"}>

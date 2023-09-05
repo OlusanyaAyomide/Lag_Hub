@@ -12,7 +12,7 @@ console.log(authCookie)
 // const token = window.localStorage.getItem("authtoken")
 export const socket = io(URL,{
     auth:{
-        token:Cookies.get("authCookie") || "test"
+        token:Cookies.get("authCookie")
     }
 });
 

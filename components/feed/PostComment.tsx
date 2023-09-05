@@ -13,7 +13,7 @@ export default function PostComment() {
   return (
     <div>
       <div className="text-center mt-2 border-b py-2 font-semibold text-lg">
-        Johnson's Post
+        Johnson&apos;s Post
       </div>
       <div className="mt-3">
         <ProfileInfo/>

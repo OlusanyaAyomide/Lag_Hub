@@ -5,6 +5,7 @@ import UserAvatar from '@/components/utils/UserAvatar'
 import { mocKDescription, mockMessagesarray } from '@/utils/constants'
 import { shouldTrim } from '@/lib/utils'
 import React, { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function CommunityInfo() {
@@ -50,7 +51,7 @@ export default function CommunityInfo() {
                     {mocknumbers.map((item,key)=>(
                         <div key={key} className='h-[120px] w-[120px] mx-1 mb-1 overflow-hidden'>
                             <div className="h-20 w-20">
-                                <img src="/community.svg" className='h-full w-full object-cover' alt="" />
+                                <Image fill src="/community.svg" className='h-full w-full object-cover' alt="" />
                             </div>
                        
                         </div>
