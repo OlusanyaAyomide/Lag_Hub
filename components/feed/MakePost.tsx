@@ -9,6 +9,10 @@ import { Button } from '../ui/button'
 import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
 import CollectivePost from './CollectivePost'
 import FileUploader from './FileUploader'
+import UserAvatar from '../utils/UserAvatar'
+import Uploader from '../utils/Uploader'
+import TextareaAutosize from 'react-textarea-autosize';
+
 
 
 export default function MakePost() {
@@ -16,17 +20,15 @@ export default function MakePost() {
   return (
    <Card className='py-4 mt-3 px-2 mx-auto w-full'>
       <div className="flex items-center mb-1">
-         <Avatar>
-            <AvatarImage src='/profile.png'/>
-            <AvatarFallback>Lh</AvatarFallback>
-         </Avatar>
+         <UserAvatar/>
          <Dialog>
             <DialogTrigger asChild>
                <Button  ref={ref} className='hidden'>Text</Button>
             </DialogTrigger>
-            <DialogContent className='max-sm:px-2 sm:w-[500px]'>
+            <DialogContent className='max-sm:px-2'>
                <CollectivePost>
-                  <FileUploader/>
+               <TextareaAutosize autoFocus placeholder='Enter message resize-none' className='resize-none my-4 mx-1 w-full outline-none' maxRows={4} ></TextareaAutosize>
+                     <Uploader className='aspect-[2/1]'/>
                </CollectivePost>
             </DialogContent>
          </Dialog>

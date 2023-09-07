@@ -5,11 +5,11 @@ import { Icons } from '@/utils/icons'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 
 
-export default function CollectivePost({children}:{children:React.ReactNode}) {
+export default function CollectivePost({children,className}:{children:React.ReactNode,className?:string}) {
    const [postTo,setPostTo] = useState<"Anyone" | "Followers">("Anyone")
    const [isOpened,setisOpened] = useState<boolean>(false)
   return (
-   <div className=''>
+   <div className={className}>
       <div className='flex items-center '>
         <UserAvatar/>
         <div className='grow flex ml-2'>
