@@ -1,18 +1,14 @@
-import React from 'react'
-
-import FeedLayout from '@/components/layout/FeedLayout'
-import MakePost from '@/components/feed/MakePost'
-import BasicPost from '@/components/feed/BasicPost'
-import LiamTrigger from '@/components/Liam/LiamTrigger'
+import Loader from "@/components/utils/Loader"
+import FeedMain from "@/components/feed/FeedMain"
+import { useAppSelector } from "@/hooks/reduxHooks"
+import { useAuth } from "@/hooks/useAuth"
 
 export default function Home() {
+  const {isAuthenticated} = useAppSelector((state=>state.user))
+  useAuth()
   return (
-    <FeedLayout className='pb-8'>
-        <MakePost/>
-        <BasicPost type="image" isSharing={true}/>
-        <BasicPost type="text" />
-        {/* <BasicPost type="video"/> */}
-        <LiamTrigger/>
-    </FeedLayout>
+    <>
+      {isAuthenticated?<FeedMain/>:<Loader/>}
+    </>
   )
 }

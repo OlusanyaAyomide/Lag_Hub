@@ -5,15 +5,16 @@ import PostDetail from './PostDetail'
 import { Button } from '../ui/button'
 import ResizableText from '../utils/ResizableText'
 import { IPostDetail } from './PostDetail'
+import { IPost } from '@/store/interfaces'
 
-export default function RePost(props:IPostDetail) {
+export default function RePost(data:IPost) {
   return (
     <CollectivePost>
       <ResizableText placeholder='share your thoughts on this post'/>
       <div className="mt-3 pt-3 border rounded-md px-1">
-        <ProfileInfo/>
+        <ProfileInfo {...data.postUser}/>
         <div className="mt-2">
-          <PostDetail {...props}/>
+          <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
         </div>
       </div>
       <Button className='mt-6 h-8 flex ml-auto mr-1 items-center dark:hover:text-black px-6 text-white  bg-main'>

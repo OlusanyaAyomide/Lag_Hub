@@ -10,25 +10,23 @@ import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
 import PostComment from './PostComment'
 import PostButtons from './PostButtons'
 import { IPostDetail } from './PostDetail'
+import { IPost } from '@/store/interfaces'
 
-interface IBasicPost extends IPostDetail{
-  isSharing?:boolean
-}
 
-export default function BasicPost({type,isSharing=false}:IBasicPost) {
 
+export default function BasicPost(data:IPost) {
   return (
     <Card className='mt-3 pad relative py-2'>
-      {isSharing && <IsShared/>}
-        <ProfileInfo/>
+      {data.reposted && <IsShared/>}
+        <ProfileInfo {...data.postUser}/>
       <div className="mt-3 px-1">
-        <PostDetail type={type} wordLength={type==="text" || "polls"?20:12}/>
+        <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
-            <span>246 reactions</span>
-            <span>26 reposts</span>
+            <span>{data.likes} reactions</span>
+            <span>{data.repostCount} reposts</span>
           </div>
-          <PostButtons type={type}>
+          <PostButtons {...data}>
             <Dialog>
               <DialogTrigger asChild>
               <button className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
@@ -37,7 +35,7 @@ export default function BasicPost({type,isSharing=false}:IBasicPost) {
               </button>
               </DialogTrigger>
               <DialogContent className='py-0 pb-4  overflow-scroll default-scroll h-[94vh] sm:max-h-[90vh]'>
-              <PostComment/>
+              <PostComment {...data}/>
             </DialogContent>
             </Dialog>
           </PostButtons>

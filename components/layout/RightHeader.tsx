@@ -8,6 +8,7 @@ import ProfilePreview from '../utils/ProfilePreview'
 import { Separator } from '../ui/separator'
 import Link from 'next/link'
 import socket from '@/sockets/sockets'
+import UserAvatar from '../utils/UserAvatar'
 
 export default function RightHeader({className}:{className?:string}) {
   return (
@@ -16,10 +17,7 @@ export default function RightHeader({className}:{className?:string}) {
          <Icons.dots className='text-shade text-2xl'/>
       </Button>
       <div className="flex items-center">
-      <Avatar className='z-30'>
-         <AvatarImage src='/profile.png'/>
-         <AvatarFallback>Lh</AvatarFallback>
-      </Avatar>
+      <UserAvatar/>
       <Popover>
          <PopoverTrigger asChild>
           <Button size={"icon"} variant={"ghost"} className='px-0 mx-0 relative right-2 hover:bg-background'>

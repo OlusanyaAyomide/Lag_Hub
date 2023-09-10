@@ -18,8 +18,8 @@ export const initalState={
         profileImage:"",
         profileTheme:"",
         createdAt:"",
-        followers:5,
-        following:10,
+        followers:0,
+        following:0,
 
     } as IUser,
     isAuthenticated:false
@@ -30,7 +30,7 @@ export const userSlice = createSlice({
     initialState:initalState,
     reducers:{
         setUserDetails(state,action:PayloadAction<IUser>){
-            const {_id,firstName,lastName,username,email,profileImage,profileTheme,createdAt} = action.payload
+            const {_id,firstName,lastName,username,email,profileImage,profileTheme,createdAt,followers,following} = action.payload
             state.data._id = _id,
             state.data.firstName = firstName,
             state.data.lastName = lastName
@@ -39,6 +39,8 @@ export const userSlice = createSlice({
             state.data.profileTheme = profileTheme
             state.data.profileImage = profileImage
             state.data.createdAt = createdAt
+            state.data.followers = followers
+            state.data.following = following
             state.isAuthenticated = true
             console.log("Sett")
         },

@@ -22,7 +22,16 @@ interface IUser {
     createdAt:string,
     username:string
   }
-  
+
+export interface IProfileResponse{
+    success: boolean;
+    code: number;
+    message: string;
+    data: {
+    user: IUser;
+  };
+}
+
 export interface ISignInResponse {
     success: boolean;
     code: number;

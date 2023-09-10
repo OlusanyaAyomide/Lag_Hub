@@ -6,11 +6,12 @@ import { TailwindIndicator } from '@/components/layout/Indicator'
 import ThemeChanger from '@/components/layout/ThemeChager'
 import {store} from "@/store/store"
 import  {Provider} from "react-redux"
-import { QueryClientProvider,QueryClient } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClientProvider, QueryClient} from '@tanstack/react-query'
 import { GOOGLE_ID_KEY } from '@/utils/tempKeys'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useSockets } from '@/sockets/useSockets'
+import { Toaster } from "@/components/ui/toaster"
+import { usePathname, useRouter } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <GoogleOAuthProvider clientId={GOOGLE_ID_KEY}> 
             <QueryClientProvider client={queryClient}>
                 <Component {...pageProps} />
+                <Toaster/>
                 <TailwindIndicator/>
             </QueryClientProvider>
           </GoogleOAuthProvider>

@@ -8,6 +8,7 @@ import { Icons } from '@/utils/icons'
 import { IconTextButton } from '../utils/IconTextButton'
 import RePost from './RePost'
 import { IPostDetail } from './PostDetail'
+import { IPost } from '@/store/interfaces'
 
 interface IButtons{
     Icon:IconType,
@@ -16,9 +17,8 @@ interface IButtons{
     onClick?:()=>void
     ngClass?:string
 }
-interface IPostButtons extends IPostDetail{
+interface IPostButtons extends IPost{
   children:React.ReactNode
-  isVideo?:boolean
 
 }
 
@@ -29,9 +29,9 @@ export  const Buttons = ({Icon,className,text,onClick,ngClass}:IButtons)=>(
   </Button>
 )
 
-export default function PostButtons({children,isVideo=false,...rest}:IPostButtons){
-    // const ThumbsUp = Icons.thunbsup
+export default function PostButtons({children,...data}:IPostButtons){
 
+   const isVideo = data.type ==="video" 
    return (
     <div className="flex  text-lg py-[2px] border-t">
     {!isVideo && <Buttons text='Like' Icon={Icons.thunbsup} className='text-[18px]'/>}
@@ -51,7 +51,7 @@ export default function PostButtons({children,isVideo=false,...rest}:IPostButton
             </div>
          </DialogTrigger>
          <DialogContent className='default-scroll overflow-scroll max-h-[90vh]'>
-           <RePost {...rest}/>
+           <RePost {...data}/>
          </DialogContent>
        </Dialog>
        <IconTextButton Icon={Icons.repost} text='Repost' ngClass='font-semibold' 

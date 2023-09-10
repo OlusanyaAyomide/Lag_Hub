@@ -23,7 +23,7 @@ export default function YouTubeDetail() {
         <div className='md:mt-3 max-md:fixed max-md:bg-background max-md:z-50 max-md:w-full max-md:-top-2 max-md:left-0'>
             <VideoPlayer url={`https://www.youtube.com/watch?v=6ydFDwv-n8w`} className='max-md:max-w-[700px] max-md:mx-auto'/>
         </div>
-        <ProfileInfo followers='22M' isVideo/>
+        {/* <ProfileInfo followers='22M' isVideo/> */}
         <h1 className='sm:pl-[52px] my-1 font-medium'>Video Title for testing and debugging purposes and all activities involved</h1>
         <div className="mt-2">
             <span className='tinytext block mb-3'>comments {`(33)`}</span>

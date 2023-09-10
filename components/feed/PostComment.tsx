@@ -1,34 +1,33 @@
 import React from 'react'
 import ProfileInfo from './ProfileInfo'
 import PostDetail from './PostDetail'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { mockComments } from '@/utils/constants'
 import { Icons } from '@/utils/icons'
 import ResizableText from '../utils/ResizableText'
 import Link from 'next/link'
 import SingleComment from './SingleComment'
+import { IPost } from '@/store/interfaces'
+import UserAvatar from '../utils/UserAvatar'
 
-export default function PostComment() {
-
+export default function PostComment(data:IPost){
   return (
     <div>
       <div className="text-center mt-2 border-b py-2 font-semibold text-lg">
         Johnson&apos;s Post
       </div>
       <div className="mt-3">
-        <ProfileInfo/>
+        <ProfileInfo {...data.postUser}/>
         <div className="mt-3">
-          <PostDetail type='image'/>
+
+          <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
+
           <div className="flex justify-between">
           <span>41 reactions</span>
           <span className="block ml-auto">33 Comments</span>
           </div>
           <div className="mt-3 border-t">
             <div className="flex">
-              <Avatar className='h-7 w-7 mt-4'>
-                <AvatarFallback>Lh</AvatarFallback>
-                <AvatarImage src='/profile.png'/>
-              </Avatar>
+              <UserAvatar/>
               <div className="grow relative pl-1 sm:pl-2">
                 <ResizableText placeholder='Comment on  johnson post' className='bg-accent/60 pt-2 pb-3 rounded-md'/>
                 <button className='absolute bottom-1 right-1 p-1 active:bg-accent rounded-full'>

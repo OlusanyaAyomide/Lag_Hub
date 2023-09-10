@@ -102,6 +102,14 @@ module.exports = {
           "transform": "rotate(-360deg)"              
         },
       },
+      loader:{
+        "0%, 100%":{
+          transform: "translateX(-150px)"
+        },
+        "50%":{
+          transform: "translateX(150px)"
+        },
+      }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -110,6 +118,7 @@ module.exports = {
         rightspinner:"customspinner 60s linear infinite",
         leftspinner:"leftspinner 60s linear infinite",
         slowbounce:"customBounce 15s linear infinite",
+        loader:"loader 1.8s linear infinite"
       },
       screens:{
         xs:"340px",

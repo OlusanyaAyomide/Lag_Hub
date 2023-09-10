@@ -9,7 +9,7 @@ import { getUserCredentials as mutationFn } from '@/hooks/requests/googleRequest
 import {AxiosResponse} from "axios"
 import { ISignInResponse, IgoogleLogInResponse } from '@/utils/responeInterface'
 import RadioLoader from '@/components/utils/RadioLoader'
-import { signInRequest} from '@/hooks/requests/postRequests'
+import { signInRequest} from '@/hooks/requests/endPoints'
 import { usePostRequest } from '@/hooks/useRequestProcessor'
 import { useAppDispatch } from '@/hooks/reduxHooks'
 import { useRouter } from 'next/router'
@@ -44,7 +44,7 @@ export default function SignIn() {
     onError: (error) => console.log('Login Failed:', error)
   });
 
-  const {mutate:signin,isLoading:isloading} = usePostRequest({queryKey:"sign-in",mutationFn:signInRequest,onSuccess})
+  const {mutate:signin,isLoading:isloading} = usePostRequest({mutationFn:signInRequest,onSuccess})
 
   const {isLoading,mutate} = useMutation(["google-request"],mutationFn,{
     onSuccess:({data:{email,id:password}}:AxiosResponse<IgoogleLogInResponse>)=>{

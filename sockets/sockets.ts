@@ -7,14 +7,14 @@ const URL =  'http://localhost:4000';
 
 
 
-const {authCookie} = parseCookies()
-console.log(authCookie)
 // const token = window.localStorage.getItem("authtoken")
-export const socket = io(URL,{
-    auth:{
-        token:Cookies.get("authCookie")
-    }
-});
+// export const socket = io(URL,{
+//     auth:{
+//         token:Cookies.get("authCookie")
+//     }
+// });
+
+export const socket = io(URL,{autoConnect:false});
 
 
 export default socket

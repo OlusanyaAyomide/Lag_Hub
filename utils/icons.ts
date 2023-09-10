@@ -8,7 +8,7 @@ import {
 import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus,AiOutlineCamera, AiOutlineSave} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
-import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack} from "react-icons/bi"
+import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack,BiTrash} from "react-icons/bi"
 import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
 import {FaWpexplorer,FaUserFriends} from "react-icons/fa"
@@ -27,6 +27,7 @@ import {FcGoogle} from "react-icons/fc"
 
 export const Icons = {
    plane:LiaPaperPlane,
+   trash:BiTrash,
    save:AiOutlineSave,
    google:FcGoogle,
    robot:GiRobotHelmet,
