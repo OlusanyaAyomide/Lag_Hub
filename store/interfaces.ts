@@ -36,3 +36,20 @@ export interface IPostsResponse{
         data:IPost[]
     }
 }
+
+export interface IPostSlice{
+    data:IPost[]
+    page:number
+    isLast:boolean
+}
+
+export interface IEditPost{
+    _id:string
+    post:IPost
+}
+
+export interface IAlertInterface{
+    isActive:boolean
+    content:string   
+    link:string
+}

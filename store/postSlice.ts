@@ -1,13 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
-import { IPost} from "./interfaces";
+import { IPostSlice,IEditPost, IPost } from "./interfaces";
 
-export interface IPostSlice{
-    data:IPost[]
-    page:number
-    isLast:boolean
-}
 
 export const initalState:IPostSlice={
     data:[],
@@ -23,6 +18,31 @@ export const postSlice = createSlice({
             state.data = [...state.data,...data]
             state.isLast = isLast
             state.page = page
+        },
+        
+        editPosts(state,action:PayloadAction<IEditPost>){
+            const newPost:IPost[] = []
+            state.data.map((item)=>{
+                if (item._id !== action.payload._id){
+                    newPost.push(item)
+                    return
+                }
+                newPost.push(action.payload.post)
+            })
+            state.data = newPost
+        },
+
+        likePostDispatch(state,action:PayloadAction<IEditPost>){
+            const newPost:IPost[] = []
+            state.data.map((item)=>{
+                if (item._id !== action.payload._id){
+                    newPost.push(item)
+                    return
+                }
+                const isliked = item.isliked
+                newPost.push({...action.payload.post,isliked})
+            })
+            state.data = newPost
         }
     }
 })

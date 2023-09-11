@@ -11,7 +11,7 @@ import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
 import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack,BiTrash} from "react-icons/bi"
 import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
-import {FaWpexplorer,FaUserFriends} from "react-icons/fa"
+import {FaWpexplorer,FaUserFriends,FaThumbsUp} from "react-icons/fa"
 import {ImFeed} from "react-icons/im"
 import {FiSettings,FiArrowUpRight,FiClock} from "react-icons/fi"
 import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
@@ -28,6 +28,7 @@ import {FcGoogle} from "react-icons/fc"
 export const Icons = {
    plane:LiaPaperPlane,
    trash:BiTrash,
+   unlike:FaThumbsUp,
    save:AiOutlineSave,
    google:FcGoogle,
    robot:GiRobotHelmet,

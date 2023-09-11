@@ -16,3 +16,7 @@ export const getPostsRequest=()=>{
 export const profileRequests=()=>{
     return request.get<AxiosResponse<any>>("/user/profile")
 }
+
+export const likeRequests = (body:{post:string})=>{
+    return request.post<AxiosResponse<any>>("/post/like",body)
+}

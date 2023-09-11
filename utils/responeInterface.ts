@@ -1,3 +1,12 @@
+import { IPost } from "@/store/interfaces";
+
+export interface ISuccessRes{
+  success: boolean;
+  code: number;
+  message: string;
+}
+
+
 export interface IgoogleLogInResponse{
     email:string,
     id: string
@@ -23,22 +32,27 @@ interface IUser {
     username:string
   }
 
-export interface IProfileResponse{
-    success: boolean;
-    code: number;
-    message: string;
+export interface IProfileResponse extends ISuccessRes{
     data: {
     user: IUser;
   };
 }
 
-export interface ISignInResponse {
-    success: boolean;
-    code: number;
-    message: string;
+export interface ISignInResponse extends ISuccessRes {
     data: {
       user: IUser;
       token: string;
     };
-  }
+}
+
+export interface ISinglePostResponse extends ISuccessRes{
+    data:IPost
+}
+
+
+
+
+
+
+
   

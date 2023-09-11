@@ -12,11 +12,12 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useSockets } from '@/sockets/useSockets'
 import { Toaster } from "@/components/ui/toaster"
 import { usePathname, useRouter } from 'next/navigation'
+import SocketBody from '@/components/utils/SocketBody'
+import CustomToast from '@/components/utils/CustomToast'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppProps) {
-  const socket = useSockets()
   const queryClient = new QueryClient()
   return (
     <div className={inter.className}>
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }: AppProps) {
             <QueryClientProvider client={queryClient}>
                 <Component {...pageProps} />
                 <Toaster/>
+                <SocketBody/>
                 <TailwindIndicator/>
+                <CustomToast/>
             </QueryClientProvider>
           </GoogleOAuthProvider>
         </Provider>

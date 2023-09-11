@@ -15,7 +15,6 @@ export interface IPostDetail{
 export default function PostDetail({type,wordLength=12,url,postText}:IPostDetail) {
   const {isTrimmed,toggleText,text} = useTrimmedText(postText,wordLength)
   if(type==="image"){
-    console.log(url)
   }
   return (
     <>

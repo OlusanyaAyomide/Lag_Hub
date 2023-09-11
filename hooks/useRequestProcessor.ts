@@ -22,6 +22,7 @@ interface IFetchPost{
     onSuccess?:(data:any)=>void
     onError?:(data:any)=>void
     showError?:boolean
+    sucessText?:string
 }
 
 export const useGetRequest = ({
@@ -71,14 +72,16 @@ export const useGetRequest = ({
   }
 
 
-  export const usePostRequest = ({mutationFn,onSuccess=()=>{},onError=()=>{},showError=true}:IFetchPost)=>{
+  export const usePostRequest = ({mutationFn,onSuccess=()=>{},onError=()=>{},showError=true,sucessText}:IFetchPost)=>{
 
-    // const dispatch = useAppDispatch()
     const toaster = useCustomToast()
     return useMutation({
     mutationKey:["post-at"],
       mutationFn:mutationFn,
       onSuccess:(data)=>{
+        if(sucessText){
+          toaster("good",sucessText)
+        }
         onSuccess(data)
       },
       onError:(res:AxiosError<any>)=>{

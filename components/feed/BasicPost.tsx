@@ -23,7 +23,7 @@ export default function BasicPost(data:IPost) {
         <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
-            <span>{data.likes} reactions</span>
+            <span className='font-semibold'>{data.likes} reactions</span>
             <span>{data.repostCount} reposts</span>
           </div>
           <PostButtons {...data}>
