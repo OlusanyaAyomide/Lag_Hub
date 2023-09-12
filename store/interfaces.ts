@@ -29,6 +29,7 @@ export interface IPost {
     postedAt?:string
     repostedId?:string
     authorId?:string
+    repostedusername?:string
 }
 
 export interface IPostsResponse{

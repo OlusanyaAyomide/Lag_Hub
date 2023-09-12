@@ -10,7 +10,7 @@ export const useCustomToast = ()=>{
         toast({
             duration:duration || 5000,
             description:text,
-            className:`${styles[type]}  fixed top-2 whitespace-nowrap font-medium backdrop-blur-sm py-3 max-w-[400px] bg-transparent `
+            className:`${styles[type]}  fixed top-2 whitespace-nowrap font-medium backdrop-blur-sm py-3 max-w-[350px] bg-transparent `
         })
     }
     return toaster

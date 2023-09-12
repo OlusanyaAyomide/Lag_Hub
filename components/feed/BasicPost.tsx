@@ -24,7 +24,7 @@ export default function BasicPost(data:IPost) {
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
             <span className='font-semibold'>{data.likes} reactions</span>
-            <span>{data.repostCount} reposts</span>
+            <span className='font-semibold'>{data.repostCount} reposts</span>
           </div>
           <PostButtons {...data}>
             <Dialog>

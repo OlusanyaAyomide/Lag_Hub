@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Dialog, DialogTrigger,DialogContent } from '../ui/dialog'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Icons } from '@/utils/icons'
@@ -15,8 +15,7 @@ import { ReactButtons } from './ReactButtons'
 import socket from '@/sockets/sockets'
 import { makePostrequest} from '@/hooks/requests/endPoints'
 import { useCustomToast } from '@/hooks/useCustomToast'
-import DotLoader from '../utils/spinners/DotLoader'
-
+import { DialogClose } from '@radix-ui/react-dialog'
 
 
 interface IPostButtons extends IPost{
@@ -24,17 +23,17 @@ interface IPostButtons extends IPost{
 }
 
 export default function PostButtons({children,...data}:IPostButtons){
-  
+  const closeref = useRef<HTMLButtonElement>(null) 
   const dispatch = useAppDispatch()
-  const toaster = useCustomToast()
   const {username,profileImage,profileTheme} = useAppSelector((state=>state.user.data))
   const {type,description,createdAt,postUrl,_id} = data
-
   
-  const {mutate:repost,isLoading:loading} = usePostRequest({mutationFn:makePostrequest,
+  
+  const {mutate:repost,isLoading:loading} = usePostRequest({mutationFn:makePostrequest,sucessText:"Succesfully reposted",
     onSuccess:(res:AxiosResponse<ISinglePostResponse>)=>{
     const newpost = res.data.data
-    toaster("good","Succesfully reposted",4000)
+    socket.emit("re-post",newpost)
+
  }})
 
    const {isLoading,mutate} = usePostRequest({mutationFn,sucessText:`Post ${data.isliked?"unliked":"liked"} succesfully`,onSuccess:(res:AxiosResponse<ISinglePostResponse>)=>{
@@ -71,7 +70,8 @@ export default function PostButtons({children,...data}:IPostButtons){
             </button>
          </DialogTrigger>
          <DialogContent className='default-scroll overflow-scroll max-h-[90vh]'>
-           <RePost {...data}/>
+            <DialogClose className='hidden' ref={closeref}></DialogClose>
+           <RePost {...data} closeref={closeref}/>
          </DialogContent>
        </Dialog>
        <IconTextButton 

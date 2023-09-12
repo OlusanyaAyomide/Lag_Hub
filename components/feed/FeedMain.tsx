@@ -40,7 +40,11 @@ export default function FeedMain() {
           <SkeletonLoader/>
           <SkeletonLoader/>
         </>}  
-        {!isLoading && !isLast && <div className='relative bottom-[600px]' ref={ref}><RotateLoader/></div>}
+        {!isLoading && !isLast && <div className='relative bottom-[600px]' ref={ref}>
+          <div className="relative top-[600px]">
+            <RotateLoader/>
+          </div>
+       </div>}
         <LiamTrigger/>
     </FeedLayout>
   )
