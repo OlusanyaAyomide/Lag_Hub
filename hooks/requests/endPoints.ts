@@ -9,8 +9,8 @@ export const makePostrequest=(body:any)=>{
     return request.post<AxiosResponse<any>>("/post/create",body)
 }
 
-export const getPostsRequest=()=>{
-    return request.get<AxiosResponse<any>>("/post/all")
+export const getPostsRequest=(page:number)=>{
+    return request.get<AxiosResponse<any>>(`/post/all?page=${page}`)
 }
 
 export const profileRequests=()=>{

@@ -15,7 +15,7 @@ interface IUploader{
   disabled:boolean
 
 }
-const fileTypes = ["JPG", "PNG", "GIF"]
+const fileTypes = ["JPG", "PNG", "GIF","AVIF"]
 export default function Uploader({className,style,ngClass,showTrash,file,setFile,disabled}:IUploader) {
   
   return (

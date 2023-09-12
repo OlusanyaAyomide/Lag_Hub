@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import {setCookie} from "nookies"
 import Cookies from "js-cookie"
+import { IPost } from "@/store/interfaces"
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -27,6 +28,19 @@ export const shouldTrim = (number:number,text?:string)=>{
   if(wordLength>number){return true}
   return false
 }
+
+
+export function shuffleArray(array:IPost[]) {
+  const newArray = [...array]
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray
+  
+}
+
+
 
 
 

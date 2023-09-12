@@ -17,8 +17,8 @@ import { IPost } from '@/store/interfaces'
 export default function BasicPost(data:IPost) {
   return (
     <Card className='mt-3 pad relative py-2'>
-      {data.reposted && <IsShared/>}
-        <ProfileInfo {...data.postUser}/>
+      {data.reposted && <IsShared {...data}/>}
+        <ProfileInfo post = {data} createdAt={data.createdAt}/>
       <div className="mt-3 px-1">
         <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
         <div className="mt-1">

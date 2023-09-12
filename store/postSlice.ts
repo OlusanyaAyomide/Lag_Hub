@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
 import { IPostSlice,IEditPost, IPost } from "./interfaces";
+import { shuffleArray } from "@/lib/utils";
 
 
 export const initalState:IPostSlice={
@@ -15,11 +16,15 @@ export const postSlice = createSlice({
     reducers:{
         setPosts(state,action:PayloadAction<IPostSlice>){
             const {data,isLast,page} =action.payload
-            state.data = [...state.data,...data]
+            const newposts = shuffleArray(data)
+
+            state.data = [...state.data,...newposts]
             state.isLast = isLast
             state.page = page
         },
-        
+        increasePage(state){
+            state.page = state.page + 1
+        },
         editPosts(state,action:PayloadAction<IEditPost>){
             const newPost:IPost[] = []
             state.data.map((item)=>{
@@ -31,7 +36,12 @@ export const postSlice = createSlice({
             })
             state.data = newPost
         },
-
+        pushnewPost(state,action:PayloadAction<IPost>){
+            state.data = [action.payload,...state.data]
+        },
+        appendNewPost(state,action:PayloadAction<IPost>){
+            state.data = [...state.data,action.payload]
+        },
         likePostDispatch(state,action:PayloadAction<IEditPost>){
             const newPost:IPost[] = []
             state.data.map((item)=>{

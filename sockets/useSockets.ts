@@ -24,6 +24,9 @@ export const useSockets = ()=>{
         socket.on("emit-alert",(body:IOpenAlert)=>{
             dispatch(layoutActions.openAlert(body))
         })
+        socket.on("emit-new-post",(post:IPost)=>{
+            dispatch(postActions.appendNewPost(post))
+        })
         
         // return ()=>{
         //     socket.off('connect');

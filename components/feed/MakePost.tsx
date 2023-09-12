@@ -20,6 +20,10 @@ import { AxiosResponse } from 'axios'
 
 import DotLoader from '../utils/spinners/DotLoader'
 import { imgUrl, vidURl } from '@/utils/tempKeys'
+import { ISinglePostResponse } from '@/utils/responeInterface'
+import { useAppDispatch } from '@/hooks/reduxHooks'
+import { postActions } from '@/store/postSlice'
+import socket from '@/sockets/sockets'
 
 export interface IFile{
    file:File,
@@ -37,6 +41,7 @@ export default function MakePost() {
    const [text,setText] = useState("")
    const imageref = useRef<HTMLInputElement>(null)
    const isVideo = file?.type === "video"
+   const dispatch = useAppDispatch()
 
    const {mutate:upload,isLoading} = usePostRequest({mutationFn:cloudinaryUploader,
       onSuccess:({data}:AxiosResponse<IResponse>)=>{
@@ -46,7 +51,10 @@ export default function MakePost() {
 
 
    const {mutate,isLoading:loading} = usePostRequest({mutationFn,
-      onSuccess:(d)=>{console.log(d);
+      onSuccess:(res:AxiosResponse<ISinglePostResponse>)=>{
+      const newpost = res.data.data
+      dispatch(postActions.pushnewPost(newpost));
+      socket.emit("new-post",newpost)
       closeref.current?.click()
       setFile(null)
       setText("")

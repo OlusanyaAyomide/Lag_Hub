@@ -19,11 +19,16 @@ export interface IPost {
     customId: string;
     repostCount: number;
     postedBy: string;
-    reposted: boolean;
+    reposted: boolean | string;
     createdAt: string;
     likes: number;
     isliked: boolean;
     postUser:IUser;
+    repostedTheme?:string,
+    repostedAvatar?:string,
+    postedAt?:string
+    repostedId?:string
+    authorId?:string
 }
 
 export interface IPostsResponse{

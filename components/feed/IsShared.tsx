@@ -1,16 +1,21 @@
 import React from 'react'
-import { Avatar, AvatarFallback } from '../ui/avatar'
-import { AvatarImage } from '@radix-ui/react-avatar'
-import { Separator } from '../ui/separator'
 import { Icons } from '@/utils/icons'
 import UserAvatar from '../utils/UserAvatar'
+import { IPost } from '@/store/interfaces'
+import Link from 'next/link'
 
-export default function IsShared() {
+export default function IsShared(post:IPost) {
+  const src = post.repostedAvatar
+  const theme = post.repostedTheme
   return (
-    <div className='flex  border-b pb-3  pad'>
-        <UserAvatar className='h-7 w-7'/>
-        <h1 className='font-light  text-[13px] ml-3 pr-4'><span>Johnson ayomide Reposted this tester tester</span> <span><Icons.arrowLeft className='text-main inline ml-1'/></span></h1>
-        {/* <Separator className='my-3 mx-auto'/> */}
+    <div className='flex  border-b pb-1  pad'>
+        <UserAvatar className='h-7 w-7' isPrivate={false} src={src} theme={theme}/>
+        <h1 className='text-[13px] ml-3 pr-4'><span>{post.reposted}</span> <span><Icons.arrowLeft className='text-main inline ml-1'/></span> 
+          <Link href={`/post/detail/${post.repostedId}`}>
+            <span className='ml-3 text-main hover:underline decoration-main underline-offset-2'>view source</span>
+          </Link>
+
+        </h1>
     </div>
   )
 }
