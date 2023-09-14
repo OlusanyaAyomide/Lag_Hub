@@ -1,13 +1,20 @@
 import {useEffect} from "react"
 import socket from "./sockets"
-import { IPost } from "@/store/interfaces"
+import { IPost, IPostMessage } from "@/store/interfaces"
 import { useAppDispatch } from "@/hooks/reduxHooks"
 import { postActions } from "@/store/postSlice"
 import { IOpenAlert } from "@/utils/socketInterface"
 import { layoutActions } from "@/store/layoutSlice"
+import { usePathname } from "next/navigation"
+import { postDetailActions } from "@/store/postDetailSlice"
+import { useRouter } from "next/router"
 
 export const useSockets = ()=>{
     const dispatch = useAppDispatch()
+    const isHome = usePathname() === "/"
+  
+
+
     useEffect(()=>{
         socket.on("connect",()=>{
             console.log("Socket Conected")
@@ -20,6 +27,7 @@ export const useSockets = ()=>{
         });
         socket.on("emit-like-post",(post:IPost)=>{
             dispatch(postActions.likePostDispatch({_id:post._id,post}))
+            if(!isHome){dispatch(postDetailActions.editCurrentPost(post))}
         })
         socket.on("emit-alert",(body:IOpenAlert)=>{
             dispatch(layoutActions.openAlert(body))
@@ -27,13 +35,21 @@ export const useSockets = ()=>{
         socket.on("emit-new-post",(post:IPost)=>{
             dispatch(postActions.appendNewPost(post))
         })
+        socket.on("emit-post-messsage",(message:IPostMessage)=>{
+            dispatch(postActions.dispatchFeedpost(message))
+            if(!isHome){dispatch(postDetailActions.appendNewMessage(message))}
+        })
+        socket.on("emit-post-reply",(message:IPostMessage)=>{
+            dispatch(postActions.editRepliedMessage(message))
+            if(!isHome){dispatch(postDetailActions.editRepliedMessage(message))}
+        })
         
         // return ()=>{
         //     socket.off('connect');
         //     socket.off('disconnect');
         //     socket.off("connect_error")
         // }
-    },[])
+    },[isHome])
     
     return null
 }

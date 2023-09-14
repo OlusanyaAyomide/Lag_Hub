@@ -80,8 +80,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground text-[13px];
+    @apply bg-background font-inter text-foreground text-[13px];
   }
+}
+
+a{
+  @apply text-main hover:underline decoration-main
 }
 @layer components{
   .paddingx{

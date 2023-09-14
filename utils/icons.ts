@@ -1,7 +1,7 @@
 import {Check,MonitorPlay,SunMedium,Moon,ChevronsUpDown,Triangle,Menu
 } from "lucide-react"
 import {
-    BsSearch,
+    BsSearch,BsChatSquareDots,BsChatSquareText,
     BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,BsFillPlayFill,
     BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill, BsSave
 } from "react-icons/bs"
@@ -29,6 +29,8 @@ export const Icons = {
    plane:LiaPaperPlane,
    trash:BiTrash,
    unlike:FaThumbsUp,
+   chat1:BsChatSquareDots,
+   chat2:BsChatSquareText,
    save:AiOutlineSave,
    google:FcGoogle,
    robot:GiRobotHelmet,

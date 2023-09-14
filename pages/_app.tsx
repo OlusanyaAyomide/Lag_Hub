@@ -15,12 +15,12 @@ import { usePathname, useRouter } from 'next/navigation'
 import SocketBody from '@/components/utils/SocketBody'
 import CustomToast from '@/components/utils/CustomToast'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
   return (
-    <div className={inter.className}>
+    <div >
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Provider store={store}>
           <GoogleOAuthProvider clientId={GOOGLE_ID_KEY}> 

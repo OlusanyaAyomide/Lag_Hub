@@ -19,7 +19,7 @@ export default function CustomToast() {
     return (
     <AnimatePresence>
         {isActive &&   <motion.div variants={AlertAnimation} initial="initial" animate="animate" exit="exit"
-         className='fixed z-50 top-2 right-4 h-fit backdrop-blur-sm bg-transparent border border-main py-2 px-10 rounded-md'>
+         className='fixed z-50 max-w-[280px] sm:max-w-[380px] top-2 right-2 sm:right-4 h-fit backdrop-blur-sm bg-transparent border border-main py-2 px-10 rounded-md'>
             <button onClick={()=>{dispatch(layoutActions.closeAlert())}}
              className="absolute top-[2px] right-[2px] p-1 hover:bg-accent rounded-full text-xl hover:text-foreground text-shade"><Icons.cancel/></ button>
             <h1 className='font-medium'>{content}</h1>

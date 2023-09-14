@@ -17,6 +17,7 @@ export const useAuth = ()=>{
 
     const {} = useGetRequest({queryKey:['user-profile'],queryFn,enabled:!isAuthenticated,onSuccess:(res:AxiosResponse<IProfileResponse>)=>{
         const {user} = res.data.data
+        console.log("Setting -user")
         dispatch(userActions.setUserDetails(user))
         const authCookie = Cookies.get("authCookie")
         socket.auth = {token:authCookie}

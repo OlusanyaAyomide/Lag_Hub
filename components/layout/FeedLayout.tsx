@@ -16,7 +16,7 @@ export default function FeedLayout({children,className}:{children:React.ReactNod
   return (
         <div className={cn("",className)}>
           <Header/>
-          <div className={`min-h-[120vh] md:pt-[60px] pb-6 bg-page flex  md:space-x-3`}>
+          <div className={`min-h-[80vh] md:pt-[60px] pb-6 bg-page flex  md:space-x-3`}>
              <div className='hidden md:block md:w-[270px] shrink-0 lg:w-[320px]'>
                 <div className='py-4 pb-20 h-screen w-[270px] lg:w-[320px] left-2 fixed overflow-scroll  default-scroll px-4'>
                    <Card className='border-none bg-background shadow-sm py-3'>

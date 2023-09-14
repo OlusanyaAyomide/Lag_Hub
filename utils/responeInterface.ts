@@ -1,4 +1,4 @@
-import { IPost } from "@/store/interfaces";
+import { IPost, IPostMessage } from "@/store/interfaces";
 
 export interface ISuccessRes{
   success: boolean;
@@ -49,8 +49,17 @@ export interface ISinglePostResponse extends ISuccessRes{
     data:IPost
 }
 
+export interface IPostWithMessage extends IPost{
+  messages:IPostMessage[]
+}
 
+export interface IPostInfo extends  ISuccessRes{
+    data:IPostWithMessage
+}
 
+export interface ISingleMessageResponse extends ISuccessRes{
+  data:IPostMessage
+}
 
 
 

@@ -2,13 +2,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import  userSlice from "./authSlice";
 import postSlice from "./postSlice";
 import layoutSlice from "./layoutSlice";
+import postDetailSlice from "./postDetailSlice";
 
 
 export const store = configureStore({
     reducer:{
         user:userSlice,
         post:postSlice,
-        layout:layoutSlice
+        layout:layoutSlice,
+        postdetail:postDetailSlice
     }
 })
 

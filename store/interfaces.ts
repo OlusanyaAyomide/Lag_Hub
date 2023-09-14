@@ -1,3 +1,5 @@
+import { IPostWithMessage } from "@/utils/responeInterface"
+
 export interface IUser{
     _id:string
     firstName:string,
@@ -47,6 +49,9 @@ export interface IPostSlice{
     data:IPost[]
     page:number
     isLast:boolean
+    currentPost:string | null
+    currentMessages:IPostMessage[]
+
 }
 
 export interface IEditPost{
@@ -58,4 +63,35 @@ export interface IAlertInterface{
     isActive:boolean
     content:string   
     link:string
+}
+
+export interface IPostReply{
+    _id: string
+    text: string
+    message:string
+    customId:string
+    createdAt:string
+    user:IUser
+}
+
+export interface IPostMessage{
+    _id: string,
+    user:string,
+    post: string,
+    text: string,
+    customId:string,
+    createdAt:string,
+    messageUser:IUser
+    replies:IPostReply[]
+}
+
+export interface IpostDetailSlice{
+    post:IPost
+    messages:IPostMessage[]
+}
+
+
+export interface IDetailParams{
+    customId:string | string [] | undefined
+    post:IPost
 }

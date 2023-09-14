@@ -1,48 +1,76 @@
-import React, { useState } from 'react'
-import { Card } from '../ui/card'
-import ProfileInfo from '../feed/ProfileInfo'
-import PostButtons from '../feed/PostButtons'
+import React, { useRef, useState } from 'react'
 import { Icons } from '@/utils/icons'
-import PostDetail from '../feed/PostDetail'
-import UserAvatar from '../utils/UserAvatar'
-import ResizableText from '../utils/ResizableText'
-import { mockComments } from '@/utils/constants'
 import SingleComment from '../feed/SingleComment'
+import { AxiosResponse } from 'axios'
+import { useGetRequest } from '@/hooks/useRequestProcessor'
+import { useRouter } from 'next/router'
+import { postInfoRequest } from '@/hooks/requests/endPoints'
+import { IPostInfo } from '@/utils/responeInterface'
+import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import BasicPost from '../feed/BasicPost'
+import { postDetailActions } from '@/store/postDetailSlice'
+import SkeletonLoader from '../utils/SkeletonLoader'
+import MessageSkeleton from '../utils/MessageSkeleton'
+import { Imessageinfo } from '@/utils/interfaces'
+import PostTextInput from './PostTextInput'
+import ZeroMessages from '../utils/ZeroMessages'
 
 
-export default function PostInformation({type}:{type:"image" | "polls" | "text"}) {
-  const [isCommenting,setIsCommenting] = useState(true)
+export default function PostMain() {
+  const [isCommenting,setIsCommenting] = useState(false)
+  const [messageInfo,setMessageInfo] = useState<Imessageinfo | null>(null)
+  const router = useRouter()
+  const customId = router.query.customId as string
+  console.log(customId)
+  const {post,messages} = useAppSelector((state=>state.postdetail))
+  const dispatch = useAppDispatch()
+  const replyRef = useRef<HTMLTextAreaElement>(null)
+  
+  const {isLoading,isFetching,data} = useGetRequest(
+    {queryKey:['detail',customId],
+    queryFn:()=>{return postInfoRequest(customId)},
+    onSuccess:(res:AxiosResponse<IPostInfo>)=>{
+      dispatch(postDetailActions.setSinglePost(res.data.data))
+      // dispatch(postActions.setCurrentMessages(res.data.data?.messages))
+    }
+  },)
+
   return (
-    <Card className='mt-3 pad relative py-2'>
-      <ProfileInfo/>
-      <div className='mt-3 px-1'>
-        <PostDetail type='image'/>
-        <div className="mt-1">
-        <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
-          <span>246 reactions</span>
-          <span>26 reposts </span>
-        </div>
-        <PostButtons type={type}>
-          <button onClick={()=>{setIsCommenting((prev=>!prev))}}
+    <div> 
+      {data && <BasicPost {...post} isDetailed={true}>
+        <button onClick={()=>{
+          setIsCommenting((prev=>!prev))}
+        }
            className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
             <span className='text-main relative right-[2px] text-[22px]'><Icons.messenger/></span>
             <span className='text-xs font-medium'>Comment</span>
           </button>
-        </PostButtons>
-        {isCommenting  && <div className='flex'>
-          <UserAvatar className='mr-2 mt-2'/>
-          <ResizableText placeholder='Comment on johnsons post' className='focus-visible:ring-1 py-1 mb-1 rounded-md ring-border'/>
-        </div>}
-        <div className="mt-3">
-          <span className="text-[11px] tinytext">7 comments</span>
-          <div className="mt-1">
-            {mockComments.map((item,key)=>(
-              <SingleComment key={key} {...item} isDetailed={true}/>
-            ))}
+          <div className="w-full mt-3 text-[13px]">
+          <PostTextInput 
+              replyRef={replyRef} 
+              messageInfo={messageInfo}
+              setMessageInfo={setMessageInfo}
+              isVisible={isCommenting}
+              post={post}
+              isDetailed={true}    
+              />
+              {messages?.map((item,key)=>(
+                <SingleComment message={item} setMessageInfo={setMessageInfo}
+                setIsCommenting={setIsCommenting}
+                   replyRef={replyRef} key={key}
+                  isDetailed={false}/>
+                ))}
+                {messages.length ===0 && <ZeroMessages/>}
           </div>
+      </BasicPost>}
+      {isLoading && isFetching && <div className='mt-6'>
+        <SkeletonLoader/>
+        <div className="mt-4">
+          <MessageSkeleton/>
+          <MessageSkeleton/>
         </div>
-        </div>
-      </div>
-    </Card>
+      </div>}
+    </div>
+
   )
 }

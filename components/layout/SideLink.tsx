@@ -12,7 +12,7 @@ export default function SideLink() {
          {sideLinks.map((item,key)=>{
          const isActive = pathname === item.link
          const Icon = item.icon
-         return (<Link href={item.link} key={key}>
+         return (<Link className='text-foreground hover:no-underline' href={item.link} key={key}>
             <Button className={`flex justify-start  py-6 md:py-4 rounded-none max-md:mb-2 relative items-center w-full ${isActive?"side-active":""}`} variant={"ghost"}>
                <Icon className={`text-2xl ${isActive?"text-main":"text-shade"}`}/>
                <span className={`ml-2 max-md:text-base md:text-sm ${isActive?"text-main font-semibold":""}`}>{item.name}</span>

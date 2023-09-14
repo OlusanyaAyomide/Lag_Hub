@@ -16,10 +16,12 @@ import socket from '@/sockets/sockets'
 import { makePostrequest} from '@/hooks/requests/endPoints'
 import { useCustomToast } from '@/hooks/useCustomToast'
 import { DialogClose } from '@radix-ui/react-dialog'
+import { postDetailActions } from '@/store/postDetailSlice'
 
 
 interface IPostButtons extends IPost{
   children:React.ReactNode
+  detailed?:boolean
 }
 
 export default function PostButtons({children,...data}:IPostButtons){
@@ -39,13 +41,18 @@ export default function PostButtons({children,...data}:IPostButtons){
    const {isLoading,mutate} = usePostRequest({mutationFn,sucessText:`Post ${data.isliked?"unliked":"liked"} succesfully`,onSuccess:(res:AxiosResponse<ISinglePostResponse>)=>{
       const post = res.data.data
       dispatch(postActions.editPosts({_id:data._id,post}))
+      if(data.detailed){
+        console.log("In heree")
+        dispatch(postDetailActions.setJustPost(post))
+      }
+   
+      
       socket.emit("like-post",post)
    }})
 
    const isVideo = data.type ==="video" 
    return (
-    <div className="flex  text-lg py-[2px] border-t">
-
+    <div className="flex flex-wrap  text-lg py-[2px] border-t">
      <ReactButtons
         onClick={()=>{mutate({post:data._id})}}
         disabled={isLoading}  

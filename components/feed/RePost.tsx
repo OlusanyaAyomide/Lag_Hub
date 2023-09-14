@@ -3,17 +3,16 @@ import CollectivePost from './CollectivePost'
 import ProfileInfo from './ProfileInfo'
 import PostDetail from './PostDetail'
 import { Button } from '../ui/button'
-import ResizableText from '../utils/ResizableText'
 import { IPost } from '@/store/interfaces'
 import socket from '@/sockets/sockets'
 import { makePostrequest as mutationFn} from '@/hooks/requests/endPoints'
-import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
+import {  useAppSelector } from '@/hooks/reduxHooks'
 import { AxiosResponse } from 'axios'
 import { usePostRequest } from '@/hooks/useRequestProcessor'
 import { ISinglePostResponse } from '@/utils/responeInterface'
 import TextareaAutosize from 'react-textarea-autosize';
 import DotLoader from '../utils/spinners/DotLoader'
-import { postActions } from '@/store/postSlice'
+
 
 interface IRepost extends IPost{
   closeref:React.RefObject<HTMLButtonElement>

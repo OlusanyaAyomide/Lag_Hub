@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily:{
+        inter:['Inter', 'sans-serif']
+      },
       colors: {
         page:"var(--page)",
         main:"var(--main)",

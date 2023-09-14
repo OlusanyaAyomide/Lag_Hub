@@ -4,6 +4,7 @@ import { inputText } from '@/utils/constants'
 import VideoPlayer from './VideoPlayer'
 import Image from 'next/image'
 import { shouldTrim } from '@/lib/utils'
+import Linkify from 'linkify-react';
 
 export interface IPostDetail{
   type:|"image" | "text"  | "video",
@@ -19,7 +20,9 @@ export default function PostDetail({type,wordLength=12,url,postText}:IPostDetail
   return (
     <>
     <h1>
-      <span>{text}</span>
+      <Linkify options={{}}>
+        <span>{text}</span>
+      </Linkify>
       {shouldTrim(wordLength,postText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"show less":"...show more"}</span>}
     </h1>
     {type === "image" && <div className="mt-3 aspect-[2/1.3] sm:aspect-[2/1.1] relative">

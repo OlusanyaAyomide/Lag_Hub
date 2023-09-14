@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
-import { IPostSlice,IEditPost, IPost } from "./interfaces";
+import { IPostSlice,IEditPost, IPost, IPostMessage } from "./interfaces";
 import { shuffleArray } from "@/lib/utils";
 
 
 export const initalState:IPostSlice={
     data:[],
     page:1,
-    isLast:false
+    isLast:false,
+    currentPost:null,
+    currentMessages:[]
 }
 export const postSlice = createSlice({
     name:"post",
@@ -53,7 +55,43 @@ export const postSlice = createSlice({
                 newPost.push({...action.payload.post,isliked})
             })
             state.data = newPost
+        },
+        setCurrentPost(state,action:PayloadAction<string | null>){
+            state.currentPost = action.payload
+        },
+        setCurrentMessages(state,action:PayloadAction<IPostMessage[]>){
+            state.currentMessages =action.payload
+        },
+        dispatchFeedpost(state,action:PayloadAction<IPostMessage>){
+            const message = action.payload
+            if(state.currentPost !== message.post){return}
+
+            if(state.currentMessages?.length < 4){
+                state.currentMessages = [...state.currentMessages,action.payload]
+            }
+            else{
+                state.currentMessages[3] = action.payload
+            }
+        },
+        editRepliedMessage(state,action:PayloadAction<IPostMessage>){
+            const message = action.payload
+            if(state.currentPost !== message.post){return}
+            const newMessages:IPostMessage[] = []
+            state.currentMessages.map((item)=>{
+                if(item._id !== action.payload._id){
+                    newMessages.push(item)
+                    return
+                }
+                newMessages.push(action.payload)
+            })
+            state.currentMessages = newMessages
+        },
+
+
+        addnewFeedPost(state,action:PayloadAction<IPostMessage>){
+            state.currentMessages = [action.payload,...state.currentMessages]
         }
+        
     }
 })
 

@@ -99,3 +99,9 @@ export interface TikTopFeedResponse{
   msg:string
   data:IVideo
 }
+
+
+export interface Imessageinfo{
+  _id:string
+  username:string
+}

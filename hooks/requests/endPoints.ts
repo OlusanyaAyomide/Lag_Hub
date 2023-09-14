@@ -20,3 +20,16 @@ export const profileRequests=()=>{
 export const likeRequests = (body:{post:string})=>{
     return request.post<AxiosResponse<any>>("/post/like",body)
 }
+
+export const postInfoRequest = (postId:string)=>{
+    return request.get<AxiosResponse<any>>(`/post/detail/${postId}`)
+}
+
+
+export const createPostMessage=(body:{post:string,text:string})=>{
+    return request.post<AxiosResponse<any>>("/post/create-message",body)   
+}
+
+export const createPostReply=(body:{post:string,text:string})=>{
+    return request.post<AxiosResponse<any>>("/post/create-reply",body)   
+}
