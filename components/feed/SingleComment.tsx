@@ -28,7 +28,7 @@ export default function SingleComment({message,isDetailed,replyRef,setMessageInf
     <div className={`${message.replies.length===0?"mb-2":"mb-4"}`}>
         <div  className='flex flex-wrap'>
             <div className="flex w-full">
-            <UserAvatar isPrivate={false} src={message.messageUser.profileImage} theme={message.messageUser.profileTheme}/>
+            <UserAvatar username={message.messageUser.username} isPrivate={false} src={message.messageUser.profileImage} theme={message.messageUser.profileTheme}/>
             <div className='grow pl-1 sm:pl-2'>
               <div className="rounded-md bg-accent/50 py-3 pad">
                 <h1 className='mb-1'>

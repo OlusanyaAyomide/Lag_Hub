@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
-import { IAlertInterface } from "./interfaces";
+import { IAlertInterface, ICommunity, IUser } from "./interfaces";
 import { IOpenAlert } from "@/utils/socketInterface";
 
 export interface ILayoutSlice{
     alert:IAlertInterface
+    activeUsers:IUser[]
+    searchedCommunity:ICommunity[]
 }
 
 
@@ -14,7 +16,10 @@ export const initalState:ILayoutSlice={
         isActive:false,
         content:"",
         link:""
-    }
+    },
+    activeUsers:[],
+    searchedCommunity:[]
+
 
 }
 export const layoutSlice = createSlice({
@@ -30,6 +35,13 @@ export const layoutSlice = createSlice({
             state.alert.isActive = false
             state.alert.content = ""
             state.alert.link = ""
+        },
+        setOnlineusers(state,action:PayloadAction<IUser[]>){
+            state.activeUsers = action.payload
+        },
+        setCommunitySearch(state,action:PayloadAction<ICommunity[]>){
+            state.searchedCommunity = action.payload
+
         }
     }
 })

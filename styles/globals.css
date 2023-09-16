@@ -8,6 +8,7 @@
     --foreground: 222.2 84% 4.9%;
     --main:#1977F2;
     --muted: 210 40% 96.1%;
+    --light:#ededeee3;
     --muted-foreground: 215.4 16.3% 46.9%;
  
     --popover:white;
@@ -43,6 +44,7 @@
   .dark {
     --background:black;
     --foreground: 210 40% 98%;
+    --light:#2e2e2ee3;
  
     --page:#0C0D0E;
 

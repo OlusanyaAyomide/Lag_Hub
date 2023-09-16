@@ -22,6 +22,7 @@ module.exports = {
       },
       colors: {
         page:"var(--page)",
+        light:"var(--light)",
         main:"var(--main)",
         shade:"var(--shade)",
         border: "hsl(var(--border))",

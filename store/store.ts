@@ -3,6 +3,7 @@ import  userSlice from "./authSlice";
 import postSlice from "./postSlice";
 import layoutSlice from "./layoutSlice";
 import postDetailSlice from "./postDetailSlice";
+import seacrhSlice from "./seacrhSlice";
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
         user:userSlice,
         post:postSlice,
         layout:layoutSlice,
-        postdetail:postDetailSlice
+        postdetail:postDetailSlice,
+        search:seacrhSlice
     }
 })
 

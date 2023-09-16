@@ -33,3 +33,12 @@ export const createPostMessage=(body:{post:string,text:string})=>{
 export const createPostReply=(body:{post:string,text:string})=>{
     return request.post<AxiosResponse<any>>("/post/create-reply",body)   
 }
+
+export const getActiveCommunities=()=>{
+    return request.get<AxiosResponse<any>>("/community/active")
+}
+
+
+export const addNewCommunity=(body:{name:string,description:string,communityImage:string})=>{
+    return request.post<AxiosResponse<any>>("/community/create",body)
+}

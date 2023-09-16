@@ -22,7 +22,7 @@ export default function ProfileInfo({post,createdAt}:IProfileInfo){
   return (
     <div className="flex-center justify-between pt-3">
     <div className='flex-center max-sm:w-[220px]'>
-    <UserAvatar className='h-11 w-11' isPrivate={false} src={src} theme={theme}/>
+    <UserAvatar className='h-11 w-11' username={post.postUser.username} isPrivate={false} src={src} theme={theme}/>
     <div className='ml-2 flex flex-col text-xs '>
         <span className="font-semibold text-sm big-text">{user.username}</span>
         <span className='font-light'>{user.firstName} {user.lastName}</span>

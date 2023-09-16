@@ -105,3 +105,9 @@ export interface Imessageinfo{
   _id:string
   username:string
 }
+
+export interface ICommunityForm{
+  description?:string
+  name?:string
+  communityImage?:string
+}

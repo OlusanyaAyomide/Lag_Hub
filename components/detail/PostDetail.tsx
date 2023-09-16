@@ -14,21 +14,22 @@ import MessageSkeleton from '../utils/MessageSkeleton'
 import { Imessageinfo } from '@/utils/interfaces'
 import PostTextInput from './PostTextInput'
 import ZeroMessages from '../utils/ZeroMessages'
+import NotFound from '../utils/NotFound'
 
 
 export default function PostMain() {
   const [isCommenting,setIsCommenting] = useState(false)
   const [messageInfo,setMessageInfo] = useState<Imessageinfo | null>(null)
+  const [notfound,setnotfound] = useState(false)
   const router = useRouter()
   const customId = router.query.customId as string
-  console.log(customId)
   const {post,messages} = useAppSelector((state=>state.postdetail))
   const dispatch = useAppDispatch()
   const replyRef = useRef<HTMLTextAreaElement>(null)
   
   const {isLoading,isFetching,data} = useGetRequest(
     {queryKey:['detail',customId],
-    queryFn:()=>{return postInfoRequest(customId)},
+    queryFn:()=>{return postInfoRequest(customId)},setNotFound:()=>{setnotfound(true)},
     onSuccess:(res:AxiosResponse<IPostInfo>)=>{
       dispatch(postDetailActions.setSinglePost(res.data.data))
       // dispatch(postActions.setCurrentMessages(res.data.data?.messages))
@@ -70,6 +71,7 @@ export default function PostMain() {
           <MessageSkeleton/>
         </div>
       </div>}
+      {notfound && <NotFound/>}
     </div>
 
   )

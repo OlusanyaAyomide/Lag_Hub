@@ -1,4 +1,4 @@
-import { IPost, IPostMessage } from "@/store/interfaces";
+import { ICommunity, IPost, IPostMessage } from "@/store/interfaces";
 
 export interface ISuccessRes{
   success: boolean;
@@ -61,6 +61,19 @@ export interface ISingleMessageResponse extends ISuccessRes{
   data:IPostMessage
 }
 
+
+export interface ICommunityListResponse extends ISuccessRes{
+  data:{
+    active:ICommunity[]
+    userCommunity:ICommunity[]
+  }
+
+}
+
+
+export interface INewCommunityResponse extends ISuccessRes{
+    data:ICommunity
+}
 
 
 

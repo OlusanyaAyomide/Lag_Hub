@@ -14,7 +14,7 @@ export default function IsShared(post:IPost) {
   const {toggleText,text,isTrimmed} = useTrimmedText(repostedText,15)
   return (
     <div className='flex  border-b pb-1  pad'>
-        <UserAvatar className='h-7 w-7' isPrivate={false} src={src} theme={theme}/>
+        <UserAvatar className='h-7 w-7' username={post.postUser.username} isPrivate={false} src={src} theme={theme}/>
         <h1 className='text-[13px] ml-3 pr-4'>
           <Linkify>
             {shouldTrim(15,repostedText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"show less":"...show more"}</span>} 

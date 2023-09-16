@@ -12,6 +12,7 @@ import { useHydration } from '../../hooks/useHydration'
 export default function MobileNav() {
    const [isSearching,setIsSearching] = useState<boolean>(false)
    const {isRendered} = useHydration()
+   const [text,setText] = useState<string>("")
    return (
    <div>
       <div className='flex min-h-10 items-center'>
@@ -27,9 +28,7 @@ export default function MobileNav() {
         </>}
  
     </div>
-   {isSearching &&  <div className=''>
-      <h1 className='font-semibold my-2'>Recent Searches</h1>
-      <UserList/>
+   {text.length  < 3 && text !== "" &&  <div className=''>
       <h1 className='font-semibold my-2'>Popular Searches</h1>
       <UserList/>
       <Separator className='my-4'/>      

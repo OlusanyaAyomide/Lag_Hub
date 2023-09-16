@@ -1,13 +1,13 @@
 import {useEffect} from "react"
 import socket from "./sockets"
-import { IPost, IPostMessage } from "@/store/interfaces"
+import { ICommunity, IPost, IPostMessage, IUser } from "@/store/interfaces"
 import { useAppDispatch } from "@/hooks/reduxHooks"
 import { postActions } from "@/store/postSlice"
 import { IOpenAlert } from "@/utils/socketInterface"
 import { layoutActions } from "@/store/layoutSlice"
 import { usePathname } from "next/navigation"
 import { postDetailActions } from "@/store/postDetailSlice"
-import { useRouter } from "next/router"
+
 
 export const useSockets = ()=>{
     const dispatch = useAppDispatch()
@@ -43,7 +43,12 @@ export const useSockets = ()=>{
             dispatch(postActions.editRepliedMessage(message))
             if(!isHome){dispatch(postDetailActions.editRepliedMessage(message))}
         })
-        
+        socket.on("emit-online",(users:IUser[])=>{
+            dispatch(layoutActions.setOnlineusers(users))
+        })
+        socket.on("emit-community-search",(communities:ICommunity[])=>{
+            dispatch(layoutActions.setCommunitySearch(communities))
+        })
         // return ()=>{
         //     socket.off('connect');
         //     socket.off('disconnect');

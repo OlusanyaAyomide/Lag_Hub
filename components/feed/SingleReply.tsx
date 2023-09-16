@@ -15,7 +15,7 @@ export default function SingleReply({reply,isDetailed}:ISingleReplyitems) {
     const {text,isTrimmed,toggleText} = useTrimmedText(reply.text,30)
     return (
     <div  className='w-full pl-4 my-1 flex  sm:pl-8'>
-        <UserAvatar className='h-6 w-6' isPrivate={false} src={reply.user.profileImage}  theme={reply.user.profileTheme}/>
+        <UserAvatar className='h-6 w-6' username={reply.user.username} isPrivate={false} src={reply.user.profileImage}  theme={reply.user.profileTheme}/>
         <div className='ml-1 sm:ml-2 bg-accent/50 rounded-md pad py-1'>
             <h1 className='mb-1'>
               <span className="font-semibold">{reply.user.username}</span>

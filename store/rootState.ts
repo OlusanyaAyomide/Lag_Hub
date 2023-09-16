@@ -1,5 +1,5 @@
 import { IAuthSlice } from "./authSlice"
-import { IPostSlice, IpostDetailSlice } from "./interfaces"
+import { IPostSlice, ISearchSlice, IpostDetailSlice } from "./interfaces"
 import { ILayoutSlice } from "./layoutSlice"
 
 export interface IRootState{
@@ -7,4 +7,5 @@ export interface IRootState{
     post:IPostSlice,
     layout:ILayoutSlice
     postdetail:IpostDetailSlice
+    search:ISearchSlice
 }

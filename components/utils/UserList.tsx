@@ -1,24 +1,26 @@
 import React from 'react'
-import { Tempsearch } from '../layout/AutoComplete'
-import { Button } from '../ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Icons } from '@/utils/icons'
 import { cn } from '@/lib/utils'
-export default function UserList({className}:{className?:string}) {
+import UserAvatar from './UserAvatar'
+import { IUser } from '@/store/interfaces'
+import Link from 'next/link'
+
+interface IshowStatus{
+   className?:string,user:IUser,showStatus?:boolean
+}
+
+export default function UserList({className,user,showStatus}:IshowStatus) {
   return (
-   <div className={cn('flex flex-col space-y-2',className)}>
-      {Tempsearch.map((item,key)=>(
-         <div key={key} className='flex items-center py-1'>
-            <Avatar>
-               <AvatarImage src='/profile.png'></AvatarImage>
-               <AvatarFallback>Lh</AvatarFallback>
-            </Avatar>
-            {item.verify && <Icons.verify className='text-sm ml-[2px] text-blue-500'/>}
-            <div className='grow flex items-center pl-3'>
-               <span className=''>{item.text} and me to bla bla</span>
-            </div>
+   <div className={cn('mb-1',className)}>
+      <div className='py-1 flex-center'>
+         <div className="h-fit w-fit shrink-0 rounded-full relative ">
+            <UserAvatar isPrivate={false} theme={user.profileTheme} username={user.username} src={user.profileImage}/>
+            {showStatus && <div className="absolute bottom-2 right-0 rounded-full bg-green-500 h-2 w-2"></div>}
          </div>
-      ))}
+         <div className='grow  pl-1'>
+            <Link href={`/profile/${user.username}`}><h1 className='leading-3 hover:underline hover:text-blue-500 text-sm font-medium'>{user.username}</h1></Link>
+            <h1 className="text-[11px]">{user.firstName} {user.lastName}</h1>
+         </div>
+      </div>
    </div>
   )
 }

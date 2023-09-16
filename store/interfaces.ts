@@ -95,3 +95,18 @@ export interface IDetailParams{
     customId:string | string [] | undefined
     post:IPost
 }
+
+export interface ISearchSlice{
+    globalSearch:IUser[]
+}
+
+
+export interface ICommunity{
+    _id: string;
+    name: string;
+    customId: string;
+    description: string;
+    communityImage: string;
+    createdAt: string;
+    slug: string;
+}
