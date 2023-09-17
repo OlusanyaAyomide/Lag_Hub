@@ -4,6 +4,7 @@ import postSlice from "./postSlice";
 import layoutSlice from "./layoutSlice";
 import postDetailSlice from "./postDetailSlice";
 import seacrhSlice from "./seacrhSlice";
+import communitySlice from "./communitySlice";
 
 
 export const store = configureStore({
@@ -12,7 +13,8 @@ export const store = configureStore({
         post:postSlice,
         layout:layoutSlice,
         postdetail:postDetailSlice,
-        search:seacrhSlice
+        search:seacrhSlice,
+        community:communitySlice
     }
 })
 

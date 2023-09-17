@@ -55,10 +55,10 @@ export default function NewCommunity({description,name,communityImage,closeref,t
 
     const handleUpload = (e:React.ChangeEvent<HTMLInputElement>)=>{
         URL.revokeObjectURL(formik.values.communityImage || "")
-        const file = e.target.files
-        if(file){
-            const url = URL.createObjectURL(file[0])
-            setCommunityFile(file[0])
+        const files = e.target.files
+        if(files && files[0]){
+            const url = URL.createObjectURL(files[0])
+            setCommunityFile(files[0])
             formik.setFieldValue("communityImage",url)
         }
     }
@@ -106,7 +106,7 @@ export default function NewCommunity({description,name,communityImage,closeref,t
                 }
             </div>
             <div className='flex-center mb-6'>
-                <input onChange={handleUpload} type="file" className='hidden' ref={ref}/>
+                <input accept="image/*" onChange={handleUpload} type="file" className='hidden' ref={ref}/>
             </div>
             <Button disabled={loading} type='submit' className='px-8 flex items-center justify-center bg-main mx-auto text-white hover:bg-blue-500'>
                 {loading?<RadioLoader/>:<span>Create New Community</span>}

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images:{
-    domains:['res.cloudinary.com']
+    domains:['res.cloudinary.com',"bghread.jpg"]
   }
 }
 

@@ -10,7 +10,7 @@ export default function UserDm() {
           const prevUser = key>0?mockMessage[key-1].user:""
           return <SingleChat isPrivate={true} key={key} {...item} prevUser={prevUser}/>
         })}
-    <SendMessage/>
+    {/* <SendMessage/> */}
   </div>
   )
 }

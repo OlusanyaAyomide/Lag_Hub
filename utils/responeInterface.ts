@@ -1,4 +1,4 @@
-import { ICommunity, IPost, IPostMessage } from "@/store/interfaces";
+import { ICommunity, ICommunityData, ICommunityMessage, IPost, IPostMessage } from "@/store/interfaces";
 
 export interface ISuccessRes{
   success: boolean;
@@ -70,10 +70,16 @@ export interface ICommunityListResponse extends ISuccessRes{
 
 }
 
-
 export interface INewCommunityResponse extends ISuccessRes{
     data:ICommunity
 }
+
+export interface ICommunityInfoResponse extends ISuccessRes{
+    data:ICommunityData
+}
+
+
+
 
 
 

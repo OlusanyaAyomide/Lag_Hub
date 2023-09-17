@@ -34,15 +34,21 @@ export interface IPost {
     repostedusername?:string
 }
 
+
+
 export interface IPostsResponse{
     success:boolean
     data:{
         page:number
-        // limit:number
-        // total:number
         isLast:boolean
         data:IPost[]
     }
+}
+
+export interface IsetPost{
+    page:number
+    isLast:boolean
+    data:IPost[]
 }
 
 export interface IPostSlice{
@@ -109,4 +115,25 @@ export interface ICommunity{
     communityImage: string;
     createdAt: string;
     slug: string;
+}
+
+export type IMessageType="image" |"text"|"system"
+
+export interface ICommunityMessage{
+    _id: string,
+    user:string,
+    community:string,
+    type: IMessageType,
+    text: string,
+    imageUrl:string,
+    createdAt:string,
+    messageUser:IUser
+}
+
+export interface ICommunityData{
+    communityDetail:ICommunity
+    userCount:number
+    isMember:boolean
+    messages:ICommunityMessage[]
+
 }

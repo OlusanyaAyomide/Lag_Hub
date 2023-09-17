@@ -3,13 +3,19 @@ import CommunityLayout from '@/components/layout/CommunityLayout'
 import React from 'react'
 import { useAppSelector } from "@/hooks/reduxHooks"
 import { useAuth } from "@/hooks/useAuth"
+import Loader from '@/components/utils/Loader'
 
 export default function index() {
   const {isAuthenticated} = useAppSelector((state=>state.user))
   useAuth()
   return (
-    <CommunityLayout>
-        <CommunityMain/>
-    </CommunityLayout>
+    <>
+        {isAuthenticated?
+            <CommunityLayout>
+                <CommunityMain/>
+            </CommunityLayout>:<Loader/>
+        }
+    </>
+
   )
 }

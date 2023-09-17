@@ -42,3 +42,7 @@ export const getActiveCommunities=()=>{
 export const addNewCommunity=(body:{name:string,description:string,communityImage:string})=>{
     return request.post<AxiosResponse<any>>("/community/create",body)
 }
+
+export const getCommunityRequest=(slug:string)=>{
+    return request.get<AxiosResponse<any>>(`/community/${slug}`)
+}

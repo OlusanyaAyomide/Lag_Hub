@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
-import { IPostSlice,IEditPost, IPost, IPostMessage } from "./interfaces";
+import { IPostSlice,IEditPost, IPost, IPostMessage, IsetPost } from "./interfaces";
 import { shuffleArray } from "@/lib/utils";
 
 
@@ -16,7 +16,7 @@ export const postSlice = createSlice({
     name:"post",
     initialState:initalState,
     reducers:{
-        setPosts(state,action:PayloadAction<IPostSlice>){
+        setPosts(state,action:PayloadAction<IsetPost>){
             const {data,isLast,page} =action.payload
             const newposts = shuffleArray(data)
 

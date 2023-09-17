@@ -1,18 +1,22 @@
 import {useEffect} from "react"
 import socket from "./sockets"
-import { ICommunity, IPost, IPostMessage, IUser } from "@/store/interfaces"
+import { ICommunity, ICommunityMessage, IPost, IPostMessage, IUser } from "@/store/interfaces"
 import { useAppDispatch } from "@/hooks/reduxHooks"
 import { postActions } from "@/store/postSlice"
 import { IOpenAlert } from "@/utils/socketInterface"
 import { layoutActions } from "@/store/layoutSlice"
 import { usePathname } from "next/navigation"
 import { postDetailActions } from "@/store/postDetailSlice"
+import { useRouter } from "next/router"
+import { communityActions } from "@/store/communitySlice"
 
 
 export const useSockets = ()=>{
     const dispatch = useAppDispatch()
     const isHome = usePathname() === "/"
-  
+    const router = useRouter()
+    const {Slug} = router.query
+    console.log(Slug,router.query)
 
 
     useEffect(()=>{
@@ -23,7 +27,7 @@ export const useSockets = ()=>{
           console.log(err.message);
         });
         socket.on('disconnect', ()=>{
-            console.log("socket disconnected")
+            dispatch(layoutActions.setOnlineusers([]))
         });
         socket.on("emit-like-post",(post:IPost)=>{
             dispatch(postActions.likePostDispatch({_id:post._id,post}))
@@ -49,11 +53,17 @@ export const useSockets = ()=>{
         socket.on("emit-community-search",(communities:ICommunity[])=>{
             dispatch(layoutActions.setCommunitySearch(communities))
         })
-        // return ()=>{
-        //     socket.off('connect');
-        //     socket.off('disconnect');
-        //     socket.off("connect_error")
-        // }
+        socket.on("emit-community-alert",(body:IOpenAlert)=>{
+            // if()
+            console.log("Triggered")
+        })
+        socket.on("emit-community-message",(message:ICommunityMessage)=>{
+            dispatch(communityActions.AddNewMessage(message))  
+        })
+        socket.on("emit-community-joined",()=>{
+            dispatch(communityActions.joinCommunity())
+        })
+
     },[isHome])
     
     return null
