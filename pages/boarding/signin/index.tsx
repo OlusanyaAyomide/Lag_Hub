@@ -23,6 +23,9 @@ export default function SignIn() {
   const dispatch = useAppDispatch()
   const router = useRouter()
   
+  const initialState ={
+    
+  }
   const onSuccess = async (res:AxiosResponse<ISignInResponse>)=>{
     const authCookie = Cookies.get("authCookie")
     const {user,token} = res.data?.data
@@ -61,13 +64,17 @@ export default function SignIn() {
             <FieldButton 
               text='Email Address'
               placeholder='example@gmail.com'
+              value='lamzyemail@gmail.com'
             />
             <FieldButton 
               text='Password'
               type='password'
+              value='password'
               placeholder='******'
             />
-            <Button disabled={loading} type='button' className='text-white flex justify-center mt-8 bg-main hover:bg-blue-500 items-center w-full'>{loading?<RadioLoader/>:"Sign In"}</Button>
+            <Button 
+            onClick={()=>{signin({email:"lamzyemail@gmail.com",password:"password"})}}
+            disabled={loading} type='button' className='text-white flex justify-center mt-8 bg-main hover:bg-blue-500 items-center w-full'>{loading?<RadioLoader/>:"Sign In"}</Button>
             <Button disabled={loading} onClick={()=>{login()}} type='button' className='border mt-2 bg-gray-50 dark:bg-gray-600  flex justify-center hover:bg-gray-100 dark:hover:bg-gray-500 w-full'>
               <span className='text-foreground'>Sign in with Google</span>
               <span className='ml-2 text-xl'>{<Icons.google/>}</span>
@@ -76,7 +83,6 @@ export default function SignIn() {
           </div>
         </form>
       </AuthLayout>
-
     </BoardingLayout>
   )
 }

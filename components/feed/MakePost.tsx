@@ -68,7 +68,7 @@ export default function MakePost() {
       const fileUpload = userfile[0]
       const videoMimeTypes = ["video/mp4", "video/webm"]
       
-      const isfileLarge = isFileLarge(fileUpload,25)
+      const isfileLarge = isFileLarge(fileUpload,40)
       if(isfileLarge){
          toaster("bad","File is to large")
          return
@@ -155,19 +155,21 @@ export default function MakePost() {
                <div className="flex-center mt-3">
 
                   <Button 
+                     disabled={Loading}
                      onClick={()=>{imageref.current?.click()}} 
                      variant={'ghost'} className='rounded-full p-2 mr-4 bg-accent' size={'icon'}>
                      <Icons.picture className='text-2xl text-main'/>                    
                   </Button>
 
                   <Button 
+                     disabled={Loading}
                      onClick={()=>{videoref.current?.click()}} 
                      variant={'ghost'} className='rounded-full p-2 bg-accent' size={'icon'}>
                      <Icons.video className='text-2xl text-main'/>                    
                   </Button>
 
-                  <input ref={videoref} onChange={handleVideoUpload} className='hidden' type="file" accept="video/*" />
-                  <input accept="image/*"  ref={imageref} onChange={handleImageUpload} type="file" className="hidden"/> 
+                  <input disabled={Loading} ref={videoref} onChange={handleVideoUpload} className='hidden' type="file" accept="video/*" />
+                  <input disabled={Loading} accept="image/*"  ref={imageref} onChange={handleImageUpload} type="file" className="hidden"/> 
                </div>
 
                <Button disabled={text.length<4 || Loading} onClick={handleUpload}

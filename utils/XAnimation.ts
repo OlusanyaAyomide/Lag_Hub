@@ -6,7 +6,7 @@ export const AlertAnimation={
         y:0
     },
     exit:{
-        x:350
+        x:450
     }
 }
 

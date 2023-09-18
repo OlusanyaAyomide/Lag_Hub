@@ -29,7 +29,7 @@ interface IFetchPost{
 export const useGetRequest = ({
     queryKey,queryFn,onSuccess,onError,showError=true,setNotFound,staleTime=30000,retry=false,enabled=true}:IGetPost)=>{
       const toaster = useCustomToast()
-
+    
     
     return useQuery({
       queryKey:queryKey,
@@ -75,12 +75,7 @@ export const useGetRequest = ({
       }
       if (res.code === "ERR_BAD_REQUEST" && showError){
         const errmsg = res.response?.data?.message || res.response?.data?.error
-        toast({
-          title:"Bad request",
-          description:`${errmsg?errmsg:""}`,
-          className:"border h-fit background-transparent backdrop-blur-sm border-red-500",
-          duration:3000
-        })
+          toaster("bad",errmsg )
     //     console.log(errmsg)
     //     if (errmsg === "Unauthenticated." && showError){
     //         dispatch(layoutActions.setRedirected(pathname))

@@ -24,9 +24,10 @@ interface ISendMessage{
   sendMessage:({text,imageUrl,type}:IInputType)=>void
   isJoined:boolean
   joinCommunity?:()=>void
+  focusChange:(status:boolean)=>void
 }
 
-export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity}:ISendMessage) {
+export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity,focusChange}:ISendMessage) {
     const [text,setText] = useState<string>("")
     const [file,setFile] = useState<File | null>(null)
     const [filePreview,setFilePreview] = useState<string>("")
@@ -95,6 +96,8 @@ export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity}:
             {/* text.length>2 && !isLiam &&   */}
             <div className="relative w-full">
                 <TextareaAutosize 
+                    onFocus={()=>{focusChange(true)}}
+                    onBlur={()=>{focusChange(false)}}
                     value={text}
                     onChange={(e)=>{setText(e.target.value)}}
                     placeholder='Enter message'

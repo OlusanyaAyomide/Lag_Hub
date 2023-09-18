@@ -12,7 +12,6 @@ interface ICommunityList{
 export default function CommunityList({className,communities,showAll}:ICommunityList) {
     const maxLength = 4
     const [totoalLength,setTotalLength] = useState(maxLength)
-    console.log(communities)
     return (
         <div className={cn('mb-0 py-2  cursor-pointer',className)}>
         {communities.map((item,key)=>{

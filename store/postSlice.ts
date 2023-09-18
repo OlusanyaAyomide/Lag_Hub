@@ -39,9 +39,13 @@ export const postSlice = createSlice({
             state.data = newPost
         },
         pushnewPost(state,action:PayloadAction<IPost>){
+            const isPresent = state.data.some(post=>post._id === action.payload._id)
+            if(isPresent){return}
             state.data = [action.payload,...state.data]
         },
         appendNewPost(state,action:PayloadAction<IPost>){
+            const isPresent = state.data.some(post=>post._id === action.payload._id)
+            if(isPresent){return}
             state.data = [...state.data,action.payload]
         },
         likePostDispatch(state,action:PayloadAction<IEditPost>){
@@ -65,7 +69,9 @@ export const postSlice = createSlice({
         dispatchFeedpost(state,action:PayloadAction<IPostMessage>){
             const message = action.payload
             if(state.currentPost !== message.post){return}
-
+            const isPresent = state.currentMessages.some((newmessage=>newmessage._id === action.payload._id))
+            if(isPresent){return}
+            
             if(state.currentMessages?.length < 4){
                 state.currentMessages = [...state.currentMessages,action.payload]
             }

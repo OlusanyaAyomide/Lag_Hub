@@ -8,15 +8,16 @@ import { layoutActions } from "@/store/layoutSlice"
 import { usePathname } from "next/navigation"
 import { postDetailActions } from "@/store/postDetailSlice"
 import { useRouter } from "next/router"
-import { communityActions } from "@/store/communitySlice"
+import { ITypingUsers, communityActions } from "@/store/communitySlice"
+import { ICommunityAlert } from "@/utils/interfaces"
 
 
 export const useSockets = ()=>{
     const dispatch = useAppDispatch()
     const isHome = usePathname() === "/"
-    const router = useRouter()
-    const {Slug} = router.query
-    console.log(Slug,router.query)
+    // const router = useRouter()
+    // const {Slug} = router.query
+    // console.log(Slug,router.query)
 
 
     useEffect(()=>{
@@ -53,15 +54,21 @@ export const useSockets = ()=>{
         socket.on("emit-community-search",(communities:ICommunity[])=>{
             dispatch(layoutActions.setCommunitySearch(communities))
         })
-        socket.on("emit-community-alert",(body:IOpenAlert)=>{
-            // if()
-            console.log("Triggered")
+        socket.on("emit-community-alert",(body:ICommunityAlert)=>{
+            dispatch(communityActions.communityToast(body))
         })
         socket.on("emit-community-message",(message:ICommunityMessage)=>{
             dispatch(communityActions.AddNewMessage(message))  
         })
         socket.on("emit-community-joined",()=>{
             dispatch(communityActions.joinCommunity())
+        })
+        socket.on("emit-typing",(body:ITypingUsers)=>{
+            console.log("event received")
+            dispatch(communityActions.addNewTypingUser(body))
+        })
+        socket.on("emit-stop-typing",(body:ITypingUsers)=>{
+            dispatch(communityActions.removeTypingUser(body))
         })
 
     },[isHome])

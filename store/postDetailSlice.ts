@@ -45,6 +45,8 @@ export const postDetailSlice = createSlice({
         },
         appendNewMessage(state,action:PayloadAction<IPostMessage>){
             if(action.payload.post !== state.post._id){return}
+            const isPresent = state.messages.some(newmessage => newmessage._id === action.payload._id)
+            if(isPresent){return}
             state.messages = [...state.messages,action.payload]
         }
         

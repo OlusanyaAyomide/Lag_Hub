@@ -15,6 +15,8 @@ import { AxiosResponse } from 'axios'
 import socket from '@/sockets/sockets'
 import { ICommunity } from '@/store/interfaces'
 import { imgUrl } from '@/utils/tempKeys'
+import { useRouter } from 'next/router'
+import { INewCommunityResponse } from '@/utils/responeInterface'
 
 
 interface INewCommunity extends ICommunityForm{
@@ -25,15 +27,17 @@ interface INewCommunity extends ICommunityForm{
 export default function NewCommunity({description,name,communityImage,closeref,toggler}:INewCommunity) {
     const ref = useRef<HTMLInputElement>(null)
     const [communityFile,setCommunityFile] = useState<File | null>(null)
+    const router = useRouter()
 
     const {isLoading:Loading,mutate:upload} = usePostRequest({mutationFn:cloudinaryUploader,onSuccess:({data:{public_id}}:AxiosResponse<IResponse>)=>{
         const {name,description} = formik.values
         mutate({name,description,communityImage:`${imgUrl}${public_id}`})
     }})
-    const {isLoading,mutate} = usePostRequest({mutationFn,sucessText:"New community created",onSuccess:({data}:AxiosResponse<ICommunity>)=>{
+    const {isLoading,mutate} = usePostRequest({mutationFn,sucessText:"New community created",onSuccess:({data:{data}}:AxiosResponse<INewCommunityResponse>)=>{
         closeref.current?.click()
         // toggler((prev=>prev+1))
         socket.emit("new-community",data)
+        router.push(`/community/chat/${data.slug}`)
     }})
 
     const loading = isLoading || Loading

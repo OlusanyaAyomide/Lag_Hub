@@ -1,3 +1,6 @@
+import { ICommunity } from "@/store/interfaces";
+import { IOpenAlert } from "./socketInterface";
+
 interface IThumbnail {
   url: string;
   width?: number;
@@ -110,4 +113,9 @@ export interface ICommunityForm{
   description?:string
   name?:string
   communityImage?:string
+}
+
+export interface ICommunityAlert{
+  alert:IOpenAlert
+  community:ICommunity
 }

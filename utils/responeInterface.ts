@@ -80,7 +80,4 @@ export interface ICommunityInfoResponse extends ISuccessRes{
 
 
 
-
-
-
   

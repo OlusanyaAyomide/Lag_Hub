@@ -50,7 +50,7 @@ export default function PostButtons({children,...data}:IPostButtons){
       socket.emit("like-post",post)
    }})
 
-   const isVideo = data.type ==="video" 
+  
    return (
     <div className="flex flex-wrap  text-lg py-[2px] border-t">
      <ReactButtons
@@ -63,7 +63,7 @@ export default function PostButtons({children,...data}:IPostButtons){
      <PopoverTrigger  asChild>
        <button 
         disabled={username === data.postUser.username}
-         className={` ${!isVideo?"w-4/12":"w-6/12"} h-10 cursor-pointer disabled:hover:bg-background hover:bg-accent flex items-center rounded-md justify-center`}>
+         className={` w-4/12 h-10 cursor-pointer disabled:hover:bg-background hover:bg-accent flex items-center rounded-md justify-center`}>
             <span className='text-main relative right-[2px] text-[22px]'><Icons.repost/></span>
             <span className='text-xs font-medium'>Repost</span>
        </button>
