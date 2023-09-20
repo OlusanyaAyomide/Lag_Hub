@@ -23,7 +23,7 @@ export default function PostDetail({type,wordLength=12,url,postText}:IPostDetail
       <Linkify options={{}}>
         <span>{text}</span>
       </Linkify>
-      {shouldTrim(wordLength,postText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"show less":"...show more"}</span>}
+      {shouldTrim(wordLength,postText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"less":"..more"}</span>}
     </h1>
     {type === "image" && <div className="mt-3 aspect-[2/1.3] sm:aspect-[2/1.1] relative">
         <Image  src={url} fill alt="post"  className='w-full h-full'/>

@@ -17,10 +17,11 @@ interface ISingleComment {
     isDetailed:boolean   
     message:IPostMessage
     setIsCommenting?:React.Dispatch<React.SetStateAction<boolean>>
+    postId?:string
 }[]
 
 
-export default function SingleComment({message,isDetailed,replyRef,setMessageInfo,setIsCommenting}:ISingleComment) {
+export default function SingleComment({message,isDetailed,replyRef,setMessageInfo,setIsCommenting,postId}:ISingleComment) {
 
     const {text,isTrimmed,toggleText} = useTrimmedText(message.text,30)
 
@@ -40,10 +41,10 @@ export default function SingleComment({message,isDetailed,replyRef,setMessageInf
                 <div>
                   {isDetailed?
                   <h1>{text}
-                   {shouldTrim(30,message.text) && <button className='ml-2 text-main font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}</h1>
+                   {shouldTrim(30,message.text) && <button className='ml-2 text-main font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}</h1>
                   :<>
                     <span>{trimAndAppend(20,message.text)}</span>
-                    {shouldTrim(20,message.text) && <Link className='ml-2 font-medium hover:underline hover:text-main' href={"/post/detail/1234"}>see more..</Link>} 
+                    {shouldTrim(20,message.text) && <Link className='ml-2 font-medium hover:underline hover:text-main' href={`post/detail/${postId}`}>see more..</Link>} 
                   </>
                   }
                 </div>
@@ -68,7 +69,7 @@ export default function SingleComment({message,isDetailed,replyRef,setMessageInf
         </div>
         ))}
         {message.replies.length > 2 && !isDetailed &&
-        <Link href={"/post/detail/1234"}><h1 className='block mt-1 pl-12 sm:pl-16'>view all {message.replies.length} reply</h1></Link>
+        <Link href={`/post/detail/${postId}`}><h1 className='block mt-1 pl-12 sm:pl-16'>view all {message.replies.length} reply</h1></Link>
         }
     </div>
   )

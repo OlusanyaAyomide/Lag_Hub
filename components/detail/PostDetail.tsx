@@ -59,7 +59,7 @@ export default function PostMain() {
                 <SingleComment message={item} setMessageInfo={setMessageInfo}
                 setIsCommenting={setIsCommenting}
                    replyRef={replyRef} key={key}
-                  isDetailed={false}/>
+                  isDetailed={true}/>
                 ))}
                 {messages.length ===0 && <ZeroMessages/>}
           </div>

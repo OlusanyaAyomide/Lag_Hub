@@ -119,3 +119,4 @@ export interface ICommunityAlert{
   alert:IOpenAlert
   community:ICommunity
 }
+

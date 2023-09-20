@@ -1,7 +1,7 @@
 import {Check,MonitorPlay,SunMedium,Moon,ChevronsUpDown,Triangle,Menu
 } from "lucide-react"
 import {
-    BsSearch,BsChatSquareDots,BsChatSquareText,BsChatText,
+    BsSearch,BsChatSquareDots,BsChatSquareText,BsChatText,BsCheck2All,
     BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,BsFillPlayFill,
     BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill, BsSave
 } from "react-icons/bs"
@@ -21,13 +21,16 @@ import {SlUserFollow} from "react-icons/sl"
 import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 import {FcGoogle} from "react-icons/fc"
 import {LuSearchX} from "react-icons/lu"
+import {GrEmptyCircle} from "react-icons/gr"
 
 
 
 
 
 export const Icons = {
+   emptycirle:GrEmptyCircle,
    plane:FaPaperPlane,
+   doubleCheck:BsCheck2All,
    trash:BiTrash,
    users:FaUsers,
    chat3:BsChatText,

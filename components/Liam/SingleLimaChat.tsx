@@ -16,7 +16,7 @@ export default function SingleLimaChat({text,isBot}:ISingleLiamChat) {
         </div>}
         <div className={`py-3 pad ${!isBot?"bg-main rounded-sm text-white":"bg-background shadow-sm rounded-md"} `}>
           <span>{updatedText}</span>
-          {shouldTrim(30,text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
+          {shouldTrim(30,text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
         </div>
 
     </div>

@@ -27,7 +27,7 @@ export default function SingleReply({reply,isDetailed}:ISingleReplyitems) {
             <>
             {isDetailed?
                   <h1>{text}
-                   {shouldTrim(30,reply.text) && <button className='ml-2 text-main font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}</h1>
+                   {shouldTrim(30,reply.text) && <button className='ml-2 text-main font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}</h1>
                   :<>
                     <span>{trimAndAppend(20,reply.text)}</span>
                     {shouldTrim(20,reply.text) && <Link className='ml-2 font-medium text-main hover:text-underline' href={"/post/detail/1234"}>see more..</Link>} 

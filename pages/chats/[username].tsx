@@ -1,16 +1,16 @@
-import UserDm from '@/components/chat/UserDm'
-import ChatHeader from '@/components/community/chat/ChatHeader'
-import CommunityLayout from '@/components/layout/CommunityLayout'
-import QuicProfile from '@/components/chat/QuicProfile'
-import React from 'react'
+import Loader from "@/components/utils/Loader"
+import { useAppSelector } from "@/hooks/reduxHooks"
+import { useAuth } from "@/hooks/useAuth"
+import DmChatMain from "@/components/chat/chatDm/DmChatMain"
 
-export default function PrivteChat() {
+export default function PrivatChat() {
+  const {isAuthenticated} = useAppSelector((state=>state.user))
+  useAuth()
   return (
-    <CommunityLayout>
-        <ChatHeader isProfile isPrivate title='Johnsoe Doe' backLink='/chats'>
-          <QuicProfile/>
-        </ChatHeader>
-        <UserDm/>
-    </CommunityLayout>
+    <>
+      {isAuthenticated?<DmChatMain/>:<Loader/>}
+    </>
   )
 }
+
+

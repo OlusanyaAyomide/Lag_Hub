@@ -21,12 +21,13 @@ export default function FeedMain() {
     dispatch(postActions.setPosts(data.data?.data))
   }
 
-  const {isLoading,isFetching} = useGetRequest({queryKey:['get-posts',`${page}`],queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
+  const {isLoading,isFetching,isError} = useGetRequest({queryKey:['get-posts',`${page}`],queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
 
   const [ref] = useInfiniteScroll({
     onLoadMore:()=>{dispatch(postActions.increasePage())},
     loading:isFetching,
-    hasNextPage:!isLast
+    hasNextPage:!isLast,
+    disabled:isError
   })
 
 

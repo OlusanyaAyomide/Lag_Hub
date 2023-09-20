@@ -1,4 +1,4 @@
-import { ICommunity, ICommunityData, ICommunityMessage, IPost, IPostMessage } from "@/store/interfaces";
+import { ICommunity, ICommunityData, ICommunityMessage, IDmResponse, IDmSingleChat, IPost, IPostMessage } from "@/store/interfaces";
 
 export interface ISuccessRes{
   success: boolean;
@@ -30,6 +30,7 @@ interface IUser {
     following:number,
     createdAt:string,
     username:string
+    lastSeen:string
   }
 
 export interface IProfileResponse extends ISuccessRes{
@@ -78,6 +79,32 @@ export interface ICommunityInfoResponse extends ISuccessRes{
     data:ICommunityData
 }
 
+export interface ICommunityUser extends ISuccessRes{
+  data:{
+    users:IUser
+  }[]
+}
 
 
-  
+export interface IUSerDmResponse extends ISuccessRes{
+  data:{
+    totalUnreadCount: number
+    conversations:IDmResponse[]
+  }
+}
+
+
+
+export interface IPrivateChatResponse extends ISuccessRes{
+    data:{
+      messages:IDmSingleChat[]
+      chatUser:IUser
+    }
+    
+}
+
+
+export interface ISetIsTyping{
+  chatUser:string
+  isTyping:boolean
+}

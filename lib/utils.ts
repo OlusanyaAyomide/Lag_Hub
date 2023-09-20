@@ -72,9 +72,9 @@ export function setCookieAsync(token:string){
 }
 
 export function isDateToday(dateString: string): string | null {
-
   const inputDate = new Date(dateString);
   const currentDate = new Date();
+
   if (
     inputDate.getDate() === currentDate.getDate() &&
     inputDate.getMonth() === currentDate.getMonth() &&
@@ -82,15 +82,19 @@ export function isDateToday(dateString: string): string | null {
   ) {
     const hours = inputDate.getHours();
     const minutes = inputDate.getMinutes();
-    const amOrPm = hours >= 12 ? "pm" : "am";
-    const formattedHours = hours % 12 || 12; // Convert 0 to 12
-    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
 
-    return `${formattedHours}:${formattedMinutes}${amOrPm}`;
+    // Use padStart to ensure that single-digit hours and minutes have a leading zero
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+
+    return `${formattedHours}:${formattedMinutes}`;
   }
 
   return null;
 }
+
+
+
 
 
 

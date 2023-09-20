@@ -19,7 +19,6 @@ export default function ChatRoom() {
     window.scrollTo(0, document.body.scrollHeight);
     },[])
 
-
   const handeSendMessage=({type,text,imageUrl}:IInputType)=>{
     socket.emit("send-community-message",{type,text,imageUrl,community:community.communityDetail})
   }

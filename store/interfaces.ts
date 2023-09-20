@@ -11,6 +11,7 @@ export interface IUser{
     followers:number
     following:number
     createdAt:string
+    lastSeen:string
 }
 
 export interface IPost {
@@ -136,4 +137,37 @@ export interface ICommunityData{
     isMember:boolean
     messages:ICommunityMessage[]
 
+}
+export interface IDmResponse{
+    user:IUser
+    lastMessage:string
+    createdAt:string
+    unreadCount:number
+    lastIsRead:boolean
+}
+
+export interface IDmList{
+    conversations:IDmResponse[]
+
+}
+
+export interface IDmSingleChat{
+    _id:string
+    sender:IUser
+    receiver:IUser
+    text:string
+    type:"image" | "text"
+    isRead:boolean
+    createdAt:string
+    imageUrl:string
+}
+
+export interface IprivateChatSlice{
+    chatUser:IUser
+    messages:IDmSingleChat[]
+    isTyping:boolean
+    alert:{
+        isToast:boolean,
+        link:string,
+        content:string    },
 }

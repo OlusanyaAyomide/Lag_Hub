@@ -58,7 +58,7 @@ export default function ProfileHero({onOverlay}:{onOverlay?:boolean}) {
                 <h1 className="font-medium">Profile biography</h1>
                 <div className="py-1">
                     <span>{text}</span>
-                    {shouldTrim(30,mocKDescription) && <button className='font-medium ml-2' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
+                    {shouldTrim(30,mocKDescription) && <button className='font-medium ml-2' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
                 </div>
                 </div>
            

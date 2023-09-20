@@ -1,15 +1,18 @@
 import {useEffect} from "react"
 import socket from "./sockets"
-import { ICommunity, ICommunityMessage, IPost, IPostMessage, IUser } from "@/store/interfaces"
+import { ICommunity, ICommunityMessage, IDmResponse, IDmSingleChat, IPost, IPostMessage, IUser } from "@/store/interfaces"
 import { useAppDispatch } from "@/hooks/reduxHooks"
 import { postActions } from "@/store/postSlice"
-import { IOpenAlert } from "@/utils/socketInterface"
+import { IDmAlert, IOpenAlert } from "@/utils/socketInterface"
 import { layoutActions } from "@/store/layoutSlice"
 import { usePathname } from "next/navigation"
 import { postDetailActions } from "@/store/postDetailSlice"
 import { useRouter } from "next/router"
 import { ITypingUsers, communityActions } from "@/store/communitySlice"
 import { ICommunityAlert } from "@/utils/interfaces"
+import { privateChatActions } from "@/store/privateChatSlice"
+import { dmListActions } from "@/store/dmListSlice"
+import { ISetIsTyping } from "@/utils/responeInterface"
 
 
 export const useSockets = ()=>{
@@ -69,6 +72,21 @@ export const useSockets = ()=>{
         })
         socket.on("emit-stop-typing",(body:ITypingUsers)=>{
             dispatch(communityActions.removeTypingUser(body))
+        })
+        socket.on("emit-private-message",(body:IDmSingleChat)=>{
+            dispatch(privateChatActions.addNewMessage(body))
+        })
+        socket.on("emit-user-dm",(body:IDmResponse[])=>{
+            dispatch(dmListActions.setUserDms(body))
+        })
+        socket.on("edit-private-message",(body:IDmSingleChat)=>{
+            dispatch(privateChatActions.editDmMessage(body))
+        })
+        socket.on("emit-dm-typing",(body:ISetIsTyping)=>{
+            dispatch(privateChatActions.changeTypingStatus(body))
+        })
+        socket.on("emit-dm-alert",(body:IDmAlert)=>{
+            dispatch(privateChatActions.openAlert(body))
         })
 
     },[isHome])

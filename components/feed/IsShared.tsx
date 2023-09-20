@@ -18,7 +18,7 @@ export default function IsShared(post:IPost) {
         <UserAvatar className='h-7 w-7' username={username} isPrivate={false} src={src} theme={theme}/>
         <h1 className='text-[13px] ml-3 pr-4'>
           <Linkify>
-            {shouldTrim(15,repostedText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"show less":"...show more"}</span>} 
+            {shouldTrim(15,repostedText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"less":"..more"}</span>} 
           </Linkify>
           <span>{text}</span>
         

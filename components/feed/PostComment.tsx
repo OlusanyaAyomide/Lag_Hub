@@ -55,7 +55,8 @@ export default function PostComment(data:IPost){
                 {messages?.map((item,key)=>(
                   <div key={key}>
                     {key < 4 && <SingleComment message={item} setMessageInfo={setMessageInfo}
-                       replyRef={replyRef} key={key}
+                       replyRef={replyRef} key={key} 
+                       postId={data.customId}
                       isDetailed={false}/>}
                   </div>
                 ))}

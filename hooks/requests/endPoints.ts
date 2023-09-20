@@ -46,3 +46,16 @@ export const addNewCommunity=(body:{name:string,description:string,communityImag
 export const getCommunityRequest=(slug:string)=>{
     return request.get<AxiosResponse<any>>(`/community/${slug}`)
 }
+
+export const getCommunityUser=(customId:string)=>{
+    return request.get<AxiosResponse<any>>(`/community/users/${customId}`)
+}
+
+export const getDmList = ()=>{
+    return request.get<AxiosResponse<any>>('/user/dm')
+}
+
+
+export const getPrivateChats = (username:string)=>{
+    return request.get<AxiosResponse<any>>(`user/chat/${username}`)
+}

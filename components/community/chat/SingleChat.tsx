@@ -35,6 +35,7 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
             <PopoverTrigger asChild>
                 <div ref={ref}>
                     <UserAvatar 
+                        customLink=''
                         showStatus={!isrepeated}
                         isPrivate={false} 
                         username={messageUser.username}
@@ -63,7 +64,7 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
             </div>
             {message.type === "text" ?<>
                 <span>{text}</span>
-                {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
+                {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
             </>:
             <>
             <div className='w-full rounded-md  overflow-hidden'>
@@ -74,14 +75,13 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
             </div>
             {message &&  <>
                 <span className='mt-3'>{text}</span>
-                {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
+                {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
             </> 
             }
             </>
             }
         </div>
         </>:<h1 className='text-center w-full text-shade text-[12px] my-3'>{message.text}</h1> }
- 
     </div>
     )
 }

@@ -1,6 +1,6 @@
 import { IAuthSlice } from "./authSlice"
 import { ICommunitySlice } from "./communitySlice"
-import { IPostSlice, ISearchSlice, IpostDetailSlice } from "./interfaces"
+import { IDmList, IPostSlice, ISearchSlice, IpostDetailSlice, IprivateChatSlice } from "./interfaces"
 import { ILayoutSlice } from "./layoutSlice"
 
 export interface IRootState{
@@ -10,4 +10,6 @@ export interface IRootState{
     postdetail:IpostDetailSlice
     search:ISearchSlice
     community:ICommunitySlice
+    dmlist:IDmList
+    privateChat:IprivateChatSlice
 }

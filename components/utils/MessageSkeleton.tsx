@@ -9,7 +9,7 @@ export default function MessageSkeleton({isCommunity}:{isCommunity?:boolean}) {
   const isLight =theme === "light"
   const {isRendered} = useHydration()
   return (
-    <div className='w-full mt-3'>
+    <div className='w-full mt-2 mb-1'>
       {isRendered && <SkeletonTheme baseColor={isLight?"#ebebeb":"#222222"} highlightColor={isLight?"#f5f5f5":"#525252"}>
         <div className="flex-center">
           <div className='h-10 w-10  overflow-hidden rounded-full'>

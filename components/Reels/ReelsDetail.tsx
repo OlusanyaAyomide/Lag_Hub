@@ -64,7 +64,7 @@ export default function ReelsDetail(item:IVideo) {
                 </button>
                 <h1 className="mt-2 tinytext">
                     <span>{text}</span>
-                    {shouldTrim(30,item.title) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"show less":"...show more"}</button>}
+                    {shouldTrim(30,item.title) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
                 </h1>
             </div>
         </div>

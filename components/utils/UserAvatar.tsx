@@ -13,9 +13,10 @@ interface IUserAvatar{
   isPrivate?:boolean
   username?:string
   showStatus?:boolean
+  customLink?:string
 }
 
-export default function UserAvatar({className,src="/profile.png",isPrivate=true,theme,username,showStatus=true}:IUserAvatar) {
+export default function UserAvatar({className,src="/profile.png",isPrivate=true,theme,username,showStatus=true,customLink}:IUserAvatar) {
   const {data:{profileImage,profileTheme,username:name}} = useAppSelector((state=>state.user))
   const {activeUsers} = useAppSelector((state)=>state.layout)
   const dispatch = useAppDispatch()
@@ -28,7 +29,7 @@ export default function UserAvatar({className,src="/profile.png",isPrivate=true,
   return (
     <>
       {profileImage  &&
-      <Link href={`/profile/${username || name }`}>
+      <Link href={!customLink?`/profile/${username || name}`:customLink}>
         <div className='w-fit h-fit relative rounded-full'>
             <Avatar onClick={handleToggle}
             className={cn(``,className)} style={{backgroundColor:avatarTheme}}>
@@ -38,7 +39,6 @@ export default function UserAvatar({className,src="/profile.png",isPrivate=true,
           {isOnline && showStatus && <div className="absolute bottom-2 right-0 rounded-full bg-green-500 h-2 w-2"></div>}
         </div>
       </Link>
-
  }
     </>
 

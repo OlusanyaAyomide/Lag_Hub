@@ -5,6 +5,8 @@ import layoutSlice from "./layoutSlice";
 import postDetailSlice from "./postDetailSlice";
 import seacrhSlice from "./seacrhSlice";
 import communitySlice from "./communitySlice";
+import dmListSlice from "./dmListSlice";
+import privateChatSlice from "./privateChatSlice";
 
 
 export const store = configureStore({
@@ -14,7 +16,9 @@ export const store = configureStore({
         layout:layoutSlice,
         postdetail:postDetailSlice,
         search:seacrhSlice,
-        community:communitySlice
+        community:communitySlice,
+        dmlist:dmListSlice,
+        privateChat:privateChatSlice
     }
 })
 
