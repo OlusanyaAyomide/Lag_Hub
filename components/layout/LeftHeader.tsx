@@ -29,11 +29,10 @@ export default function LeftHeader({className,refs}:LeftProps) {
                      <Icons.search className='text-shade   text-2xl lg:text-xl'/>
                   </Button>
                </PopoverTrigger>
-               <PopoverContent asChild className='hidden md:block w-[350px] py-3 relative left-24'>
+               <PopoverContent asChild className='hidden min-h-[400px]  md:block w-[350px] py-3 relative left-24'>
                   <div>
                       <AutoComplete/>
                   </div>
-            
                </PopoverContent>
             </Popover>
             {!opened && <Input placeholder='search' onClick={()=>{ref.current?.click()}} className='focus-visible:ring-0  max-lg:hidden ml-2 w-[250px]'/>}

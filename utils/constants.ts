@@ -20,11 +20,11 @@ export const Toplinks=[
         link:"/community",
         icon:Icons.community
     },
-    {
-        name:"notification",
-        link:"/notification",
-        icon:Icons.notification
-    },
+    // {
+    //     name:"notification",
+    //     link:"/notification",
+    //     icon:Icons.notification
+    // },
 
 ]
 
@@ -391,3 +391,6 @@ export const LIamChatDemo = [
         isBot:true,
     }
 ]
+
+
+export const mockurl ="https://v16m.tiktokcdn-us.com/cfbde5634213d26b939497b01277bd07/650f03cb/video/tos/useast2a/tos-useast2a-pve-0068/oYEfAQ4fe5PTTR6BCRHPV22BitEGAFw1Fkf2nG/?a=1233&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=2734&bt=1367&bti=NTY6QGo0QHM0NzZANDQuYCMucCM1NTNg&cs=0&ds=6&ft=H3YMyvvBQ_AUqZyq8Z.wNnOYZlcE22UK2bLfryCOiZmka&mime_type=video_mp4&qs=0&rc=N2VoaTs6PDdnOzMzNzk5OkBpM3lyOmQ6Zmh3azMzNzczM0BhYzYvYjE0NWExM15hXjEzYSMtNmlpcjRvLnNgLS1kMTZzcw%3D%3D&l=202309230926056D7ABFB326A7B72BFF07&btag=e00010000"

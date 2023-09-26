@@ -24,7 +24,7 @@ export default function ProfilePreview({className,style}:{className?:string,styl
          <span className='text-xs'>{following} following</span>
          <span className='text-xs'>{followers} followers</span>
        </div>
-       <Link href={"/profile/abc"}>
+       <Link href={`/profile/${username}`}>
        <Button className={cn('bg-main hover:bg-blue-600 text-white md:hidden block w-full mt-4',style)}>View Profile</Button>
        </Link>
  

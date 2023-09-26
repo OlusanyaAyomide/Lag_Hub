@@ -2,12 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
 import { IAlertInterface, ICommunity, IUser } from "./interfaces";
-import { IOpenAlert } from "@/utils/socketInterface";
+import { IGlobalSearchResponse, IOpenAlert } from "@/utils/socketInterface";
 
 export interface ILayoutSlice{
     alert:IAlertInterface
     activeUsers:IUser[]
     searchedCommunity:ICommunity[]
+    searchedUser:IUser[]
 }
 
 
@@ -18,7 +19,8 @@ export const initalState:ILayoutSlice={
         link:""
     },
     activeUsers:[],
-    searchedCommunity:[]
+    searchedCommunity:[],
+    searchedUser:[],
 
 
 }
@@ -41,7 +43,10 @@ export const layoutSlice = createSlice({
         },
         setCommunitySearch(state,action:PayloadAction<ICommunity[]>){
             state.searchedCommunity = action.payload
-
+        },
+        setSearhResult(state,action:PayloadAction<IGlobalSearchResponse>){
+            state.searchedCommunity = action.payload.community
+            state.searchedUser = action.payload.user
         }
     }
 })

@@ -39,3 +39,16 @@ export const chatFIleAnimation={
         height:0
     }
 }
+
+
+export const pauseAnimation ={
+    initial:{
+        opacity:1
+    },
+    animate:{
+        opacity:0,
+        transition:{
+            duration:2
+        }
+    }
+}

@@ -1,7 +1,8 @@
 import { IAuthSlice } from "./authSlice"
 import { ICommunitySlice } from "./communitySlice"
-import { IDmList, IPostSlice, ISearchSlice, IpostDetailSlice, IprivateChatSlice } from "./interfaces"
+import { IDmList, IPostSlice, ISearchSlice, ITikTokSlice, IpostDetailSlice, IprivateChatSlice } from "./interfaces"
 import { ILayoutSlice } from "./layoutSlice"
+import { IProfilePageSlice } from "./profilePageSlice"
 
 export interface IRootState{
     user:IAuthSlice,
@@ -12,4 +13,6 @@ export interface IRootState{
     community:ICommunitySlice
     dmlist:IDmList
     privateChat:IprivateChatSlice
+    tiktok:ITikTokSlice
+    profilePage:IProfilePageSlice
 }

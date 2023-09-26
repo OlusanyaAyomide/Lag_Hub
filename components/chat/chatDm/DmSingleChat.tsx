@@ -22,7 +22,6 @@ export default function DmSingleChat(message:IDmSingleChat) {
     
     useEffect(()=>{
         if(isSender || !inView){return}
-        // console.log("emitting",message)
         if(message.isRead){return}
         socket.emit("read-chat",message)
     },[isSender,inView])

@@ -21,7 +21,6 @@ export default function CustomToast() {
         if(isToast){
             dispatch(communityActions.closeToast())
         }
-        console.log(Active)
         if(Active){
             console.log("In heree")
             dispatch(privateChatActions.closeAlert())

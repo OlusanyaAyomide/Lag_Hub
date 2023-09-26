@@ -59,3 +59,12 @@ export const getDmList = ()=>{
 export const getPrivateChats = (username:string)=>{
     return request.get<AxiosResponse<any>>(`user/chat/${username}`)
 }
+
+export const getReels = (page:number)=>{
+    return request.get<AxiosResponse<any>>(`service/tiktok/?page=${page}`)
+}
+
+
+export const getUserProfile=(username:string)=>{
+    return request.get<AxiosResponse<any>>(`user/profilepage/${username}`)
+}

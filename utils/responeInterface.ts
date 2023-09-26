@@ -108,3 +108,25 @@ export interface ISetIsTyping{
   chatUser:string
   isTyping:boolean
 }
+
+export interface IPostComment{
+  _id: string
+  text: string
+  message:string
+  customId:string
+  createdAt:string
+  postUser:IUser
+  post:IPost
+}
+
+export interface IUserProfile extends IUser{
+   comments:IPostComment[]
+   isfollowing:boolean
+   posts:IPost[]
+
+
+} 
+
+export interface IUserProfileResponse extends ISuccessRes{
+   data:IUserProfile
+}

@@ -8,33 +8,25 @@ import { Icons } from '@/utils/icons'
 import ProfilePreview from '../utils/ProfilePreview'
 import SideLink from './SideLink'
 import { useHydration } from '../../hooks/useHydration'
+import UserAvatar from '../utils/UserAvatar'
+import { useAppSelector } from '@/hooks/reduxHooks'
 
 export default function MobileNav() {
-   const [isSearching,setIsSearching] = useState<boolean>(false)
-   const {isRendered} = useHydration()
+  const {data:{username,firstName,lastName}} = useAppSelector((state=>state.user))
    const [text,setText] = useState<string>("")
    return (
    <div>
-      <div className='flex min-h-10 items-center'>
-        {isRendered && <>
-        <Input
-           onClick={()=>{setIsSearching(true)}} 
-           autoFocus={false}
-           onBlur={()=>{setIsSearching(false)}}
-           className='grow mr-2 focus-visible:ring-0'/>
-         <Button className='ml-2' variant={"ghost"} size={"icon"}>
-             <Icons.search className='text-2xl'/>
-         </Button>
-        </>}
- 
+    <div className="mt-3 flex-center">
+      <UserAvatar/>
+      <div className='ml-2'>
+       <h1 className='font-medium '>{username}</h1>
+       <h1 className="tinytext font-mediun">
+        <span>{firstName}</span>
+        <span className='ml-1'>{lastName}</span>
+       </h1>
+      </div>
     </div>
-   {text.length  < 3 && text !== "" &&  <div className=''>
-      <h1 className='font-semibold my-2'>Popular Searches</h1>
-      <UserList/>
-      <Separator className='my-4'/>      
-    </div> }
-   {!isSearching && <ProfilePreview className='mt-4 px-0'/>}
-   <SideLink/>
+    <SideLink/>
    </div>
   )
 }

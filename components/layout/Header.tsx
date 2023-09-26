@@ -14,17 +14,19 @@ import {Sheet,SheetContent,SheetTrigger} from "@/components/ui/sheet"
 import MobileNav from './MobileNav'
 import VideoSearch from '../youtube/VideoSearch'
 import TopButtons from './TopButtons'
+import SearchToggler from './SearchToggler'
 
 export default function Header() {
    const pathname = usePathname()
    const isVideo = pathname === "/video" || pathname == "/reels"
    const isChatRoom = /^(\/community\/|\/chats\/|\/video\/).+$/.test(pathname)
+   const isReels = pathname === "/reels"
 
    const {entry,inView,ref} = useInView()
    
 
   return (
-   <div className={`paddingx ${entry && !inView?"mb-[50px]":""} flex relative ${isChatRoom?"max-md:hidden mb-0":""} z-40 w-full bg-background md:fixed flex-wrap py-2 shadow-sm border-b`}>
+   <div className={`paddingx ${entry && !inView?"mb-[50px]":""} flex relative ${isChatRoom || isReels?"max-md:hidden mb-0":""} z-40 w-full bg-background md:fixed flex-wrap py-2 shadow-sm border-b`}>
       <LeftHeader refs={ref}  className='w-full hidden md:flex md:w-[150px] lg:w-[350px]'/>
       <div className={`flex justify-between bg-background md:justify-center md:space-x-10 lg:space-x-12 items-center grow ${entry && !inView ?"top-overlay":""}` }> 
       <Sheet>
@@ -57,6 +59,7 @@ export default function Header() {
                </Tooltip>
             </TooltipProvider>)
          })}
+         <SearchToggler/>
       </div>
       <RightHeader/>
    </div>

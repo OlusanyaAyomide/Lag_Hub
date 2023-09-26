@@ -1,4 +1,4 @@
-import { IPostWithMessage } from "@/utils/responeInterface"
+import { IPostWithMessage, ISuccessRes } from "@/utils/responeInterface"
 
 export interface IUser{
     _id:string
@@ -170,4 +170,30 @@ export interface IprivateChatSlice{
         isToast:boolean,
         link:string,
         content:string    },
+}
+
+
+export interface ITiktokVideos{
+    video_id:string
+    region:string
+    title:string
+    play_count:string
+    duration:number
+    play:string
+    share_count:string
+    author:{
+        nickname:string
+        avatar:string
+    }
+}
+
+
+export interface ITikTokResponse extends ISuccessRes{
+    data:ITikTokSlice
+}
+
+export interface ITikTokSlice{
+    cursor:number
+    hasMore:boolean
+    videos:ITiktokVideos[]   
 }

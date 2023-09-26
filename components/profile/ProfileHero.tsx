@@ -5,28 +5,36 @@ import { Dialog,DialogTrigger,DialogContent } from '../ui/dialog'
 import { Button } from '../ui/button'
 import { Icons } from '@/utils/icons'
 import ProfileEdit from './ProfileEdit'
-import { useTrimmedText } from '../../hooks/TextHooks'
-import { mocKDescription } from '@/utils/constants'
-import { shouldTrim } from '@/lib/utils'
+import { useAppSelector } from '@/hooks/reduxHooks'
 
-export default function ProfileHero({onOverlay}:{onOverlay?:boolean}) {
-    const {text,toggleText,isTrimmed} = useTrimmedText(mocKDescription,30)
-    const isUser = true
-    const isfollowing  = false
+
+export default function ProfileHero() {
+    const {username} =useAppSelector((state=>state.user.data))
+    const {user} =useAppSelector((state=>state.profilePage))
+    const isUser = user.username === username
+    console.log(user.isfollowing)
     return (
-        <div>
+        <div className='mb-36 md:mb-28'>
         <Card className='bg-heroL mt-4 dark:bg-heroD max-md:flex  max-md:items-end max-md:justify-center h-[150px] sm:h-[200px] relative'>
             <div className='translate-y-32 md:translate-y-40 md:pl-8 max-md:w-fit md:flex md:items-center'>
                 <div className="block h-32 w-32 mx-auto sm:h-36 sm:w-36 p-1 bg-background rounded-full">
-                    <UserAvatar className='h-full w-full shadow-sm '/>
+                    <UserAvatar isPrivate={false}
+                     src={user.profileImage} 
+                     theme={user.profileTheme}
+                     username={user.username}
+                     showStatus={false}
+                     className='h-full w-full shadow-sm '/>
                 </div>
                 <div className='md:ml-2 grow md:flex'>
                     <div>
-                        <h1 className="text-lg sm:text-xl font-semibold">Jonson Doris Simon</h1>
-                        <h1 className='font-medium max-md:text-center -mt-[2px]'>@johnsondoris</h1>
+                        <h1 className="text-lg sm:text-xl font-semibold">{user.username}</h1>
+                        <h1 className='font-medium max-md:text-center -mt-[2px]'>
+                            <span>{user.firstName}</span>
+                            <span>{user.lastName}</span>
+                        </h1>
                         <div className=" text-[10px] max-md:text-center">
-                            <span className='mr-4'>20 followers</span>
-                            <span>16 following</span>
+                            <span className='mr-4'>{user.followers} followers</span>
+                            <span>{user.following} following</span>
                         </div>
                     </div>
                     
@@ -44,25 +52,15 @@ export default function ProfileHero({onOverlay}:{onOverlay?:boolean}) {
                             </DialogContent>
                         </Dialog>}
                         {!isUser && <Button className='h-8 max-md:flex hover:bg-blue-500 mx-auto bg-main  md:ml-6 max-md:mt-1 flex-center text-white px-6'>
-                            {isfollowing?<>
-                                <span>Follow</span> <Icons.follow className='text-lg ml-2'/>
-                            </> :<span>Following</span>}
+                            {user.isfollowing?<>
+                                <span>Following</span> <Icons.follow className='text-lg ml-2'/>
+                            </> :<span>Follow</span>}
                         </Button>}
                     </div>
            
                 </div>
             </div>  
         </Card>
-        <div className="md:pl-8 mt-36 md:mt-28">
-                <div className='rounded-md bg-accent/50 pad py-3'>
-                <h1 className="font-medium">Profile biography</h1>
-                <div className="py-1">
-                    <span>{text}</span>
-                    {shouldTrim(30,mocKDescription) && <button className='font-medium ml-2' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
-                </div>
-                </div>
-           
-            </div>
         </div>
      
   )

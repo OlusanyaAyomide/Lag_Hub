@@ -3,7 +3,7 @@ import socket from "./sockets"
 import { ICommunity, ICommunityMessage, IDmResponse, IDmSingleChat, IPost, IPostMessage, IUser } from "@/store/interfaces"
 import { useAppDispatch } from "@/hooks/reduxHooks"
 import { postActions } from "@/store/postSlice"
-import { IDmAlert, IOpenAlert } from "@/utils/socketInterface"
+import { IDmAlert, IGlobalSearchResponse, IOpenAlert } from "@/utils/socketInterface"
 import { layoutActions } from "@/store/layoutSlice"
 import { usePathname } from "next/navigation"
 import { postDetailActions } from "@/store/postDetailSlice"
@@ -88,7 +88,9 @@ export const useSockets = ()=>{
         socket.on("emit-dm-alert",(body:IDmAlert)=>{
             dispatch(privateChatActions.openAlert(body))
         })
-
+        socket.on("search-result",(body:IGlobalSearchResponse)=>{
+            dispatch(layoutActions.setSearhResult(body))
+        })
     },[isHome])
     
     return null

@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import { cn } from '@/lib/utils'
 import { ICommunity, IUser } from '@/store/interfaces'
-import Link from 'next/link'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
+import ComSearchResult from './ComSearchResult'
 
 interface ICommunityList{
    className?:string,communities:ICommunity[]
@@ -17,17 +16,7 @@ export default function CommunityList({className,communities,showAll}:ICommunity
         {communities.map((item,key)=>{
             if(key > totoalLength){return null}
             return(
-            <Link href={`/community/chat/${item.slug}`} key={key} className='text-foreground  hover:no-underline'>
-                <div className='py-1 px-3 flex-center hover:bg-accent cursor-pointer'>
-                    <Avatar className='h-10 w-10 bg-light'>
-                        <AvatarFallback>Lh</AvatarFallback>
-                        <AvatarImage className='object-contain' src={item.communityImage}/>
-                    </Avatar>
-                    <div className='grow  pl-2'>
-                       <h1 className=''>{item.name}</h1>
-                    </div>
-                </div>
-            </Link>
+                <ComSearchResult {...item} key={key}/>
             )
     })}
     {showAll && (communities.length-1) > maxLength && <button onClick={()=>{setTotalLength((prev=>prev===maxLength?communities.length:maxLength))}}

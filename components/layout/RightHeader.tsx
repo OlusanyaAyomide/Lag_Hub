@@ -10,6 +10,7 @@ import Link from 'next/link'
 import socket from '@/sockets/sockets'
 import UserAvatar from '../utils/UserAvatar'
 
+
 export default function RightHeader({className}:{className?:string}) {
   return (
     <div className={cn("flex justify-end items-center max-md:hidden",className)}>
@@ -28,14 +29,12 @@ export default function RightHeader({className}:{className?:string}) {
             <ProfilePreview style='md:block'/>
             <Separator className='my-6'/>
             <div className='mt-2'>
-              {/* <Link href={"/"}> */}
-                <Button onClick={()=>{socket.connect()}} className='hover:bg-accent px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
-                  <Icons.settings className='text-2xl text-shade'/>
+                <Button onClick={()=>{socket.connect()}} className='hover:bg-accent px-2 text-foreground text-[13px] bg-background w-full py-2 my-2 flex justify-start items-center'>
+                  <Icons.settings className='text-xl text-shade'/>
                   <span className='ml-2'>Settings and privacy</span>
                 </Button>
-              {/* </Link> */}
-              <Button onClick={()=>{socket.disconnect()}} className='hover:bg-accent  px-2 text-foreground bg-background w-full py-2 my-2 flex justify-start items-center'>
-                <Icons.logout className='text-2xl text-shade'/>
+              <Button onClick={()=>{socket.disconnect()}} className='hover:bg-accent  px-2 text-foreground text-[13px]  bg-background w-full py-2 my-2 flex justify-start items-center'>
+                <Icons.logout className='text-xl text-shade'/>
                 <span className='ml-2'>Logout</span>
               </Button>
             </div>

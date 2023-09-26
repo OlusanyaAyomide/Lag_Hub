@@ -20,7 +20,7 @@ export default function DmChatMain() {
     const username =  router.query.username as string
     const dispatch = useAppDispatch()
     const [notfound,setNotfound] = useState(false)
-    const {messages,chatUser,isTyping} = useAppSelector((state=>state.privateChat))
+    const {chatUser,isTyping} = useAppSelector((state=>state.privateChat))
     const {activeUsers} = useAppSelector((state=>state.layout))
     const {isLoading,data} = useGetRequest({queryKey:[username],
         setNotFound:()=>{setNotfound(true)},
@@ -43,8 +43,7 @@ export default function DmChatMain() {
                 lastOnline={chatUser.lastSeen}
                 profileTheme={chatUser.profileTheme}
                 >
-          {/* <QuicProfile/> */}
-          <span>Holder</span>
+          <QuicProfile user={chatUser}/>
         </ChatHeader>
         <UserDm/>
         </>}

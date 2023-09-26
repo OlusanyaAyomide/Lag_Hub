@@ -22,13 +22,14 @@ import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
 import {FcGoogle} from "react-icons/fc"
 import {LuSearchX} from "react-icons/lu"
 import {GrEmptyCircle} from "react-icons/gr"
-
-
+import {GoSearch} from "react-icons/go"
+import {HiArrowLongLeft} from "react-icons/hi2"
 
 
 
 export const Icons = {
    emptycirle:GrEmptyCircle,
+   longback:HiArrowLongLeft,
    plane:FaPaperPlane,
    doubleCheck:BsCheck2All,
    trash:BiTrash,
@@ -66,7 +67,7 @@ export const Icons = {
    moon:Moon,
    sun:SunMedium,
    MoniorPlay:MonitorPlay,
-   search:BsSearch,
+   search:GoSearch,
    chevupdown:ChevronsUpDown,
    triangle:Triangle,
    messenger:RiMessengerLine,

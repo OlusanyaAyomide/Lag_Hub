@@ -7,6 +7,8 @@ import seacrhSlice from "./seacrhSlice";
 import communitySlice from "./communitySlice";
 import dmListSlice from "./dmListSlice";
 import privateChatSlice from "./privateChatSlice";
+import tiktokSlice from "./tiktokSlice";
+import profilePageSlice from "./profilePageSlice";
 
 
 export const store = configureStore({
@@ -18,7 +20,9 @@ export const store = configureStore({
         search:seacrhSlice,
         community:communitySlice,
         dmlist:dmListSlice,
-        privateChat:privateChatSlice
+        privateChat:privateChatSlice,
+        tiktok:tiktokSlice,
+        profilePage:profilePageSlice
     }
 })
 
