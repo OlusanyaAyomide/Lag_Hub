@@ -94,6 +94,42 @@ export function isDateToday(dateString: string): string | null {
 }
 
 
+export const getCurrentTimeString=()=>{
+  const now = new Date();
+  const year = String(now.getUTCFullYear());
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  const hours = String(now.getUTCHours()).padStart(2, '0');
+  const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+  const milliseconds = String(now.getUTCMilliseconds()).padStart(6, '0');
+  
+  const currentTimeString = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
+  return currentTimeString
+
+}
+
+
+
+
+export function getRandomItem(arr: string[]): string {
+  if (arr.length === 0) {
+    return "";
+  }
+
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+export function isBlob(str:string) {
+  try {
+    const blob = new Blob([str]);
+    
+    return blob instanceof Blob;
+  } catch (e) {
+    return false;
+  }
+}
 
 
 

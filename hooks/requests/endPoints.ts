@@ -1,8 +1,14 @@
+import { IUserRequest } from "@/store/interfaces"
 import request from "./requests"
-import {AxiosResponse} from "axios"
+import { AxiosResponse} from "axios"
+import { IProfileEdit } from "@/utils/interfaces"
 
 export const signInRequest = (body:{email:string,password:string})=>{
     return request.post<AxiosResponse<any>>("/user/login",body)
+}
+
+export const checkExistingUser=(body:{email:string,username:string,isgoogle:boolean})=>{
+    return request.post<AxiosResponse<any>>("/user/getusername",body)
 }
 
 export const makePostrequest=(body:any)=>{
@@ -57,14 +63,32 @@ export const getDmList = ()=>{
 
 
 export const getPrivateChats = (username:string)=>{
-    return request.get<AxiosResponse<any>>(`user/chat/${username}`)
+    return request.get<AxiosResponse<any>>(`/user/chat/${username}`)
 }
 
 export const getReels = (page:number)=>{
-    return request.get<AxiosResponse<any>>(`service/tiktok/?page=${page}`)
+    return request.get<AxiosResponse<any>>(`/service/tiktok/?page=${page}`)
 }
 
 
 export const getUserProfile=(username:string)=>{
-    return request.get<AxiosResponse<any>>(`user/profilepage/${username}`)
+    return request.get<AxiosResponse<any>>(`/user/profilepage/${username}`)
+}
+
+export const userSignUp=(body:IUserRequest)=>{
+    return request.post<AxiosResponse<any>>('/user/signup',body)
+}
+
+export const followUser=(body:{_id:string})=>{
+    return request.post<AxiosResponse<any>>('/user/follow',body)
+}
+
+
+export const editProfileRequest=(body:IProfileEdit)=>{
+    return request.post<AxiosResponse<any>>('/user/update',body)
+}
+
+
+export const notificationRequest=()=>{
+    return request.get<AxiosResponse<any>>(`/user/notification`)
 }

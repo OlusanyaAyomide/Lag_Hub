@@ -1,21 +1,19 @@
 "use client"
 import React,{useState} from 'react'
-import UserList from '../utils/UserList'
-import { Separator } from '../ui/separator'
-import { Input } from '../ui/input'
-import { Button } from '../ui/button'
-import { Icons } from '@/utils/icons'
-import ProfilePreview from '../utils/ProfilePreview'
 import SideLink from './SideLink'
-import { useHydration } from '../../hooks/useHydration'
 import UserAvatar from '../utils/UserAvatar'
 import { useAppSelector } from '@/hooks/reduxHooks'
+import Logo from '../utils/Logo'
+import {Accordion,AccordionContent,AccordionItem,AccordionTrigger,
+} from "@/components/ui/accordion"
+import Notification from './Notification'
 
 export default function MobileNav() {
   const {data:{username,firstName,lastName}} = useAppSelector((state=>state.user))
    const [text,setText] = useState<string>("")
    return (
    <div>
+    <Logo/>
     <div className="mt-3 flex-center">
       <UserAvatar/>
       <div className='ml-2'>
@@ -26,6 +24,14 @@ export default function MobileNav() {
        </h1>
       </div>
     </div>
+    <Accordion type="single" collapsible>
+        <AccordionItem value="user-notification">
+          <AccordionTrigger className="border-b-shade mt-1 hover:font-semibold  hover:no-underline rounded-md">Notifications</AccordionTrigger>
+          <AccordionContent className="px-2">
+            <Notification show={false}/>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     <SideLink/>
    </div>
   )

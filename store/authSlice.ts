@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
 import { IUser } from "./interfaces";
+import { IProfileEdit } from "@/utils/interfaces";
 
 export interface IAuthSlice{
     data:IUser
@@ -20,6 +21,7 @@ export const initalState={
         createdAt:"",
         followers:0,
         following:0,
+        unread:0
 
     } as IUser,
     isAuthenticated:false
@@ -41,9 +43,25 @@ export const userSlice = createSlice({
             state.data.createdAt = createdAt
             state.data.followers = followers
             state.data.following = following
+            state.data.unread = action.payload.unread
             state.isAuthenticated = true
-            console.log("Sett")
         },
+        revokeAuth(state){
+            state.isAuthenticated = false
+        },
+        setUnread(state,action:PayloadAction<number>){
+            state.data.unread = action.payload
+        },
+        increasefollowers(state,action:PayloadAction<number>){
+            state.data.followers = action.payload
+        },
+        increasefollowing(state){
+            state.data.following += 1
+        },
+        updateProfileStatus(state,action:PayloadAction<IProfileEdit>){
+            state.data.firstName = action.payload.firstName
+            state.data.lastName = action.payload.lastName
+        }
 
     }
 })

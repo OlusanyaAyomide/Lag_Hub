@@ -26,7 +26,7 @@ export default function LeftHeader({className,refs}:LeftProps) {
             <Popover onOpenChange={(opened)=>{setisOpened(opened)}}>
                <PopoverTrigger asChild>
                   <Button ref={ref} variant={"ghost"} className={`max-md:hidden ${isVideo?"hidden":""}`}>
-                     <Icons.search className='text-shade   text-2xl lg:text-xl'/>
+                     <Icons.search className='text-shade  text-2xl '/>
                   </Button>
                </PopoverTrigger>
                <PopoverContent asChild className='hidden min-h-[400px]  md:block w-[350px] py-3 relative left-24'>
@@ -35,7 +35,7 @@ export default function LeftHeader({className,refs}:LeftProps) {
                   </div>
                </PopoverContent>
             </Popover>
-            {!opened && <Input placeholder='search' onClick={()=>{ref.current?.click()}} className='focus-visible:ring-0  max-lg:hidden ml-2 w-[250px]'/>}
+            {!opened && <Input placeholder='search' onClick={()=>{ref.current?.click()}} className='focus-visible:ring-0  max-xl:hidden ml-2 w-[250px]'/>}
          </div>
          <Dialog>
             <DialogTrigger asChild>

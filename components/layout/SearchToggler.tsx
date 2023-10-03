@@ -3,6 +3,7 @@ import { Button } from '../ui/button'
 import { Icons } from '@/utils/icons'
 import { Popover,PopoverContent,PopoverTrigger } from '../ui/popover'
 import AutoComplete from './AutoComplete'
+import Notification from './Notification'
 
 export default function SearchToggler() {
   return (
@@ -17,7 +18,9 @@ export default function SearchToggler() {
             <div className="md:hidden">
                 <AutoComplete/>
             </div>
-            <div className="max-md:hidden">Notification</div>
+            <div className="max-md:hidden">
+                <Notification/>
+            </div>
         </PopoverContent>
     </Popover>
 

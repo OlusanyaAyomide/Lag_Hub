@@ -1,33 +1,45 @@
 import {Check,MonitorPlay,SunMedium,Moon,ChevronsUpDown,Triangle,Menu
 } from "lucide-react"
 import {
-    BsSearch,BsChatSquareDots,BsChatSquareText,BsChatText,BsCheck2All,
+    BsArrowDownShort,BsChatSquareDots,BsChatSquareText,BsChatText,BsCheck2All,
     BsFillCheckCircleFill,BsBookmark,BsLink45Deg,BsEyeglasses,BsFillPlayFill,
     BsBook,BsBarChartLine,BsArrow90DegRight,BsThreeDots,BsCameraReels,BsInfoCircleFill, BsSave
 } from "react-icons/bs"
-import {AiOutlineHome,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus,AiOutlineCamera, AiOutlineSave} from "react-icons/ai"
+import {AiOutlineHome,AiFillEye,AiFillEyeInvisible,AiOutlineFileImage,AiOutlineEdit,AiOutlineClose,AiOutlinePause,AiOutlinePlus,AiOutlineCamera, AiOutlineSave} from "react-icons/ai"
 import {FaRegThumbsUp,FaRegCommentDots} from "react-icons/fa"
 import {RiMessengerLine,RiUserUnfollowLine} from "react-icons/ri"
-import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack,BiTrash} from "react-icons/bi"
-import {MdOutlineArrowDropDown,MdLogout} from "react-icons/md"
+import {BiVideo,BiGroup,BiRepost, BiFullscreen,BiShare, BiImage,BiArrowBack,BiTrash,BiPencil,BiSun,BiMoon} from "react-icons/bi"
+import {MdOutlineArrowDropDown,MdLogout,MdOutlineColorLens,MdDynamicFeed,MdContentCopy} from "react-icons/md"
 import {PiDotsNineBold} from "react-icons/pi"
 import {FaWpexplorer,FaUserFriends,FaThumbsUp,FaUsers,FaPaperPlane} from "react-icons/fa"
-import {ImFeed} from "react-icons/im"
 import {FiSettings,FiArrowUpRight,FiClock} from "react-icons/fi"
 import {HiOutlineDesktopComputer,HiOutlineUser} from "react-icons/hi"
-import {IoMdNotificationsOutline} from "react-icons/io"
+import {IoMdNotificationsOutline,IoLogoGithub} from "react-icons/io"
 import {GiEarthAfricaEurope,GiRobotHelmet} from "react-icons/gi"
 import {SlUserFollow} from "react-icons/sl"
-import {LiaPaperPlane,LiaCheckDoubleSolid} from "react-icons/lia"
+import {LiaCheckDoubleSolid} from "react-icons/lia"
 import {FcGoogle} from "react-icons/fc"
 import {LuSearchX} from "react-icons/lu"
 import {GrEmptyCircle} from "react-icons/gr"
 import {GoSearch} from "react-icons/go"
-import {HiArrowLongLeft} from "react-icons/hi2"
+import {HiArrowLongLeft,HiOutlineVideoCamera,HiMiniViewfinderCircle} from "react-icons/hi2"
+import {FaRegCircleUser} from "react-icons/fa6"
+
 
 
 
 export const Icons = {
+   seeeye:AiFillEye,
+   copy:MdContentCopy,
+   github:IoLogoGithub,
+   arrowdown:BsArrowDownShort,
+   rsun:BiSun,
+   detail:HiMiniViewfinderCircle,
+   rmoon:BiMoon,
+   feed:MdDynamicFeed,
+   pencil:BiPencil,
+   dasheye:AiFillEyeInvisible,
+   pallete:MdOutlineColorLens,
    emptycirle:GrEmptyCircle,
    longback:HiArrowLongLeft,
    plane:FaPaperPlane,
@@ -53,7 +65,7 @@ export const Icons = {
    cancel:AiOutlineClose,
    clock:FiClock,
    share:BiShare,
-   reels:BsCameraReels,
+   reels:HiOutlineVideoCamera,
    bookmark:BsBookmark,
    repost:BiRepost,
    info:BsInfoCircleFill,
@@ -62,7 +74,7 @@ export const Icons = {
    comment:FaRegCommentDots,
    thunbsup:FaRegThumbsUp,
    unfollow:RiUserUnfollowLine,
-   profile:HiOutlineUser,
+   profile:FaRegCircleUser,
    check:Check,
    moon:Moon,
    sun:SunMedium,
@@ -81,7 +93,6 @@ export const Icons = {
    verify:BsFillCheckCircleFill,
    explore:FaWpexplorer,
    book: BsBook,
-   feed:ImFeed,
    settings:FiSettings,
    computer:HiOutlineDesktopComputer,
    logout:MdLogout,

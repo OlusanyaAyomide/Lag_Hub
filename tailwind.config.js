@@ -98,6 +98,20 @@ module.exports = {
             "transform": "rotate(360deg)"              
           },
         },
+        spinleft:{
+          "0%":{
+            "transform": "rotate(0deg)"              
+          },
+          "100%":{
+            "transform": "rotate(-360deg)"              
+          },
+        },
+        fadedown:{
+          "100%":{
+            transform:"translateY(20px)",
+            opacity:"0",
+          }
+        },
       leftspinner:{
         "0%":{
           "transform": "rotate(0deg)"              
@@ -122,7 +136,9 @@ module.exports = {
         rightspinner:"customspinner 60s linear infinite",
         leftspinner:"leftspinner 60s linear infinite",
         slowbounce:"customBounce 15s linear infinite",
-        loader:"loader 1.8s linear infinite"
+        loader:"loader 2.8s linear infinite",
+        herospin2:"leftspinner 20s linear infinite",
+        arrowdown:"fadedown 1s linear infinite"
       },
       screens:{
         xs:"340px",

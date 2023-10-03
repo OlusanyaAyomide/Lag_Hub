@@ -13,6 +13,7 @@ import { ICommunityAlert } from "@/utils/interfaces"
 import { privateChatActions } from "@/store/privateChatSlice"
 import { dmListActions } from "@/store/dmListSlice"
 import { ISetIsTyping } from "@/utils/responeInterface"
+import { userActions } from "@/store/authSlice"
 
 
 export const useSockets = ()=>{
@@ -88,8 +89,14 @@ export const useSockets = ()=>{
         socket.on("emit-dm-alert",(body:IDmAlert)=>{
             dispatch(privateChatActions.openAlert(body))
         })
+        socket.on("emit-unread",({unread}:{unread:number})=>{
+            dispatch(userActions.setUnread(unread))
+        })
         socket.on("search-result",(body:IGlobalSearchResponse)=>{
             dispatch(layoutActions.setSearhResult(body))
+        })
+        socket.on("emit-add-follower",({count}:{count:number})=>{
+            dispatch(userActions.increasefollowers(count))
         })
     },[isHome])
     

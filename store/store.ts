@@ -9,6 +9,7 @@ import dmListSlice from "./dmListSlice";
 import privateChatSlice from "./privateChatSlice";
 import tiktokSlice from "./tiktokSlice";
 import profilePageSlice from "./profilePageSlice";
+import LiamSlice from "./LiamSlice";
 
 
 export const store = configureStore({
@@ -22,7 +23,8 @@ export const store = configureStore({
         dmlist:dmListSlice,
         privateChat:privateChatSlice,
         tiktok:tiktokSlice,
-        profilePage:profilePageSlice
+        profilePage:profilePageSlice,
+        liam:LiamSlice
     }
 })
 

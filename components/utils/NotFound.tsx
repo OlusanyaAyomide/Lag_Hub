@@ -10,7 +10,7 @@ export default function NotFound() {
                 <Image fill className='h-full max-w-[300px] w-full' src="/notFound.svg" alt="Not found " />
             </div>
             <h1 className="text-shade text-sm mt-1 font-medium text-center">Resoure not found</h1>
-            <Link href={"/"}>
+            <Link href={"/home"}>
                 <h1 className="text-center hover:underline">Back to home</h1>
             </Link>
        

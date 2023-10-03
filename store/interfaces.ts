@@ -1,5 +1,15 @@
 import { IPostWithMessage, ISuccessRes } from "@/utils/responeInterface"
 
+export interface IUserRequest {
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    profileImage: string;
+    password: string;
+    profileTheme: string;
+  }
+
 export interface IUser{
     _id:string
     firstName:string,
@@ -12,6 +22,8 @@ export interface IUser{
     following:number
     createdAt:string
     lastSeen:string
+    unread:number
+    
 }
 
 export interface IPost {
@@ -196,4 +208,19 @@ export interface ITikTokSlice{
     cursor:number
     hasMore:boolean
     videos:ITiktokVideos[]   
+}
+type AiMessage = "human" | "ai"
+
+export interface IAiSingleChat{
+    createdAt?:string
+    type:AiMessage
+    message:string
+}
+export interface ILiamSlice{
+    messages:IAiSingleChat[]
+}
+
+
+export interface  IAIChatResponse{
+    messages:IAiSingleChat[]
 }

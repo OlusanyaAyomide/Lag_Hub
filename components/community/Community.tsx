@@ -23,7 +23,7 @@ export default function CommunityMain() {
   return (
     <div>
       <Card className='pad py-2 mt-4  bg-opacity-50'>
-          <h1 className="bigtext font-medium mt-3 mb-1 text-center">Welcome To laghub Community</h1>
+          <h1 className="bigtext font-medium mt-3 mb-1 text-center">Welcome To goConnect Community</h1>
           <div className="mx-auto min-h-[250px] w-[270px] sm2:h-[300px] md:w-[300px]  relative">
             {/* <div className="absolute h-5 w-full bg-background top-0 "></div> */}
             <Image  fill className='h-full max-w-[300px] w-full' src="/community.svg" alt="Community Image" />

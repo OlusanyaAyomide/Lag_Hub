@@ -3,12 +3,16 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
 import { IAlertInterface, ICommunity, IUser } from "./interfaces";
 import { IGlobalSearchResponse, IOpenAlert } from "@/utils/socketInterface";
+import { ISignIn, ISignUp } from "@/utils/interfaces";
 
 export interface ILayoutSlice{
     alert:IAlertInterface
     activeUsers:IUser[]
     searchedCommunity:ICommunity[]
     searchedUser:IUser[]
+    signUpValue:ISignUp
+    signupstep:"signup"|"setup",
+    authStatus:"authenticated"|"unauthenticated"|""
 }
 
 
@@ -21,6 +25,15 @@ export const initalState:ILayoutSlice={
     activeUsers:[],
     searchedCommunity:[],
     searchedUser:[],
+    signUpValue:{
+        email:"",
+        password:"",
+        username:"",
+        firstName:"",
+        lastName:""
+    },
+    signupstep:"signup",
+    authStatus :""
 
 
 }
@@ -47,6 +60,16 @@ export const layoutSlice = createSlice({
         setSearhResult(state,action:PayloadAction<IGlobalSearchResponse>){
             state.searchedCommunity = action.payload.community
             state.searchedUser = action.payload.user
+        },
+        setSignupvalues(state,action:PayloadAction<ISignUp>){
+            state.signUpValue = action.payload
+            state.signupstep = "setup"
+        },
+        backtoSignUp(state){
+            state.signupstep = "signup"
+        },
+        setAuthStatus(state,action:PayloadAction<"authenticated"|"unauthenticated"|"">){
+            state.authStatus = action.payload
         }
     }
 })

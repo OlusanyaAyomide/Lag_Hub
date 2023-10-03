@@ -1,11 +1,11 @@
 
 import React from 'react'
-import { Avatar, AvatarFallback,AvatarImage } from '../ui/avatar'
 import { Icons } from '@/utils/icons'
 import UserAvatar from '../utils/UserAvatar'
 import { trimSentence } from '@/lib/utils'
 import { IPost, IUser } from '@/store/interfaces'
 import Timeago from 'react-timeago'
+import Link from 'next/link'
 
 interface IProfileInfo{
   post:IPost
@@ -34,7 +34,10 @@ export default function ProfileInfo({post,createdAt}:IProfileInfo){
         </h1>
     </div>
     </div>
-    {!isVideo && <button className='flex-center  hover:text-main bounceup'>Follow <Icons.follow className='ml-1 text-main'/></button>}
+    <Link href={`/profile/${post.postUser.username}`} className='text-foreground hover:no-underline'>
+      <button className='flex-center  hover:text-main'>profile <Icons.profile className='ml-1 text-main text-lg'/></button>
+    </Link>
+
   </div>
  
   )

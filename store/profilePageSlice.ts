@@ -20,8 +20,9 @@ export const profilePageSlice = createSlice({
         setProfileUser(state,action:PayloadAction<IUserProfile>){
             state.user = action.payload
         },
-        increaseFollowers(state){
+        followUser(state){
             state.user.followers +=1
+            state.user.isfollowing = true
         }
 
     }

@@ -7,23 +7,34 @@ import { IProfileResponse } from "@/utils/responeInterface";
 import { userActions } from "@/store/authSlice";
 import socket from "@/sockets/sockets";
 import Cookies from "js-cookie";
-
+import { usePathname } from "next/navigation";
+import { layoutActions } from "@/store/layoutSlice";
 
 
 export const useAuth = ()=>{
     const router = useRouter()
     const {isAuthenticated} = useAppSelector((state=>state.user))
     const dispatch = useAppDispatch()
+    const pathname = usePathname()
+    const unprotected = pathname === "/boarding/signin" || pathname === "/boarding/signup" ||pathname === "/"
 
-    const {} = useGetRequest({queryKey:['user-profile'],queryFn,enabled:!isAuthenticated,onSuccess:(res:AxiosResponse<IProfileResponse>)=>{
+    const {isLoading} = useGetRequest({queryKey:['user-profile'],queryFn,enabled:!isAuthenticated,onSuccess:(res:AxiosResponse<IProfileResponse>)=>{
         const {user} = res.data.data
-        console.log("Setting -user")
         dispatch(userActions.setUserDetails(user))
+        dispatch(layoutActions.setAuthStatus("authenticated"))
         const authCookie = Cookies.get("authCookie")
         socket.auth = {token:authCookie}
         socket.connect()
+        if(unprotected){
+            router.push("/home")
+        }
     },onError:()=>{
         console.log("here")
-        router.push("/boarding/signin")
+        dispatch(layoutActions.setAuthStatus("unauthenticated"))
+        if(!unprotected){
+            router.push("/boarding/signin")
+        }
+        
     }})
+    return isLoading
 }

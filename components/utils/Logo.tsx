@@ -3,6 +3,9 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 export default function Logo({className}:{className?:string}) {
   return (
-   <Image  src={"/logo.png"} alt='logo' height={60} width={30} className={cn("h-[35px] w-[40px]",className)}/>
+    <div className='w-[140px] h-[40px] relative top-1 shrink-0'>
+         <Image  src={"/applogo.png"} alt='logo' fill className={cn("",className)}/>
+    </div>
+  
   )
 }

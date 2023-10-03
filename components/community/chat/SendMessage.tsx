@@ -24,10 +24,11 @@ interface ISendMessage{
   sendMessage:({text,imageUrl,type}:IInputType)=>void
   isJoined:boolean
   joinCommunity?:()=>void
+  disabled?:boolean
   focusChange:(status:boolean)=>void
 }
 
-export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity,focusChange}:ISendMessage) {
+export default function SendMessage({isLiam,sendMessage,disabled=false,isJoined,joinCommunity,focusChange}:ISendMessage) {
     const [text,setText] = useState<string>("")
     const [file,setFile] = useState<File | null>(null)
     const [filePreview,setFilePreview] = useState<string>("")
@@ -51,6 +52,7 @@ export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity,f
             return
         }
         cleanUp()
+        console.log("here")
         sendMessage({type:"text",text})
     }
     const handlePreview=(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -99,6 +101,7 @@ export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity,f
                     onFocus={()=>{focusChange(true)}}
                     onBlur={()=>{focusChange(false)}}
                     value={text}
+                    disabled={disabled}
                     onChange={(e)=>{setText(e.target.value)}}
                     placeholder='Enter message'
                     className='w-full default-scroll mt-1 mb-[2px] rounded-lg grow outline-none peer bg-accent py-2 px-2 focus:pr-4 resize-none relative shadow-2xl'
@@ -111,7 +114,7 @@ export default function SendMessage({isLiam,sendMessage,isJoined,joinCommunity,f
             
             <input className='hidden'  ref={ref} type="file" accept="image/*" onChange={handlePreview} />
             {text !=="" && <button onClick={handleSubmit}
-             disabled={isLoading} className={`text-xl ${isLoading?"animate-spin border-2 border-main border-b-transparent rounded-full h-3 w-3 mb-4 ":"rotate-[10deg]"}  ml-1 mb-3 text-main`}>
+             disabled={isLoading || disabled} className={`text-xl ${isLoading?"animate-spin border-2 border-main border-b-transparent rounded-full  h-3 w-3 mb-4 ":"rotate-[10deg]"}  ml-1 mb-3 text-main`}>
                {isLoading?"":<Icons.plane/>}
             </button>}
         </div>}

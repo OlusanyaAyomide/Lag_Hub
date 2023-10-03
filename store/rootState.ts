@@ -1,6 +1,6 @@
 import { IAuthSlice } from "./authSlice"
 import { ICommunitySlice } from "./communitySlice"
-import { IDmList, IPostSlice, ISearchSlice, ITikTokSlice, IpostDetailSlice, IprivateChatSlice } from "./interfaces"
+import { IDmList, ILiamSlice, IPostSlice, ISearchSlice, ITikTokSlice, IpostDetailSlice, IprivateChatSlice } from "./interfaces"
 import { ILayoutSlice } from "./layoutSlice"
 import { IProfilePageSlice } from "./profilePageSlice"
 
@@ -15,4 +15,5 @@ export interface IRootState{
     privateChat:IprivateChatSlice
     tiktok:ITikTokSlice
     profilePage:IProfilePageSlice
+    liam:ILiamSlice
 }

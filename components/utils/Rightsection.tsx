@@ -7,6 +7,8 @@ import { NotificationDemo } from '../../utils/constants'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { useAppSelector } from '@/hooks/reduxHooks'
 import UserList from './UserList'
+import { Icons } from '@/utils/icons'
+import Image from 'next/image'
 
 export default function Rightsection() {
       const minLength = 4
@@ -32,8 +34,23 @@ export default function Rightsection() {
                </div>
 
                <Separator className='my-10 mx-auto w-[250px]'/>
-               <Ads/>
-               <Ads/>
+
+               <Ads
+                  header='Portfolio'
+                  link='https://ayomidedev.vercel.app/'
+                  text='Check out my previous projects'
+               >
+                  <Image src={'/myA.webp'} alt='logo'  fill className='max-w-[130px] object-contain mx-auto'/>  
+               </Ads>
+
+               <Ads
+                  header='Github Account'
+                  link='https://github.com/olusanyaAyomide'
+                  text='check me  out on github'
+               >
+                  <span className='text-shade text-[70px]'><Icons.github/></span>
+               </Ads>
+               
             </Card>
          </div>
          

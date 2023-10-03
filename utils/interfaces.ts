@@ -120,3 +120,19 @@ export interface ICommunityAlert{
   community:ICommunity
 }
 
+export interface ISignIn{
+  email:string
+  password:string
+}
+
+export interface ISignUp extends ISignIn{
+    firstName:string
+    lastName:string
+    username:string
+}
+
+
+export interface IProfileEdit{
+  firstName: string;
+  lastName: string;
+}

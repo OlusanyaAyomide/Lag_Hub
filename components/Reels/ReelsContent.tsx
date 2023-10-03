@@ -31,7 +31,7 @@ export default function ReelsContent() {
 
   return (
     <div className='pb-4 pt-2'>
-        <Link href={"/"} className='fixed z-40 max-md:top-1 left-2 md:hidden'>
+        <Link href={"/home"} className='fixed z-40 max-md:top-1 left-2 md:hidden'>
             <button className=' px-1 py-[2px] rounded-md'>
                 <Icons.longback className='text-3xl sm:text-foreground text-white '/>
             </button>

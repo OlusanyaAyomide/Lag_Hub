@@ -1,14 +1,10 @@
+import { IAiSingleChat } from "@/store/interfaces"
 import { Icons } from "@/utils/icons"
 export const Toplinks=[
     {
         name:"home",
-        link:"/",
+        link:"/home",
         icon:Icons.home
-    },
-    {
-        name:"video",
-        link:"/video",
-        icon:Icons.video
     },
     {
         name:"chats",
@@ -20,6 +16,12 @@ export const Toplinks=[
         link:"/community",
         icon:Icons.community
     },
+    {
+        name:"reels",
+        link:"/reels",
+        icon:Icons.reels
+    },
+
     // {
     //     name:"notification",
     //     link:"/notification",
@@ -32,12 +34,12 @@ export const sideLinks =[
     {
         name:"Home",
         icon:Icons.home,
-        link:"/"
+        link:"/home"
     },
     {
-        name:"Videos",
-        icon:Icons.video,
-        link:"/video"
+        name:"Liam",
+        icon:Icons.robot,
+        link:"/chats/liam"
     },
     {
         name:"Reels",
@@ -47,33 +49,14 @@ export const sideLinks =[
     {
         name:"Community",
         icon:Icons.community,
-        link:"/home"
+        link:"/community"
     },
     {
-        name:"Explore",
-        icon:Icons.explore,
-        link:"/home"
+        name:"chats",
+        icon:Icons.messenger,
+        link:"/chats"
     },
-    {
-        name:"Question Bank",
-        icon:Icons.book,
-        link:"/home"
-    },
-    {
-        name:"Take a test",
-        icon:Icons.computer,
-        link:"/home"
-    },
-    {
-        name:"Settings",
-        icon:Icons.settings,
-        link:"/home"
-    },
-    {
-        name:"Logout",
-        icon:Icons.logout,
-        link:"/home"
-    }
+
 
 ]
 
@@ -393,4 +376,88 @@ export const LIamChatDemo = [
 ]
 
 
-export const mockurl ="https://v16m.tiktokcdn-us.com/cfbde5634213d26b939497b01277bd07/650f03cb/video/tos/useast2a/tos-useast2a-pve-0068/oYEfAQ4fe5PTTR6BCRHPV22BitEGAFw1Fkf2nG/?a=1233&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&cv=1&br=2734&bt=1367&bti=NTY6QGo0QHM0NzZANDQuYCMucCM1NTNg&cs=0&ds=6&ft=H3YMyvvBQ_AUqZyq8Z.wNnOYZlcE22UK2bLfryCOiZmka&mime_type=video_mp4&qs=0&rc=N2VoaTs6PDdnOzMzNzk5OkBpM3lyOmQ6Zmh3azMzNzczM0BhYzYvYjE0NWExM15hXjEzYSMtNmlpcjRvLnNgLS1kMTZzcw%3D%3D&l=202309230926056D7ABFB326A7B72BFF07&btag=e00010000"
+export const firstAiChat:IAiSingleChat={
+    type:"ai",
+    message:"Hi there,my name is Liam a pretrained ai chat assistant"
+}
+
+
+
+export const avatarLists =[
+    "/avatars/Avatar1.png",
+    "/avatars/Avatar2.png",
+    "/avatars/Avatar3.png",
+    "/avatars/Avatar4.png",
+    "/avatars/Avatar5.png",
+    "/avatars/Avatar6.png",
+    "/avatars/Avatar7.png",
+    "/avatars/Avatar8.png",
+    "/avatars/Avatar9.png",
+    "/avatars/Avatar10.png",
+    "/avatars/Avatar11.png",
+    "/avatars/Avatar12.png",
+    "/avatars/Avatar13.png",
+    "/avatars/Avatar14.png",
+    "/avatars/Avatar15.png",
+    "/avatars/Avatar16.png",
+    "/avatars/Avatar17.png",
+    "/avatars/Avatar18.png",
+    "/avatars/Avatar19.png",
+
+]
+
+export const colorTheme = [
+    "#FF0000", "#FF2200", "#FF4400", "#FF6600", "#FF8800", "#FFAA00", "#FFCC00", "#FFEE00",
+    "#EEFF00", "#CCFF00", "#AAFF00", "#88FF00", "#66FF00", "#44FF00", "#22FF00", "#00FF00",
+    "#00FF22", "#00FF44", "#00FF66", "#00FF88", "#00FFAA", "#00FFCC", "#00FFEE", "#00EEFF",
+    "#00CCFF", "#00AAFF", "#0088FF", "#0066FF", "#0044FF", "#0022FF", "#0000FF", "#2200FF",
+    "#4400FF", "#6600FF", "#8800FF", "#AA00FF", "#CC00FF", "#EE00FF", "#FF00FF", "#FF00DD",
+    "#FF00BB", "#FF0099", "#FF0077", "#FF0055", "#FF0033", "#FF0011", "#FF0000","#FF5500"
+]
+
+
+
+export const Appfeatures=[
+    {
+        text:"Enjoy personalized feed content with real time and instaneous updates, react to feeds, like share and repost",
+        Icon:Icons.feed,
+        style:'#FFD700',
+        header:"User feed"
+        // className:string
+    },
+    {
+        text:"Let everyone on goConnect know your thought through your post,get notified in real time on reactions ,reposts and other activities on yout post",
+        Icon:Icons.repost,   
+        style:'#f558f5',
+        header:"Public post"
+        // className:string
+    },
+    {
+        text:"Meet like minds on goConect Community ,connect,interact ,share thoughts,messages,media files and ideas on goConnect communities",
+        Icon:Icons.community,   
+        style:'#ff627a',
+        header:"Community Chat"
+        // className:string
+    },
+    {
+        text:"Connect with friends on goConnect enjoy personalized chat in real time,chats are private and visible to both party only",
+        Icon:Icons.profile ,  
+        style:'#9bec18',
+        header:"Personal Chat"
+        // className:string
+    },
+    {
+        text:"Talk to Liam, an Ai powered assistnant that is peronal to you!!,Liam got you covered on goConnect related information as well as the ability to remeber past conversations",
+        Icon:Icons.robot,
+        style:'#1977F2',
+        header:"Ai Assistant"
+        // className:string
+    },
+    {
+        text:"goConnect got you covered on entertainment, enjoy peronalized video reels and shorts",
+        Icon:Icons.reels,  
+        style:'#26e998',
+        header:"Reels"
+        // className:string
+    },
+]

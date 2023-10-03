@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { ICommunityMessage, IUser } from '@/store/interfaces';
 import { useAppSelector } from '@/hooks/reduxHooks';
 import Timeago from 'react-timeago'
+import Linkify from 'linkify-react';
 
 interface ISingleChat{
     message:ICommunityMessage
@@ -63,7 +64,7 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
                 </span>   
             </div>
             {message.type === "text" ?<>
-                <span>{text}</span>
+                <Linkify>{text}</Linkify>
                 {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
             </>:
             <>
@@ -74,7 +75,7 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
              
             </div>
             {message &&  <>
-                <span className='mt-3'>{text}</span>
+                <span className='mt-3'><Linkify>{text}</Linkify></span>
                 {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
             </> 
             }

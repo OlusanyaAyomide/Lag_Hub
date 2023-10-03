@@ -52,3 +52,47 @@ export const pauseAnimation ={
         }
     }
 }
+export const herosvgAnimation={
+    intitial:{
+        opacity:0,
+        scale:0.2
+    },
+    animate:{
+        opacity:1,
+        scale:1,
+        transition:{
+            delay:0.5,
+        }
+    }
+}
+
+
+
+export const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+};
+
+export const signInVariants={
+    hidden:{
+        y:75,
+        transition: {
+            duration: 0.5,
+        },
+    },
+    animate:{
+        y:0,
+        transition: {
+            duration: 0.5,
+        },
+    }
+}

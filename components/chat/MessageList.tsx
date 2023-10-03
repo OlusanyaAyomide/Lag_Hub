@@ -18,6 +18,7 @@ export default function MessageList() {
     const mockArray = [1,2,3,4,5,6,7,8,9,10]
     const {activeUsers} = useAppSelector((state=>state.layout))
     const {conversations} = useAppSelector((state=>state.dmlist))
+    const {unread} = useAppSelector((state=>state.user.data))
     const dispatch = useAppDispatch()
     // const {} = useAppSelector((state=>state.))
     const {isLoading} = useGetRequest({queryKey:["user-dm"],queryFn,
@@ -51,7 +52,10 @@ export default function MessageList() {
         </Card>
         }
         <Card className='mt-8  py-3 min-h-[200px]'>
-            <h1 className='font-medium mb-4 pad'>Private Messages {"(4 unread)"}</h1>
+            <h1 className='font-medium mb-4 pad'>
+                <span>Private Messages </span> 
+                {unread > 0 && <span>{`(${unread} unread)`}</span>}
+            </h1>
             {isLoading && conversations.length === 0 && <DmListSkeleton/>}
             {conversations.map((item,key)=>{
                 const postedDate = new Date(item.createdAt)

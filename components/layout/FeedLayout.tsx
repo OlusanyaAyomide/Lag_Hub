@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Header from '@/components/layout/Header'
 import { Card, CardContent } from '@/components/ui/card'
 import ProfilePreview from '@/components/utils/ProfilePreview'
@@ -8,10 +8,12 @@ import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
 import { useAppSelector } from '@/hooks/reduxHooks'
 
+
 export default function FeedLayout({children,className}:{children:React.ReactNode,className?:string}){
   const pathname = usePathname()
   const isChatRoom = /^(\/community\/|\/chats\/).+$/.test(pathname)
   const datas = useAppSelector((state=>state.user.data))
+
   // console.log(datas)
   return (
         <div className={cn("",className)}>

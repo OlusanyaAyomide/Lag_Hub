@@ -1,4 +1,5 @@
 import { ICommunity, ICommunityData, ICommunityMessage, IDmResponse, IDmSingleChat, IPost, IPostMessage } from "@/store/interfaces";
+import { IProfileEdit } from "./interfaces";
 
 export interface ISuccessRes{
   success: boolean;
@@ -31,6 +32,7 @@ interface IUser {
     createdAt:string,
     username:string
     lastSeen:string
+    unread:number
   }
 
 export interface IProfileResponse extends ISuccessRes{
@@ -129,4 +131,28 @@ export interface IUserProfile extends IUser{
 
 export interface IUserProfileResponse extends ISuccessRes{
    data:IUserProfile
+}
+
+
+export interface IExisitingUser extends ISuccessRes{
+  data:{
+    username:string
+  }
+}
+
+
+export interface IEditProfileResponse extends ISuccessRes{
+  data:IProfileEdit
+}
+
+export interface INotification{
+  _id: string,
+  user: string,
+  content: string,
+  link: string,
+  createdAt: string,
+}
+
+export interface INotificationResponse extends ISuccessRes{
+  data:INotification[]
 }

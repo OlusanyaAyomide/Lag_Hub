@@ -15,6 +15,7 @@
     --popover-foreground: 222.2 84% 4.9%;
     --black:#0000001a;
     --page:#F9FBFC;
+    --test:#26e998;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -93,8 +94,11 @@ a{
   .paddingx{
    @apply px-2 xs:px-4 sm:px-6 lg:px-10
   }
+  .landingpad{
+    @apply px-2 xs:px-4 sm:px-8 md:px-10 xl:px-14
+  }
   .isactive{
-    @apply relative before:absolute before:bg-main text-main before:h-[2px] sm:before:h-[3px] before:w-[200%] before:-bottom-[7px] before:-left-[50%]
+    @apply relative before:absolute before:bg-main text-main before:h-[2px] sm:before:h-[3px] before:w-[150%] before:-left-[35%] sm:before:w-[200%] before:-bottom-[7px] sm:before:-left-[50%]
   }
   .top-overlay{
     @apply max-md:fixed max-md:py-2 max-md:w-full max-md:z-40  max-md:top-0 max-md:left-0 paddingx
@@ -104,6 +108,9 @@ a{
   }
   .default-scroll::-webkit-scrollbar-thumb{
    @apply bg-border dark:bg-[#96969c]/50 rounded-lg opacity-50
+  }
+  .full-shadow{
+    @apply shadow-[0_0_16px_#0000001f] dark:shadow-[0_0_16px_#ffffff1f]
   }
   .side-active{
     @apply bg-page relative before:absolute before:w-[2px] before:h-[100%] before:-bottom-0 before:bg-main before:-left-[2.5px]

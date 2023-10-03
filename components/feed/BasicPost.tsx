@@ -53,7 +53,7 @@ export default function BasicPost(data:IBasicPost) {
           </PostButtons>
         </div>
       </div>
-      <PostInfo/>
+      <PostInfo {...data}/>
     </Card>
   )
 }
