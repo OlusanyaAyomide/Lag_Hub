@@ -12,22 +12,27 @@ import { IPostsResponse } from '@/store/interfaces'
 import { postActions } from '@/store/postSlice'
 import SkeletonLoader from '@/components/utils/SkeletonLoader'
 import useInfiniteScroll from 'react-infinite-scroll-hook'
+import useOnlineStatus from '@/hooks/useNetwork'
+import Offline from './Offline'
 
 export default function FeedMain() {
   const dispatch = useAppDispatch()
   const {page,data,isLast} = useAppSelector((state=>state.post))
 
+  const isOnline = useOnlineStatus()
+
+
   const handleSuccess = (data:AxiosResponse<IPostsResponse>)=>{
     dispatch(postActions.setPosts(data.data?.data))
   }
 
-  const {isLoading,isFetching,isError} = useGetRequest({queryKey:['get-posts',`${page}`],queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
+  const {isLoading,isFetching} = useGetRequest({queryKey:['get-posts',`${page}`],queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
 
   const [ref] = useInfiniteScroll({
     onLoadMore:()=>{dispatch(postActions.increasePage())},
     loading:isFetching,
     hasNextPage:!isLast,
-    disabled:isError
+    disabled:!isOnline
   })
 
 
@@ -47,6 +52,7 @@ export default function FeedMain() {
           </div>
        </div>}
         <LiamTrigger/>
+        <Offline/>
     </FeedLayout>
   )
 }

@@ -67,7 +67,7 @@ export default function SignUp() {
   return (
     <form onSubmit={formik.handleSubmit} className="pad py-8 relative z-20 ">
       <div className='pb-4 relative mb-2'>
-        <h1 className="text-lg text-main font-semibold text-center">Let's get Started</h1>
+        <h1 className="text-lg text-main font-semibold text-center">Let&apos;s get Started</h1>
         {errormessage && <h1 className='absolute font-medium w-full bottom-0 text-center text-xs text-red-500'>{errormessage}</h1>}
       </div>
     

@@ -25,7 +25,7 @@ export default function LeftHeader({className,refs}:LeftProps) {
          <div className='max-md:hidden flex items-center'>
             <Popover onOpenChange={(opened)=>{setisOpened(opened)}}>
                <PopoverTrigger asChild>
-                  <Button ref={ref} variant={"ghost"} className={`max-md:hidden ${isVideo?"hidden":""}`}>
+                  <Button ref={ref} variant={"ghost"} className={`max-md:hidden ${isVideo?"":""}`}>
                      <Icons.search className='text-shade  text-2xl '/>
                   </Button>
                </PopoverTrigger>

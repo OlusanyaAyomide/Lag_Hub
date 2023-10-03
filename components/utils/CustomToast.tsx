@@ -3,7 +3,7 @@ import { layoutActions } from '@/store/layoutSlice'
 import { Icons } from '@/utils/icons'
 import { AnimatePresence ,motion} from 'framer-motion'
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { useEffect,useCallback } from 'react'
 import { AlertAnimation } from '@/utils/XAnimation'
 import { communityActions } from '@/store/communitySlice'
 import { privateChatActions } from '@/store/privateChatSlice'
@@ -14,24 +14,24 @@ export default function CustomToast() {
     const {isToast:Active,link:dmLink,content:dmContent} = useAppSelector((state=>state.privateChat.alert))
     const dispatch = useAppDispatch()
     
-    const handleCloserAlert =()=>{
-        if(isActive){
-            dispatch(layoutActions.closeAlert())
+    const handleCloserAlert = useCallback(() => {
+        if (isActive) {
+            dispatch(layoutActions.closeAlert());
         }
-        if(isToast){
-            dispatch(communityActions.closeToast())
+        if (isToast) {
+            dispatch(communityActions.closeToast());
         }
-        if(Active){
-            console.log("In heree")
-            dispatch(privateChatActions.closeAlert())
+        if (Active) {
+            console.log("In heree");
+            dispatch(privateChatActions.closeAlert());
         }
-    }
+    }, [isActive, isToast, Active, dispatch]);
+
     useEffect(()=>{
         setTimeout(()=>{
             handleCloserAlert()
         },7000)
-    },[isActive,isToast,Active])
-    console.log(link || comLink || dmLink)
+    },[isActive,isToast,Active,handleCloserAlert])
     return (
     <AnimatePresence>
         {(isActive || isToast || Active) &&   <motion.div variants={AlertAnimation} initial="initial" animate="animate" exit="exit"

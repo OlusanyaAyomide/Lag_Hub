@@ -9,18 +9,24 @@ import  {Provider} from "react-redux"
 import { QueryClientProvider, QueryClient} from '@tanstack/react-query'
 import { GOOGLE_ID_KEY } from '@/utils/tempKeys'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import { useSockets } from '@/sockets/useSockets'
 import { Toaster } from "@/components/ui/toaster"
-import { usePathname, useRouter } from 'next/navigation'
 import SocketBody from '@/components/utils/SocketBody'
 import CustomToast from '@/components/utils/CustomToast'
+import Head from 'next/head'
 
-// const inter = Inter({ subsets: ['latin'] })
+
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
   return (
     <div >
+       <Head>
+          <title>goConnect</title>
+          <meta
+          name="description"
+         content="social media application where valuble connections are made"
+        />
+      </Head>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Provider store={store}>
           <GoogleOAuthProvider clientId={GOOGLE_ID_KEY}> 

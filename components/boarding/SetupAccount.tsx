@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/reduxHooks'
 import { layoutActions } from '@/store/layoutSlice'
-import React,{useState,useRef,useEffect} from 'react'
+import React,{useState,useRef,useEffect, useCallback} from 'react'
 import { getRandomItem, isBlob } from '@/lib/utils'
 import { avatarLists, colorTheme } from '@/utils/constants'
 import { useHydration } from '@/hooks/useHydration'
@@ -85,12 +85,13 @@ export default function SetupAccount() {
       }
     })
 
-    const revokeUrl = ()=>{
+    const revokeUrl = useCallback(()=>{
         if(isBlob(avatar)){
             URL.revokeObjectURL(avatar)
         }
-    }
-    useEffect(()=>{return ()=>{revokeUrl()}},[])
+    },[avatar])
+
+    useEffect(()=>{return ()=>{revokeUrl()}},[revokeUrl])
 
 
   return (

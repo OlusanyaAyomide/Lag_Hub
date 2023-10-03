@@ -23,7 +23,7 @@ export default function DmSingleChat(message:IDmSingleChat) {
         if(isSender || !inView){return}
         if(message.isRead){return}
         socket.emit("read-chat",message)
-    },[isSender,inView])
+    },[isSender,inView,message])
     return (
     <div ref={ref} className={`flex mb-4 ${isSender?"justify-end":""}`}>
         <div className={`w-fit ml-1 min-w-[100px] xs:max-w-[80%] sm:max-w-[300px] md:max-w-[320px]  xl:max-w-[280px] px-2 py-1 rounded-md relative ${isSender?"bg-main pb-3 text-white":"bg-background "}`}>
@@ -55,7 +55,7 @@ export default function DmSingleChat(message:IDmSingleChat) {
             }
             </>
             }
-            {isSender && <Icons.doubleCheck className={`text-lg absolute ${message.isRead?"text-green-500":"text-white/930"} right-[2px] bottom-0`}/>}
+            {isSender && <Icons.doubleCheck className={`text-lg absolute ${message.isRead?"text-green-500":"text-white/90"} right-[2px] bottom-0`}/>}
         </div>
     </div>
     )

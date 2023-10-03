@@ -9,7 +9,7 @@ import RePost from '@/components/feed/RePost'
 export default function YouTubeRepost() {
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      {/* <PopoverTrigger asChild>
         <Button variant={"ghost"} size={"icon"} className='absolute text-xl cursor-pointer  right-10 top-1 '>
           <Icons.repost/>
         </Button>
@@ -26,9 +26,8 @@ export default function YouTubeRepost() {
       </Dialog>
         <IconTextButton Icon={Icons.repost} text='Repost' ngClass='font-semibold' 
        extraText='Instantly repost johnson post to your feed ' className='py-2'/>
-      </PopoverContent>
-    
- 
+      </PopoverContent> */}
+  
     </Popover>
   )
 }

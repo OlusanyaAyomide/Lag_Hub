@@ -7,8 +7,9 @@ import { mockYoubeData } from '@/utils/TempConstants'
 export default function Videos() {
   return (
     <FeedLayout>
-        <Categories/>
-        <VideoList {...mockYoubeData}/>
+        {/* <Categories/>
+        <VideoList {...mockYoubeData}/> */}
+        <span>Feature coming soon</span>
     </FeedLayout>
   )
 }

@@ -28,7 +28,7 @@ export default function CommunityChat() {
     const user = typingUsers[0]
     if(username === user){return undefined}
     return(user)
-  },[typingUsers])
+  },[typingUsers,username])
 
   const {isLoading,data} = useGetRequest({queryKey:[communitySlug],
     setNotFound:()=>{setNotfound(true)},

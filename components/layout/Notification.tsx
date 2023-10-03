@@ -22,7 +22,7 @@ export default function Notification({show=true}:{show?:boolean}) {
         {notification && notification.data.data.map((item,key)=>{
             const date = new Date(item.createdAt)
             if(key > length){return}
-            return <Link href={item.link} className='text-foreground hover:no-underline '>
+            return <Link href={item.link} key={key} className='text-foreground hover:no-underline '>
                 <div  className='w-full -mx-3 block px-2 mb-1 pt-0 pb-3 rounded-md hover:bg-accent'>
                     <h1 className="w-full relative top-1 text-[10px] text-right">
                         <Timeago date={date}/>

@@ -75,7 +75,7 @@ export default function SendMessage({isLiam,sendMessage,disabled=false,isJoined,
     }
     useEffect(()=>{return()=>{
         URL.revokeObjectURL(filePreview)
-    }},[])
+    }},[filePreview])
     return (
     <div className="fixed bottom-0 border-t transition-all duration-1000 overflow-hidden shadow-sm pb-2 w-full md:max-w-[64%] xl:max-w-[48%] max-md:left-0 z-10 px-3 bg-background xl:-translate-x-4 md:-translate-x-2 lg:-translate-x-8">
         <AnimatePresence>

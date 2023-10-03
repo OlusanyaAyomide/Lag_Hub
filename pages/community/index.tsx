@@ -5,7 +5,7 @@ import { useAppSelector } from "@/hooks/reduxHooks"
 import { useAuth } from "@/hooks/useAuth"
 import Loader from '@/components/utils/Loader'
 
-export default function index() {
+export default function CommunityPage() {
   const {isAuthenticated} = useAppSelector((state=>state.user))
   useAuth()
   return (

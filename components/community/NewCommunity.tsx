@@ -69,7 +69,7 @@ export default function NewCommunity({description,name,communityImage,closeref,t
 
     useEffect(()=>{return ()=>{
         URL.revokeObjectURL(formik.values.communityImage || "")
-    }},[])
+    }},[formik.values.communityImage])
     return (
     <div>
         <h1 className="text-center font-medium mb-6  border-b  bigtext">Create New Community</h1>

@@ -63,7 +63,7 @@ export default function MainChat({className}:{className?:string}) {
       }
       divref.current.scrollTop = divref.current.scrollHeight;
     }
-  },[messages.length])
+  },[messages.length,className])
 
   return (
     <div className={cn(`h-full pb-12  relative z-50 `,className)} ref={divref}>

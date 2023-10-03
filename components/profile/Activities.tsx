@@ -49,7 +49,7 @@ export default function Activities() {
                             />
                             <Link href={`/post/detail/${item.post.customId}`} className='text-foreground hover:text-main'>
                             <div className='py-3 border-b ml-1 grow'>
-                                <span className='tinytext'>{user.username} Commented {item.postUser.username}'s post</span>
+                                <span className='tinytext'>{user.username} Commented {item.postUser.username}&apos;s post</span>
                                 <span className='block mt-1 text-xs'>{item.text}</span>
                             </div>
                         </Link>
