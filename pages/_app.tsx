@@ -34,12 +34,12 @@ export default function App({ Component, pageProps }: AppProps) {
                 <Component {...pageProps} />
                 <Toaster/>
                 <SocketBody/>
-                <TailwindIndicator/>
+                {/* <TailwindIndicator/> */}
                 <CustomToast/>
             </QueryClientProvider>
           </GoogleOAuthProvider>
         </Provider>
-        <ThemeChanger/>
+        {/* <ThemeChanger/> */}
       </ThemeProvider> 
 
   </div>

@@ -41,6 +41,7 @@ export const useSockets = ()=>{
             dispatch(layoutActions.openAlert(body))
         })
         socket.on("emit-new-post",(post:IPost)=>{
+
             dispatch(postActions.appendNewPost(post))
         })
         socket.on("emit-post-messsage",(message:IPostMessage)=>{

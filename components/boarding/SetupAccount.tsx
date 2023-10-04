@@ -123,7 +123,7 @@ export default function SetupAccount() {
                         <button onClick={()=>{setAvatarOpen(false)}} className='block text-xl mb-3 ml-auto text-shade hover:text-foreground '>
                             <Icons.cancel/>
                         </button>
-                        <h1 className="font-semibold mb-3 text-center">Select from our list of avatars or upload a custom picture</h1>
+                        <h1 className="font-semibold mb-3 text-center">Select from our list of avatars or upload a custom image</h1>
                         <div className="flex flex-wrap justify-between mt-1 sm:mt-2">
                            {avatarLists.map((item,key)=>(
                                 <Avatar onClick={()=>{
@@ -141,16 +141,16 @@ export default function SetupAccount() {
                             <Icons.cancel/>
                         </button>
                         <Button onClick={()=>{ref.current?.click()}} className='w-full flex justify-center mt-4 text-white bg-main hover:bg-blue-500'>
-                            <span>Upload cusotom picture</span>
+                            <span>Upload cusotom image</span>
                             <span className='text-xl ml-2'><Icons.picture/></span>
                         </Button>
                         <input accept="image/*" onChange={handleUpload} type="file" className='hidden' ref={ref}/>
                     </PopoverContent>
                 </Popover>
                 <h1 className="text-center font-semibold mt-2 text-sm">{signUpValue.username}</h1>
-                <div onClick={()=>{spanref.current?.click()}} className='justify-center flex-center cursor-pointer hover:bg-accent w-fit mx-auto px-6'>
+                <div onClick={()=>{spanref.current?.click()}} className='justify-center flex-center cursor-pointer hover:bg-accent rounded-md w-fit mx-auto px-6 py-[2px]'>
                     <div className='mr-5 flex-center'>
-                        <span>Theme</span>
+                        <span>Change Theme</span>
                         <span><Icons.pallete className='text-lg text-main'/></span>
                     </div>
                     <div className="flex-center">
@@ -161,7 +161,7 @@ export default function SetupAccount() {
                                     <TooltipProvider>
                                         <Tooltip>
                                             <TooltipTrigger>
-                                                <Icons.pencil className='text-shade '/>
+                                                <Icons.pencil className='text-shade hidden'/>
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <span>Edit theme</span>

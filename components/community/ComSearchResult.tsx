@@ -9,7 +9,7 @@ export default function ComSearchResult(item:ICommunity) {
     <div className='py-1 px-3 flex-center hover:bg-accent cursor-pointer'>
         <Avatar className='h-10 w-10 bg-light'>
             <AvatarFallback>Lh</AvatarFallback>
-            <AvatarImage className='object-contain' src={item.communityImage}/>
+            <AvatarImage className='object-cover' src={item.communityImage}/>
         </Avatar>
         <div className='grow  pl-2'>
            <h1 className=''>{item.name}</h1>

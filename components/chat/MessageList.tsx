@@ -31,7 +31,7 @@ export default function MessageList() {
         {mockArray.length > 0 &&
         <Card className='py-3  w-full relative overflow-hidden  inline-block'>
             <h1 className="font-medium mb-1 pad">Active Users {`(${activeUsers.length})`}</h1>
-            <div className="max-w-[84vw] md:px-2 pt-2 xl:w-[40vw] md:max-w-[60vw] mx-auto">
+            <div className="max-w-[84vw] md:px-2 pt-2 xl:w-[44vw] md:max-w-[60vw] mx-auto">
                 <div className='flex-center w-full default-scroll pb-4 overflow-scroll '>
                     {activeUsers.map((item,key)=>(
                         <div key={key} className='h-fit w-14 mr-1'>

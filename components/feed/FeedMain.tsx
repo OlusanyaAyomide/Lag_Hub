@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FeedLayout from '@/components/layout/FeedLayout'
 import MakePost from '@/components/feed/MakePost'
 import BasicPost from '@/components/feed/BasicPost'
@@ -15,6 +15,7 @@ import useInfiniteScroll from 'react-infinite-scroll-hook'
 import useOnlineStatus from '@/hooks/useNetwork'
 import Offline from './Offline'
 
+
 export default function FeedMain() {
   const dispatch = useAppDispatch()
   const {page,data,isLast} = useAppSelector((state=>state.post))
@@ -26,14 +27,19 @@ export default function FeedMain() {
     dispatch(postActions.setPosts(data.data?.data))
   }
 
-  const {isLoading,isFetching} = useGetRequest({queryKey:['get-posts',`${page}`],queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
+  const {isLoading,isFetching,isError} = useGetRequest({queryKey:['get-posts',`${page}`],
+  queryFn:()=>{return getPostsRequest(page)},onSuccess:handleSuccess})
 
   const [ref] = useInfiniteScroll({
     onLoadMore:()=>{dispatch(postActions.increasePage())},
     loading:isFetching,
     hasNextPage:!isLast,
-    disabled:!isOnline
+    disabled:!isOnline || isError
   })
+  useEffect(()=>{
+    dispatch(postActions.enableload())
+    return ()=>{dispatch(postActions.disbleload())}
+  },[])
 
 
   return (

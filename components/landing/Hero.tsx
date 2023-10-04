@@ -42,7 +42,7 @@ export default function Hero() {
                 <motion.div  variants={signInVariants} initial='hidden' animate='animate' exit='hidden'
                 className="fixed h-[105px] cursor-pointer hover:bg-accent w-[105px] -bottom-[52.5px] left-[calc(50%-52.5px)] z-50 sm:w-[20vh] sm:h-[20vh] sm:-bottom-[8vh] sm:left-[calc(50%-10vh)]  rounded-full bg-background px-2 full-shadow  flex justify-center">
                 <div className="flex flex-col items-center pt-3 text-main h-[75px]">
-                    <h1 className="text-center text-base">SignIn</h1>
+                    <h1 className="text-center text-base">Sign Up</h1>
                     <h1 className="text-center -mt-2"><Icons.arrowdown className='text-2xl animate-arrowdown'/></h1>
                 </div>
             </motion.div>

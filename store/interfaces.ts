@@ -70,6 +70,7 @@ export interface IPostSlice{
     isLast:boolean
     currentPost:string | null
     currentMessages:IPostMessage[]
+    autoLoad:boolean
 
 }
 

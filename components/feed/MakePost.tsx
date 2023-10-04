@@ -102,7 +102,7 @@ export default function MakePost() {
       if(!userfile){return}
       const fileUpload = userfile[0]
 
-      const isfileLarge = isFileLarge(fileUpload,15)
+      const isfileLarge = isFileLarge(fileUpload,25)
       if(isfileLarge){
          toaster("bad","File is to large")
          return
@@ -135,8 +135,8 @@ export default function MakePost() {
                   value={text}
                   onChange={(e)=>{setText(e.target.value)}}
                    autoFocus placeholder='Enter message ' 
-                   className='resize-none my-4 mx-1 w-full outline-none bg-transparent' 
-                   maxRows={4} ></TextareaAutosize>
+                   className='resize-none my-4 mx-1 default-scroll w-full outline-none bg-transparent' 
+                   maxRows={7} ></TextareaAutosize>
 
                {!isVideo && 
                   <Uploader

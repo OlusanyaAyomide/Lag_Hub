@@ -25,7 +25,7 @@ export default function BasicPost(data:IBasicPost) {
       {data.reposted && <IsShared {...data}/>}
         <ProfileInfo post = {data} createdAt={data.createdAt}/>
       <div className="mt-3 px-1">
-        <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?20:12} postText={data.description}/>
+        <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?25:20} postText={data.description}/>
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
             <span className='font-semibold'>{data.likes} reactions</span>

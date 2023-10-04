@@ -26,8 +26,8 @@ export default function QuicProfile({user}:{user:IUser}) {
               <span className='ml-2'>{user.lastName}</span>
             </h1>
             <div className=" text-[10px] text-center">
-                <span className='mr-4'>{user.followers} followers</span>
-                <span>{user.following} following</span>
+                <span className='mr-4'>{user.firstName}</span>
+                <span>{user.lastName}</span>
             </div>
             <Link href={`/profile/${user.username}`}>
             <Button className='h-8 flex itemx-center bg-main hover:bg-blue-500 mt-4 w-full text-white'>View Profile</Button>

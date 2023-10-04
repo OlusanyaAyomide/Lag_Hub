@@ -10,13 +10,15 @@ export const initalState:IPostSlice={
     page:1,
     isLast:false,
     currentPost:null,
-    currentMessages:[]
+    currentMessages:[],
+    autoLoad:true
 }
 export const postSlice = createSlice({
     name:"post",
     initialState:initalState,
     reducers:{
         setPosts(state,action:PayloadAction<IsetPost>){
+            console.log("Increasing")
             const {data,isLast,page} =action.payload
             const newposts = shuffleArray(data)
 
@@ -24,8 +26,20 @@ export const postSlice = createSlice({
             state.isLast = isLast
             state.page = page
         },
+        disbleload(state){
+            state.autoLoad = false
+        },
+        enableload(state){
+            if(state.autoLoad === true){return}
+            state.autoLoad = true
+            if(!state.isLast){
+                state.page +=1
+            }
+            
+        },
         increasePage(state){
             state.page = state.page + 1
+            state.autoLoad = true
         },
         editPosts(state,action:PayloadAction<IEditPost>){
             const newPost:IPost[] = []
@@ -45,8 +59,13 @@ export const postSlice = createSlice({
         },
         appendNewPost(state,action:PayloadAction<IPost>){
             const isPresent = state.data.some(post=>post._id === action.payload._id)
+            console.log(isPresent)
+            console.log(state.data)
+            console.log(action.payload)
             if(isPresent){return}
+            
             state.data = [...state.data,action.payload]
+            console.log("End append")
         },
         likePostDispatch(state,action:PayloadAction<IEditPost>){
             const newPost:IPost[] = []

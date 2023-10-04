@@ -2,8 +2,8 @@ import { io } from 'socket.io-client';
 import {parseCookies} from "nookies"
 import Cookies from 'js-cookie';
 
-// const URL =  'http://localhost:4000';
-const URL = 'https://laghub-backend.onrender.com'
+const URL =  'http://localhost:4000';
+// const URL = 'https://laghub-backend.onrender.com'
 
 
 

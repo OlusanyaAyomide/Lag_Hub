@@ -29,7 +29,7 @@ export default function LeftHeader({className,refs}:LeftProps) {
                      <Icons.search className='text-shade  text-2xl '/>
                   </Button>
                </PopoverTrigger>
-               <PopoverContent asChild className='hidden min-h-[400px]  md:block w-[350px] py-3 relative left-24'>
+               <PopoverContent asChild className='hidden max-h-[600px]  overflow-scroll default-scroll min-h-[400px]  md:block w-[350px] py-3 relative left-24'>
                   <div>
                       <AutoComplete/>
                   </div>
