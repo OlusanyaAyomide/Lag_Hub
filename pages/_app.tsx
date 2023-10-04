@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
          content="social media application where valuble connections are made"
         />
       </Head>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
         <Provider store={store}>
           <GoogleOAuthProvider clientId={GOOGLE_ID_KEY}> 
             <QueryClientProvider client={queryClient}>

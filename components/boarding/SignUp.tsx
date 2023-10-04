@@ -16,6 +16,7 @@ import { validateSignUp as validate } from '@/components/utils/validator'
 import {useState} from "react"
 import { layoutActions } from '@/store/layoutSlice'
 import Link from 'next/link'
+import { capitalizeFirstLetter } from '@/lib/utils'
 
 export default function SignUp() {
   const dispatch = useAppDispatch()
@@ -44,7 +45,9 @@ export default function SignUp() {
 
   const {isLoading,mutate} = useMutation(["google-request"],mutationFn,{
     onSuccess:({data}:AxiosResponse<IgoogleResponse>)=>{
-        const username =  `${data.given_name}${data.family_name}`.toUpperCase()
+        const name = `${data.given_name}${data.family_name}`
+        const username =  capitalizeFirstLetter(name)
+        console.log(username)
         signup(
             {username,email:data.email,isgoogle:true}
         )

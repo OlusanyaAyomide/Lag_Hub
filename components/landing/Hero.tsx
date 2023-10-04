@@ -10,7 +10,7 @@ import {Link} from "react-scroll"
 export default function Hero() {
     const {ref,inView} = useInView({threshold:0.1})
   return (
-    <div className='pt-12 min-h-[100vh] relative'>
+    <div className='pt-20 relative'>
         <Heroheader/>
         <div className='mt-12 sm:mt-16 max-w-[500px] mx-auto'>
             <div ref={ref} className="bg-background border w-fit mx-auto shadow-md py-[2px] mb-2 px-8 rounded-md">

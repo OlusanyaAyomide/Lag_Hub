@@ -1,14 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import Logo from '../utils/Logo'
-import { Icons } from '@/utils/icons'
+
 
 
 export default function AuthLayout({children}:{children:React.ReactNode}) {
-    //  console.log(process.env.NEXT_PUBLIC_GOOGLE_ID)
-    //  console.log(process.env.GOOGLE_ID)
+
     return (
-        <div className='min-h-screen w-screen relative z-10 paddingx md:flex md:items-center pt-8 overflow-hidden'>
+        <div className='min-h-screen w-full relative z-10 paddingx md:flex md:items-center pt-16 overflow-hidden'>
             <div className="fixed h-32 z-10 w-32 rounded-full lg:-right-10 -top-12 bg-main opacity-30"></div>
             <div className='md:w-full relative  z-30'>
                 <div className="w-fit mx-auto  flex-center mb-3">

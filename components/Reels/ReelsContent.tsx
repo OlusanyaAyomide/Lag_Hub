@@ -44,7 +44,7 @@ export default function ReelsContent() {
         <ReelsSkeleton/>
         <ReelsSkeleton/>
       </>}  
-      {!isLoading && hasMore && <div className='relative bottom-[600px]' ref={ref}>
+      {!isLoading  && hasMore && <div className='relative bottom-[600px]' ref={ref}>
           <div className="relative top-[600px]">
             <RotateLoader/>
           </div>
