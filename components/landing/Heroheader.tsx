@@ -17,8 +17,8 @@ export default function Heroheader() {
             variant={"ghost"} size={'icon'} className='text-2xl text-shade mr-2 h-8 active:bg-transparent '>
                 {theme === "light"?<Icons.moon/>:<Icons.rsun/>}
             </Button>
-            <Link href={"/boarding/signin"}>
-                <Button className='bg-main px-6 dark:hover:bg-foreground dark:hover:text-main text-white h-8 flex items-center justify-center'>
+            <Link href={"/boarding/signin"} className=' hover:no-underline'>
+                <Button className='bg-main px-6  dark:hover:bg-foreground dark:hover:text-main text-white h-8 flex items-center justify-center'>
                     Sign in
                 </Button>
             </Link>
