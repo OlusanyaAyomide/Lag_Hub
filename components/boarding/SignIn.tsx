@@ -36,7 +36,6 @@ export default function SignIn() {
   const onSuccess = async (res:AxiosResponse<ISignInResponse>)=>{
     const authCookie = Cookies.get("authCookie")
     const {user,token} = res.data?.data
-    console.log("inheree")
     if (authCookie){
       Cookies.remove("authCookie")
     }

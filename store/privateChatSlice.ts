@@ -55,7 +55,6 @@ export const privateChatSlice = createSlice({
             state.isTyping =action.payload.isTyping
         },
         openAlert(state,action:PayloadAction<IDmAlert>){
-            console.log(state.chatUser.username,action.payload.username)
             if(state.chatUser.username === action.payload.username){return}
             state.alert.isToast = true
             state.alert.content = action.payload.content

@@ -10,7 +10,7 @@ import Uploader from '../utils/Uploader'
 import TextareaAutosize from 'react-textarea-autosize';
 import { Icons } from '@/utils/icons'
 import VideoPlayer from './VideoPlayer'
-import { useCustomToast } from '../../hooks/useCustomToast'
+import { useCustomToast } from '../utils/useCustomToast'
 import { isFileLarge } from '../utils/fileUtil'
 import { usePostRequest } from '@/hooks/useRequestProcessor'
 import { IResponse, cloudinaryUploader } from '@/utils/cloudinaryUpload'
@@ -62,7 +62,6 @@ export default function MakePost() {
    }})
    
    const handleVideoUpload = (e:React.ChangeEvent<HTMLInputElement>)=>{
-      console.log(e.target.files)  
       const userfile = e.target.files
       if(!userfile){return}
       const fileUpload = userfile[0]

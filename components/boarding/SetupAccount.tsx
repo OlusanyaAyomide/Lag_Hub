@@ -68,7 +68,6 @@ export default function SetupAccount() {
         onSuccess:async ({data:{data}}:AxiosResponse<ISignInResponse>)=>{
             const authCookie = Cookies.get("authCookie")
             const {user,token} = data
-            console.log("inheree")
             if (authCookie){
               Cookies.remove("authCookie")
             }

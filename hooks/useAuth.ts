@@ -29,7 +29,6 @@ export const useAuth = ()=>{
             router.push("/home")
         }
     },onError:()=>{
-        console.log("here")
         dispatch(layoutActions.setAuthStatus("unauthenticated"))
         if(!unprotected){
             router.push("/boarding/signin")

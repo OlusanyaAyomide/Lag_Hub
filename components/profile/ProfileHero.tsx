@@ -28,7 +28,6 @@ export default function ProfileHero() {
         dispatch(userActions.increasefollowing())
         socket.emit("follow-user",{username:user.username,_id:user._id})
     }})
-    console.log(user.isfollowing)
 
     return (
         <div className='mb-36 md:mb-28'>

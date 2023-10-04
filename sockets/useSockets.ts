@@ -26,10 +26,9 @@ export const useSockets = ()=>{
 
     useEffect(()=>{
         socket.on("connect",()=>{
-            console.log("Socket Conected")
+            console.log("socket Conected")
         })
         socket.on("connect_error", (err) => {
-          console.log(err.message);
         });
         socket.on('disconnect', ()=>{
             dispatch(layoutActions.setOnlineusers([]))
@@ -68,7 +67,6 @@ export const useSockets = ()=>{
             dispatch(communityActions.joinCommunity())
         })
         socket.on("emit-typing",(body:ITypingUsers)=>{
-            console.log("event received")
             dispatch(communityActions.addNewTypingUser(body))
         })
         socket.on("emit-stop-typing",(body:ITypingUsers)=>{

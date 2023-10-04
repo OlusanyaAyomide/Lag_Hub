@@ -11,7 +11,7 @@ import { usePostRequest } from '@/hooks/useRequestProcessor';
 import { cloudinaryUploader,IResponse } from '@/utils/cloudinaryUpload';
 import { AxiosResponse } from 'axios';
 import { isFileLarge } from '@/components/utils/fileUtil';
-import { useCustomToast } from '@/hooks/useCustomToast';
+import { useCustomToast } from '@/components/utils/useCustomToast';
 import socket from '@/sockets/sockets';
 
 export interface IInputType{
@@ -52,7 +52,6 @@ export default function SendMessage({isLiam,sendMessage,disabled=false,isJoined,
             return
         }
         cleanUp()
-        console.log("here")
         sendMessage({type:"text",text})
     }
     const handlePreview=(e:React.ChangeEvent<HTMLInputElement>)=>{

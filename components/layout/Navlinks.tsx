@@ -13,13 +13,11 @@ import { useAppSelector } from '@/hooks/reduxHooks'
 export default function Navlinks() {
     const {asPath} = useRouter()
     const {unread} = useAppSelector((state=>state.user.data))
-    console.log(unread,"unread")
     return (
     <>
     {Toplinks.map((item,key)=>{
         const Icon = item.icon
         const isActive = asPath.startsWith(item.link)
-        console.log(isActive)
         return(
            <TooltipProvider key={key}>
               <Tooltip>

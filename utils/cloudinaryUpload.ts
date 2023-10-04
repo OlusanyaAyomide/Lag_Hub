@@ -8,7 +8,6 @@ export interface IResponse{
 export const cloudinaryUploader = ({file,type}:{file:File,type:string})=>{
     const data = new FormData
 
-    console.log(file,type)
     data.append("file", file, file.name);
     data.append("upload_preset", "h8tqiw8w");
     data.append("cloud_name", "da3wqzkz3");

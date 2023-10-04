@@ -25,7 +25,6 @@ export default function AutoComplete({className}:{className?:string}) {
     if(e.target.value === ""){setText("");return}
     const regex = /^[a-zA-Z0-9.-]+$/;
     if(regex.test(e.target.value)){
-      console.log("passed")
       socket.emit("global-search",e.target.value)
       setText(e.target.value)
     }

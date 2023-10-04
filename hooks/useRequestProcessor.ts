@@ -1,9 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { useAppDispatch } from "./reduxHooks";
-import { Action } from "@reduxjs/toolkit";
-import { toast } from '@/components/ui/use-toast';
-import { useCustomToast } from '@/hooks/useCustomToast';
+import { useCustomToast } from '@/components/utils/useCustomToast';
 
 
 interface IGetPost{
@@ -69,7 +66,6 @@ export const useGetRequest = ({
         onSuccess(data)
       },
       onError:(res:AxiosError<any>)=>{
-        console.log(res)
       if (res.code === "ERR_NETWORK"){
           toaster("bad","Connection could not be established try again")
       }

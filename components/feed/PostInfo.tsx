@@ -6,7 +6,7 @@ import { IconTextButton as PostOptions } from '../utils/IconTextButton'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 import Link from 'next/link'
 import { IPost } from '@/store/interfaces'
-import { useCustomToast } from '@/hooks/useCustomToast'
+import { useCustomToast } from '../utils/useCustomToast'
 
 export default function PostInfo(post:IPost) {
   const toast = useCustomToast()

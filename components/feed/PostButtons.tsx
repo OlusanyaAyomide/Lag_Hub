@@ -14,7 +14,7 @@ import { postActions } from '@/store/postSlice'
 import { ReactButtons } from './ReactButtons'
 import socket from '@/sockets/sockets'
 import { makePostrequest} from '@/hooks/requests/endPoints'
-import { useCustomToast } from '@/hooks/useCustomToast'
+import { useCustomToast } from '../utils/useCustomToast'
 import { DialogClose } from '@radix-ui/react-dialog'
 import { postDetailActions } from '@/store/postDetailSlice'
 
@@ -42,7 +42,6 @@ export default function PostButtons({children,...data}:IPostButtons){
       const post = res.data.data
       dispatch(postActions.editPosts({_id:data._id,post}))
       if(data.detailed){
-        console.log("In heree")
         dispatch(postDetailActions.setJustPost(post))
       }
    

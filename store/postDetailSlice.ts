@@ -24,7 +24,6 @@ export const postDetailSlice = createSlice({
         },
         editCurrentPost(state,action:PayloadAction<IPost>){
             if(action.payload.customId !== state.post.customId){return}
-            console.log(action.payload.customId,state.post.customId)
             const isliked = state.post.isliked
             state.post = {...action.payload,isliked}
         },//disptch like to others
