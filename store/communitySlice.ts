@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { IRootState } from "./rootState";
-import { IAlertInterface, ICommunity, ICommunityMessage, IUser } from "./interfaces";
+import { IAlertInterface, ICommunity, ICommunityMessage, IUser, initialCommunity } from "./interfaces";
 import { IOpenAlert } from "@/utils/socketInterface";
 import { ICommunityData } from "./interfaces";
 import { ICommunityAlert } from "@/utils/interfaces";
@@ -25,7 +25,7 @@ export interface ICommunitySlice{
 
 export const initalState:ICommunitySlice={
     community:{
-        communityDetail:{} as ICommunity,
+        communityDetail:initialCommunity,
         isMember:false,
         userCount:0,
         messages:[]
@@ -85,6 +85,9 @@ export const communitySlice = createSlice({
                 if(action.payload.username !== item){newArray.push(item)}
             })
             state.typingUsers = newArray
+        },
+        emptyCommunity(state){
+            state.community.communityDetail = initialCommunity
         }
     }
 })

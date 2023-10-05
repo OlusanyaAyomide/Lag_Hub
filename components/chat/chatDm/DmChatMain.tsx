@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import UserDm from '@/components/chat/chatDm/UserDm'
 import ChatHeader from '@/components/community/chat/ChatHeader'
 import CommunityLayout from '@/components/layout/CommunityLayout'
@@ -29,6 +29,13 @@ export default function DmChatMain() {
             dispatch(privateChatActions.setChatInfo(data))
         }})
   const isOnline = activeUsers.some((user=>user.username === chatUser.username))
+
+  useEffect(()=>{
+    return ()=>{
+      dispatch(privateChatActions.emptyUser())
+    }
+  },[])
+
   return (
     <CommunityLayout>
         {data && <>

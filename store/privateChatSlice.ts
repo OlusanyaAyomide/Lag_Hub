@@ -4,6 +4,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { IDmSingleChat, IUser, IprivateChatSlice } from "./interfaces";
 import { ISetIsTyping } from "@/utils/responeInterface";
 import { IDmAlert } from "@/utils/socketInterface";
+import { initialUser } from "./interfaces";
 
 
 
@@ -15,7 +16,7 @@ interface ISetInfo{
 
 
 export const initalState:IprivateChatSlice={
-    chatUser:{} as IUser,
+    chatUser:initialUser,
     username:"",
     messages:[],
     isTyping:false,
@@ -74,6 +75,10 @@ export const privateChatSlice = createSlice({
         },
         setUsername(state,action:PayloadAction<string>){
             state.username = action.payload
+        },
+        emptyUser(state){
+            state.chatUser = initialUser
+            state.messages = []
         }
     }
 })

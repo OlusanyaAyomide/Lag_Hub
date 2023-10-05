@@ -23,8 +23,22 @@ export interface IUser{
     createdAt:string
     lastSeen:string
     unread:number
-    
+   
 }
+export const initialUser: IUser = {
+    _id: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    profileImage: "",
+    profileTheme: "",
+    followers: 0,
+    following: 0,
+    createdAt: "",
+    lastSeen: "",
+    unread: 0, 
+  };
 
 export interface IPost {
     _id: string;
@@ -130,6 +144,16 @@ export interface ICommunity{
     createdAt: string;
     slug: string;
 }
+
+export const initialCommunity: ICommunity = {
+  _id: "",
+  name: "",
+  customId: "",
+  description: "",
+  communityImage: "",
+  createdAt: "",
+  slug: ""
+};
 
 export type IMessageType="image" |"text"|"system"
 

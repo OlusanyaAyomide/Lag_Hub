@@ -19,9 +19,10 @@ import UserList from '@/components/utils/UserList'
 import { Icons } from '@/utils/icons'
 
 export default function CommunityInfo() {
-    const{text,toggleText,isTrimmed} = useTrimmedText(mocKDescription,30)
-    const {communityDetail,messages,userCount} = useAppSelector((state=>state.community.community))
+    const {communityDetail,messages,userCount} = useAppSelector((state=>state.community.community)) 
     const {customId,name,description,communityImage} = communityDetail
+    const{text,toggleText,isTrimmed} = useTrimmedText(description,30)
+
     const [isAll,setIsAll] = useState(false)
     const mediaMessages = messages.filter(item=>item.type === "image")
 
@@ -40,12 +41,11 @@ export default function CommunityInfo() {
             <h1 className="text-center font-medium uppercae">{name}</h1>
             <h1 className="tinytext text-center">{userCount} participants</h1>
             <Linkify>
-                <h1 className="mt-3 font-medium text-center">{description}</h1>
-            </Linkify>
             <h1 className={`mt-1 ${text.length>20?"":"text-center"}`}>
                 {text}
                 {shouldTrim(30,mocKDescription) && <button className='ml-2 text-main  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
             </h1>
+            </Linkify>
         </Card>
 
         <Tabs defaultValue='members' className='mt-4'>

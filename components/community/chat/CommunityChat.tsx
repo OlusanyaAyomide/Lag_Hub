@@ -1,4 +1,4 @@
-import React,{useMemo,useState} from 'react'
+import React,{useMemo,useState,useEffect} from 'react'
 import ChatHeader from '@/components/community/chat/ChatHeader'
 import ChatRoom from '@/components/community/chat/ChatRoom'
 import CommunityInfo from '@/components/community/chat/CommunityInfo'
@@ -36,6 +36,12 @@ export default function CommunityChat() {
     onSuccess:({data:{data}}:AxiosResponse<ICommunityInfoResponse>)=>{
     dispatch(communityActions.setCommunityInfo(data))
   }})
+
+  useEffect(()=>{
+    return ()=>{
+      dispatch(communityActions.emptyCommunity())
+    }
+  },[])
 
   return (
     <CommunityLayout>
