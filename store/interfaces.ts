@@ -173,10 +173,12 @@ export interface IDmSingleChat{
     isRead:boolean
     createdAt:string
     imageUrl:string
+
 }
 
 export interface IprivateChatSlice{
     chatUser:IUser
+    username:string
     messages:IDmSingleChat[]
     isTyping:boolean
     alert:{

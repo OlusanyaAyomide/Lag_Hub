@@ -19,9 +19,6 @@ import { userActions } from "@/store/authSlice"
 export const useSockets = ()=>{
     const dispatch = useAppDispatch()
     const isHome = usePathname() === "/"
-    // const router = useRouter()
-    // const {Slug} = router.query
-    // console.log(Slug,router.query)
 
 
     useEffect(()=>{
@@ -74,7 +71,7 @@ export const useSockets = ()=>{
             dispatch(communityActions.removeTypingUser(body))
         })
         socket.on("emit-private-message",(body:IDmSingleChat)=>{
-            dispatch(privateChatActions.addNewMessage(body))
+            dispatch(privateChatActions.addNewMessage({...body}))
         })
         socket.on("emit-user-dm",(body:IDmResponse[])=>{
             dispatch(dmListActions.setUserDms(body))

@@ -16,6 +16,7 @@ interface ISetInfo{
 
 export const initalState:IprivateChatSlice={
     chatUser:{} as IUser,
+    username:"",
     messages:[],
     isTyping:false,
     alert:{
@@ -35,8 +36,14 @@ export const privateChatSlice = createSlice({
         addNewMessage(state,action:PayloadAction<IDmSingleChat>){
             const isPresent = state.messages.some((message=>message._id === action.payload._id))
             if(isPresent){return}
+            const isInDm = state.chatUser.username === action.payload.sender.username
+            const isUser = state.username === action.payload.sender.username
+            if(!(isInDm || isUser)){return}
             state.messages = [...state.messages,action.payload]
-            setTimeout(()=>{ window.scrollTo(0, document.body.scrollHeight);})
+            setTimeout(()=>{ 
+                window.scrollTo(0, document.body.scrollHeight)
+            ;})
+  
         },
         editDmMessage(state,action:PayloadAction<IDmSingleChat>){
             const newArray:IDmSingleChat[]=[]
@@ -64,6 +71,9 @@ export const privateChatSlice = createSlice({
             state.alert.isToast =false
             state.alert.content =""
             state.alert.link = ""
+        },
+        setUsername(state,action:PayloadAction<string>){
+            state.username = action.payload
         }
     }
 })

@@ -20,12 +20,13 @@ interface IBasicPost extends IPost{
 
 export default function BasicPost(data:IBasicPost) {
   const dispatch = useAppDispatch()
+  const ref = useRef<HTMLButtonElement>(null)
   return (
     <Card className='mt-3 pad relative py-2'>
       {data.reposted && <IsShared {...data}/>}
         <ProfileInfo post = {data} createdAt={data.createdAt}/>
       <div className="mt-3 px-1">
-        <PostDetail url={data.postUrl} type={data.type} wordLength={data.type==="text"?25:20} postText={data.description}/>
+        <PostDetail buttonref={ref} url={data.postUrl} type={data.type} wordLength={data.type==="text"?35:20} postText={data.description}/>
         <div className="mt-1">
           <div className='flex justify-between text-[10px] my-2  sm:text-[11px]'>
             <span className='font-semibold'>{data.likes} reactions</span>
@@ -40,7 +41,7 @@ export default function BasicPost(data:IBasicPost) {
                   }   
                   }>
                 <DialogTrigger asChild>
-                <button className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
+                <button ref={ref} className='w-4/12 h-10 cursor-pointer hover:bg-accent flex items-center rounded-md justify-center'>
                   <span className='text-main relative right-[2px] text-[22px]'><Icons.messenger/></span>
                   <span className='text-xs font-medium'>Comment</span>
                 </button>

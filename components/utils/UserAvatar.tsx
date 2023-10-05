@@ -26,7 +26,7 @@ export default function UserAvatar({className,src="/profile.png",isPrivate=true,
       <Link href={!customLink?`/profile/${username || name}`:customLink}>
         <div className='w-fit h-fit relative rounded-full'>
             <Avatar className={cn(``,className)} style={{backgroundColor:avatarTheme}}>
-              <AvatarFallback>Lh</AvatarFallback>
+              <AvatarFallback>gC</AvatarFallback>
               <AvatarImage src={avatarImage}/>
           </Avatar>
           {isOnline && showStatus && <div className="absolute bottom-2 right-0 rounded-full bg-green-500 h-2 w-2"></div>}

@@ -11,9 +11,10 @@ export interface IPostDetail{
   wordLength?:number
   url:string
   postText:string
+  buttonref:React.RefObject<HTMLButtonElement>
 }
 
-export default function PostDetail({type,wordLength=12,url,postText}:IPostDetail) {
+export default function PostDetail({type,wordLength=12,url,postText,buttonref}:IPostDetail) {
   const {isTrimmed,toggleText,text} = useTrimmedText(postText,wordLength)
   if(type==="image"){
   }
@@ -25,11 +26,12 @@ export default function PostDetail({type,wordLength=12,url,postText}:IPostDetail
       </Linkify>
       {shouldTrim(wordLength,postText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"less":"..more"}</span>}
     </h1>
-    {type === "image" && <div className="mt-3 aspect-[2/1.3] sm:aspect-[2/1.1] relative">
+    {type === "image" && <div onClick={()=>{buttonref.current?.click()}} 
+    className="mt-3 aspect-[2/1.3] sm:aspect-[2/1.1] relative">
         <Image  src={url} fill alt="post"  className='w-full h-full'/>
             {/* <img src="/postimg.jpg" alt=""  className='h-full w-full'/> */}
     </div>}
-    {type  === "video" && <VideoPlayer url={url}/>}
+    {type  === "video" &&  <VideoPlayer url={url}/>}
     </>
   )
 }

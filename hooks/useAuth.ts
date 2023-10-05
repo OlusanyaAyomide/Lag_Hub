@@ -9,6 +9,7 @@ import socket from "@/sockets/sockets";
 import Cookies from "js-cookie";
 import { usePathname } from "next/navigation";
 import { layoutActions } from "@/store/layoutSlice";
+import { privateChatActions } from "@/store/privateChatSlice";
 
 
 export const useAuth = ()=>{
@@ -22,6 +23,7 @@ export const useAuth = ()=>{
         const {user} = res.data.data
         dispatch(userActions.setUserDetails(user))
         dispatch(layoutActions.setAuthStatus("authenticated"))
+        dispatch(privateChatActions.setUsername(user.username))
         const authCookie = Cookies.get("authCookie")
         socket.auth = {token:authCookie}
         socket.connect()
