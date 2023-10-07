@@ -75,7 +75,7 @@ export default function MainChat({className}:{className?:string}) {
       </div>}
       {!className && 
             <div className='fixed-section py-2'>
-            <Link href={"/"}>
+            <Link href={"/home"}>
               <button className='mr-2 ml-1 text-xl'>
                 <Icons.back/>
               </button>  
