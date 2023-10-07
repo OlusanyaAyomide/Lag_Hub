@@ -45,14 +45,14 @@ export default function SignUp() {
 
   const {isLoading,mutate} = useMutation(["google-request"],mutationFn,{
     onSuccess:({data}:AxiosResponse<IgoogleResponse>)=>{
-        const name = `${data.given_name}${data.family_name}`
+        const name = `${data.given_name}${data.family_name || ""}`
         const username =  capitalizeFirstLetter(name)
         console.log(username)
         signup(
             {username,email:data.email,isgoogle:true}
         )
         const userInfo :ISignUp={
-            username,email:data.email,password:data.id,firstName:data.given_name,lastName:data.family_name
+            username,email:data.email,password:data.id,firstName:data.given_name,lastName:data.family_name || ""
         }
         setGoogleInfo(userInfo)
     }})
