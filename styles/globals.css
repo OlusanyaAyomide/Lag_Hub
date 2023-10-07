@@ -83,7 +83,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background font-inter text-foreground text-[13px];
+    @apply bg-background font-inter text-foreground text-sm;
   }
 }
 
@@ -144,6 +144,9 @@ a{
   }
   .fixed-section{
     @apply flex-center w-full md:-translate-y-2 xl:-translate-x-4 xl:max-w-[49%] md:-translate-x-2 lg:-translate-x-8 max-md:left-0 max-md:top-0 fixed z-10 bg-background py-1 shadow-sm overflow-hidden
+  }
+  .chat-width{
+    @apply xs:max-w-[80%] sm:max-w-[300px] md:max-w-[320px]  xl:max-w-[280px]
   }
 
 }

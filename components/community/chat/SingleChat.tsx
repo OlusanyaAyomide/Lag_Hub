@@ -56,17 +56,17 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
             </PopoverContent>
         </Popover>
         }
-        <div className={`w-fit ml-1 min-w-[100px] xs:max-w-[80%] sm:max-w-[300px] md:max-w-[320px]  xl:max-w-[280px] px-2 py-1 rounded-md relative ${isUser?"bg-main text-white":"bg-background"}`}>
+        <div className={`w-fit ml-1 min-w-[100px] break-words xs:max-w-[80%] sm:max-w-[300px] md:max-w-[320px]  xl:max-w-[280px] px-2 py-1 rounded-md relative ${isUser?"bg-main text-white":"bg-background"}`}>
             <div className={`flex ${!isUser && !isPrivate?"justify-between mb-2":"mb-1 justify-end"}`}>
                 {!isUser && !isPrivate && <span onClick={()=>{ref.current?.click()}} className='font-medium cursor-pointer'>{messageUser.username}</span> }
                 <span className='text-[9px] ml-2'>
                     {isToday || <Timeago date ={postedDate}/> }    
                 </span>   
             </div>
-            {message.type === "text" ?<>
+            {message.type === "text" ?<div className='max-sm:max-w-[200px]'>
                 <Linkify>{text}</Linkify>
                 {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
-            </>:
+            </div>:
             <>
             <div className='w-full rounded-md  overflow-hidden'>
                 <div className='relative h-[165px] min-w-[200px]' >
@@ -74,10 +74,10 @@ export default function SingleChat({message,prevUser,isPrivate,justJoined}:ISing
                 </div>
              
             </div>
-            {message &&  <>
+            {message &&  <div className='max-sm:max-w-[200px] break-words'>
                 <span className='mt-3'><Linkify>{text}</Linkify></span>
                 {shouldTrim(30,message.text) && <button className='ml-2  font-medium' onClick={toggleText}>{isTrimmed?"less":"..more"}</button>}
-            </> 
+            </div> 
             }
             </>
             }

@@ -19,10 +19,10 @@ export default function PostDetail({type,wordLength=12,url,postText,buttonref}:I
   if(type==="image"){
   }
   return (
-    <>
+    <div className='break-words'>
     <h1>
       <Linkify options={{}}>
-        <span>{text}</span>
+        <h1 className='break-words w-full'>{text}</h1>
       </Linkify>
       {shouldTrim(wordLength,postText) && <span onClick={toggleText} className='text-main py-4 cursor-pointer ml-2'>{isTrimmed?"less":"..more"}</span>}
     </h1>
@@ -32,6 +32,6 @@ export default function PostDetail({type,wordLength=12,url,postText,buttonref}:I
             {/* <img src="/postimg.jpg" alt=""  className='h-full w-full'/> */}
     </div>}
     {type  === "video" &&  <VideoPlayer url={url}/>}
-    </>
+    </div>
   )
 }

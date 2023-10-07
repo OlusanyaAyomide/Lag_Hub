@@ -8,7 +8,7 @@ export default function SwitchTheme() {
   return (
     <Button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className={`flex justify-start  py-6 md:py-4 rounded-none max-md:mb-2 relative items-center w-full active:bg-transparent`} variant={"ghost"}>
+      className={`flex justify-start   md:py-4 rounded-none  relative items-center w-full active:bg-transparent`} variant={"ghost"}>
     <span className='text-2xl text-shade'>
       {theme === "light"?<Icons.moon/>:<Icons.rsun/>}
     </span>
