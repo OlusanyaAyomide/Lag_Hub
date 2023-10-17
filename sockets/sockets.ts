@@ -3,8 +3,8 @@ import {parseCookies} from "nookies"
 import Cookies from 'js-cookie';
 
 // const URL =  'http://localhost:4000';
-// const URL = 'https://laghub-backend.onrender.com'
-const URL = "https://laghub-backend.adaptable.app"
+const URL = 'https://laghub-backend.onrender.com'
+// const URL = "https://laghub-backend.adaptable.app"
 
 
 
