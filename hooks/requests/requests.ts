@@ -30,7 +30,7 @@ const onErrorResponse = (error:AxiosError|Error):Promise<AxiosError>=>{
 }
 
 // const baseURL = "https://laghub-backend.onrender.com/api/v1"
-const baseURL = 'https://laghub-backend.adaptable.app/api/v1'
+const baseURL = 'https://laghub-control.fly.dev/api/v1'
 // const baseURL ="http://localhost:4000/api/v1"
 const request = axios.create({
   baseURL,
